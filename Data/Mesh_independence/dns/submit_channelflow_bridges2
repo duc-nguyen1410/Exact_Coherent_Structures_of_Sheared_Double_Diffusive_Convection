@@ -1,0 +1,63 @@
+#!/bin/bash
+### partition 1: RM [default,use one or more full nodes], 
+### partition 2: RM-shared [use only part of one node] 128 cpu per node
+### partition 3: RM-512 [use one or more full 512GB-memory nodes]
+#SBATCH --partition=RM-shared # 
+#SBATCH --nodes=1 # no limit
+#SBATCH --ntasks=64 # no limit
+#SBATCH --time=72:00:00 # limit: 3 days or 72h
+#SBATCH --mail-user=duc.nguyen@uconn.edu      # Destination email address
+#SBATCH --mail-type=ALL                       # Event(s) that triggers email notification
+#SBATCH --job-name=DNS_Ri1_Ra1e5_MeshIndependence4
+#SBATCH --output=channelflow_output_%j
+export SLURM_EXPORT_ENV=ALL
+#export I_MPI_FABRICS=shm,tcp
+
+##the slurm number to restart simulation... This need full state to be stored.
+SUBMITDIR=$SLURM_SUBMIT_DIR
+WORKDIR=/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_${SLURM_JOB_ID}_DNS_Ri1_Ra1e5_MeshIndependence4
+mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2} "$WORKDIR" && cd "$WORKDIR" || exit -1
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input} "$WORKDIR" && cd "$WORKDIR" || exit -1
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input,./symms} "$WORKDIR" && cd "$WORKDIR" || exit -1
+
+source activate base
+conda activate channelflow
+make buildpsc
+###########################
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh96x65
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 96 -Ny 65 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh96x65" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.5 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh96x81
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 96 -Ny 81 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh96x81" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.5 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh128x97
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 128 -Ny 97 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh128x97" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.5 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh144x97
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 144 -Ny 97 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh144x97" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.5 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh144x113
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 144 -Ny 113 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh144x113" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.5 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh192x129
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 192 -Ny 129 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh192x129" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.45 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+# mkdir -p DNS_Ri1_Ra1e5_Mesh256x129
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 256 -Ny 129 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh256x129" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.45 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+mkdir -p DNS_Ri1_Ra1e5_Mesh256x161
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_initialfield -mode "sin" -lwy 1 -m 0.15 -Nx 256 -Ny 161 -Nz 10 -a 1 -Lz 0.005 -ymin -0.5 -ymax 0.5 iniU iniT iniS
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_simulateflow -o "DNS_Ri1_Ra1e5_Mesh256x161" -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -CFLmin 0.4 -CFLmax 0.45 -dT 1 -s 1000 -T0 0 -T 5001 iniU iniT iniS
+
+
+###########################
+cd "$SUBMITDIR" && cp channelflow_output_$SLURM_JOB_ID "$WORKDIR"
+

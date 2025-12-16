@@ -1,0 +1,898 @@
+git clone --depth=1 https://github.com/epfl-ecps/channelflow.git
+Cloning into 'channelflow'...
+cp ./CMakeLists.txt ./channelflow/CMakeLists.txt
+mkdir -p ./channelflow/modules/
+rm -rf ./channelflow/modules/ddc
+cp -r ./ddc ./channelflow/modules/ddc
+mkdir -p build
+cd build;\
+cmake ../channelflow -DCMAKE_CXX_COMPILER=/opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx -DWITH_DDC=ON -DWITH_NSOLVER=ON -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/chflow -DCMAKE_CXX_FLAGS_RELEASE:STRING=" -fPIC -lfftw3 -lm -Wno-unused-variable -Wno-deprecated " -DWITH_SHARED=OFF -DWITH_HDF5CXX=OFF;\
+make -j16
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 8.5.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/x86_64-conda-linux-gnu-cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- configuring channelflow version 2.0.2
+-- Using GNU compiler options
+-- 
+-- Starting system introspection
+-- Looking for drand48
+-- Looking for drand48 - found
+-- Looking for include file wordexp.h
+-- Looking for include file wordexp.h - found
+-- Found Eigen3: /jet/home/vnguyen9/miniconda3/envs/channelflow/include/eigen3 (Required is at least version "2.91.0")
+-- Found FFTW 
+-- FFTW_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3.so
+-- FFTW_OMP_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_omp.so
+-- FFTW_MPI_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Looking for include file fftw3.h
+-- Looking for include file fftw3.h - found
+-- Found MPI_C: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libmpi.so (found version "3.1")
+-- Found MPI_CXX: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx (found version "3.1")
+-- Found MPI: TRUE (found version "3.1") found components: C CXX
+-- MPI libs: 
+-- FFTW_MPI library: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Found NetCDF: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libnetcdf.so
+-- NetCDF include dir: /jet/home/vnguyen9/miniconda3/envs/channelflow/include
+-- Looking for include file netcdf.h
+-- Looking for include file netcdf.h - found
+-- 
+-- Include directories: 
+-- Git revision ad37ef3022351d4e4a7a6c274c59a88605ad19e8
+-- Found Doxygen: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/doxygen (found version "1.10.0") found components: doxygen dot
+
+
+   ###############################################
+   ###########  Configuration summary  ###########
+   ###############################################
+   Compiler:                       GNU 8.5.0
+   Build type:                     release
+   Install prefix:                 /chflow
+   Building shared library:        yes
+   Linking programs to:            shared library
+
+   Libraries
+   MPI:                            enabled
+   netcdf (default file format):   enabled
+   Parallel netcdf:                disabled
+   HDF5 C++ (legacy file format):  disabled
+
+   Channelflow components
+   nsolver:                        enabled
+   Double-diffusive convection:    enabled
+   Python wrapper:                 disabled
+   GTest unit testing:             disabled
+
+
+-- Configuring done (4.5s)
+-- Generating done (1.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    WITH_SHARED
+
+
+-- Build files have been written to: /ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build
+make[1]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[2]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[  2%] Building CXX object nsolver/CMakeFiles/nsolver.dir/arnoldi.cpp.o
+[  2%] Building CXX object nsolver/CMakeFiles/nsolver.dir/lanczos.cpp.o
+[  2%] Building CXX object nsolver/CMakeFiles/nsolver.dir/bicgstab.cpp.o
+[  3%] Building CXX object nsolver/CMakeFiles/nsolver.dir/gmres.cpp.o
+[  5%] Building CXX object nsolver/CMakeFiles/nsolver.dir/dsi.cpp.o
+[  5%] Building CXX object nsolver/CMakeFiles/nsolver.dir/fgmres.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newtonalgorithm.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/multiShootingDSI.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newton.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/eigenvals.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/continuation.cpp.o
+[  8%] Linking CXX shared library libnsolver.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[  8%] Built target nsolver
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[  9%] Building CXX object channelflow/CMakeFiles/chflow.dir/basisfunc.cpp.o
+[  9%] Building CXX object channelflow/CMakeFiles/chflow.dir/bandedtridiag.cpp.o
+[ 10%] Building CXX object channelflow/CMakeFiles/chflow.dir/chebyshev.cpp.o
+[ 10%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfmpi.cpp.o
+[ 10%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsalgo.cpp.o
+[ 11%] Building CXX object channelflow/CMakeFiles/chflow.dir/flowfield.cpp.o
+[ 14%] Building CXX object channelflow/CMakeFiles/chflow.dir/diffops.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsflags.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/periodicfunc.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/poissonsolver.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/dns.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/symmetry.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/helmholtz.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofileng.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/nse.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofile.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/tausolver.cpp.o
+[ 20%] Building CXX object channelflow/CMakeFiles/chflow.dir/turbstats.cpp.o
+[ 20%] Building CXX object channelflow/CMakeFiles/chflow.dir/utilfuncs.cpp.o
+[ 21%] Building CXX object channelflow/CMakeFiles/chflow.dir/__/GitSHA1.cpp.o
+[ 22%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfdsi.cpp.o
+[ 22%] Building CXX object channelflow/CMakeFiles/chflow.dir/laurettedsi.cpp.o
+[ 23%] Linking CXX shared library libchflow.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 23%] Built target chflow
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 26%] Building CXX object programs/CMakeFiles/findsoln_app.dir/findsoln.cpp.o
+[ 26%] Building CXX object programs/CMakeFiles/edgetracking_app.dir/edgetracking.cpp.o
+[ 26%] Building CXX object programs/CMakeFiles/simulateflow_app.dir/simulateflow.cpp.o
+[ 26%] Building CXX object programs/CMakeFiles/findeigenvals_app.dir/findeigenvals.cpp.o
+[ 26%] Building CXX object programs/CMakeFiles/continuesoln_app.dir/continuesoln.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/findsymmetries_app.dir/findsymmetries.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/addfields_app.dir/addfields.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/diffop_app.dir/diffop.cpp.o
+[ 29%] Building CXX object tools/CMakeFiles/fieldconvert_app.dir/fieldconvert.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/perturbfield_app.dir/perturbfield.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/extrapolatefields_app.dir/extrapolatefields.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/benchmark_app.dir/benchmark.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/changegrid_app.dir/changegrid.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/fieldprops_app.dir/fieldprops.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/optphaseshift_app.dir/optphaseshift.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/L2op_app.dir/L2op.cpp.o
+[ 34%] Linking CXX executable optphaseshift
+[ 35%] Linking CXX executable perturbfield
+[ 36%] Linking CXX executable L2op
+[ 36%] Linking CXX executable changegrid
+[ 37%] Linking CXX executable benchmark
+[ 37%] Linking CXX executable fieldconvert
+[ 38%] Linking CXX executable findsymmetries
+[ 39%] Linking CXX executable addfields
+[ 40%] Linking CXX executable diffop
+[ 40%] Linking CXX executable extrapolatefields
+[ 41%] Linking CXX executable simulateflow
+[ 42%] Linking CXX executable findsoln
+[ 42%] Linking CXX executable findeigenvals
+[ 43%] Linking CXX executable fieldprops
+[ 43%] Linking CXX executable continuesoln
+[ 44%] Linking CXX executable edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 44%] Built target perturbfield_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 44%] Built target changegrid_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 44%] Building CXX object tools/CMakeFiles/pressure_app.dir/pressure.cpp.o
+[ 44%] Built target L2op_app
+[ 44%] Built target fieldconvert_app
+[ 44%] Built target benchmark_app
+[ 44%] Built target optphaseshift_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 45%] Built target diffop_app
+[ 45%] Building CXX object tools/CMakeFiles/randomfield_app.dir/randomfield.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 46%] Building CXX object tools/CMakeFiles/symmetrize_app.dir/symmetrize.cpp.o
+[ 47%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcflags.cpp.o
+[ 47%] Building CXX object tools/CMakeFiles/symmetryop_app.dir/symmetryop.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 48%] Building CXX object examples/CMakeFiles/couette_app.dir/couette.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 49%] Building CXX object tests/CMakeFiles/chebyTest_app.dir/chebyTest.cpp.o
+[ 49%] Built target findsymmetries_app
+[ 49%] Built target addfields_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 49%] Built target extrapolatefields_app
+[ 50%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/dde.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 51%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddc.cpp.o
+[ 51%] Building CXX object tests/CMakeFiles/laminarTest_app.dir/laminarTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 51%] Built target simulateflow_app
+[ 51%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcdsi.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 51%] Built target findsoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 51%] Built target findeigenvals_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 52%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddchelmholtz.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 52%] Built target fieldprops_app
+[ 52%] Building CXX object tests/CMakeFiles/dnsOrrsommTest_app.dir/dnsOrrsommTest.cpp.o
+[ 53%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddctausolver.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 53%] Built target continuesoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 54%] Building CXX object tests/CMakeFiles/dnsParabolaTest_app.dir/dnsParabolaTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 54%] Built target edgetracking_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 55%] Building CXX object tests/CMakeFiles/dnsSinusoidTest_app.dir/dnsSinusoidTest.cpp.o
+[ 56%] Linking CXX executable chebyTest
+[ 57%] Linking CXX executable pressure
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 58%] Linking CXX executable couette
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 58%] Building CXX object tests/CMakeFiles/dnsZeroTest_app.dir/dnsZeroTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 60%] Linking CXX executable symmetryop
+[ 60%] Building CXX object tests/CMakeFiles/helmholtzTest_app.dir/helmholtzTest.cpp.o
+[ 61%] Linking CXX executable laminarTest
+[ 61%] Linking CXX executable randomfield
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 61%] Linking CXX executable symmetrize
+[ 62%] Building CXX object tests/CMakeFiles/ioTest_app.dir/ioTest.cpp.o
+[ 63%] Linking CXX executable dnsSinusoidTest
+[ 63%] Linking CXX executable dnsParabolaTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 64%] Linking CXX executable dnsOrrsommTest
+[ 64%] Built target chebyTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 64%] Built target pressure_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 65%] Building CXX object tests/CMakeFiles/poissonTest_app.dir/poissonTest.cpp.o
+[ 66%] Building CXX object tests/CMakeFiles/pressureTest_app.dir/pressureTest.cpp.o
+[ 67%] Building CXX object tests/CMakeFiles/realprofileTest_app.dir/realprofileTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 67%] Built target couette_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 68%] Building CXX object tests/CMakeFiles/timeIntegrationTest_app.dir/timeIntegrationTest.cpp.o
+[ 68%] Building CXX object tests/CMakeFiles/tausolverTest_app.dir/tausolverTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 68%] Built target symmetryop_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 68%] Built target randomfield_app
+[ 69%] Building CXX object tests/CMakeFiles/tridiagTest_app.dir/tridiagTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 69%] Built target laminarTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 69%] Building CXX object tests/CMakeFiles/vector2fieldTest_app.dir/vector2fieldTest.cpp.o
+[ 70%] Building CXX object tests/CMakeFiles/nsolvertest_app.dir/nsolvertest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Built target symmetrize_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Linking CXX shared library libddc.so
+[ 70%] Built target dnsSinusoidTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Built target dnsParabolaTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Built target dnsOrrsommTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Built target ddc
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 70%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findsoln_app.dir/ddc_findsoln.cpp.o
+[ 70%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_simulateflow_app.dir/ddc_simulateflow.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findeigenvals_app.dir/ddc_findeigenvals.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_continuesoln_app.dir/ddc_continuesoln.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_edgetracking_app.dir/ddc_edgetracking.cpp.o
+[ 72%] Linking CXX executable helmholtzTest
+[ 73%] Linking CXX executable ioTest
+[ 74%] Linking CXX executable dnsZeroTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 74%] Built target helmholtzTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 74%] Building CXX object modules/ddc/examples/CMakeFiles/2d_diffusive_convection_app.dir/2d_diffusive_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 74%] Built target ioTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 74%] Linking CXX executable poissonTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 75%] Linking CXX executable pressureTest
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 76%] Linking CXX executable tridiagTest
+[ 77%] Building CXX object modules/ddc/examples/CMakeFiles/3d_diffusive_convection_app.dir/3d_diffusive_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 77%] Built target dnsZeroTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 78%] Building CXX object modules/ddc/examples/CMakeFiles/2d_finger_convection_app.dir/2d_finger_convection.cpp.o
+[ 79%] Linking CXX executable vector2fieldTest
+[ 81%] Linking CXX executable tausolverTest
+[ 81%] Linking CXX executable realprofileTest
+[ 81%] Linking CXX executable timeIntegrationTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 81%] Built target pressureTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 81%] Building CXX object modules/ddc/examples/CMakeFiles/3d_finger_convection_app.dir/3d_finger_convection.cpp.o
+[ 81%] Built target poissonTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 81%] Built target tridiagTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 82%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_initialfield_app.dir/ddc_initialfield.cpp.o
+[ 82%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_randomfield_app.dir/ddc_randomfield.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 82%] Built target tausolverTest_app
+[ 82%] Built target vector2fieldTest_app
+[ 82%] Built target realprofileTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 83%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_readEQ_app.dir/ddc_readEQ.cpp.o
+[ 85%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_changegrid_app.dir/ddc_changegrid.cpp.o
+[ 85%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_nusselt_app.dir/ddc_nusselt.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 85%] Built target timeIntegrationTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 86%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_reloadfield_app.dir/ddc_reloadfield.cpp.o
+[ 88%] Linking CXX executable ddc_findeigenvals
+[ 88%] Linking CXX executable ddc_findsoln
+[ 89%] Linking CXX executable ddc_continuesoln
+[ 90%] Linking CXX executable ddc_simulateflow
+[ 90%] Linking CXX executable ddc_edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 90%] Built target ddc_findsoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 90%] Built target ddc_findeigenvals_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 91%] Building CXX object modules/ddc/validations/CMakeFiles/yang2021jfm_case3_2d_app.dir/yang2021jfm_case3_2d.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 91%] Built target ddc_continuesoln_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 91%] Built target ddc_simulateflow_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 91%] Built target ddc_edgetracking_app
+[ 92%] Linking CXX executable 2d_diffusive_convection
+[ 93%] Linking CXX executable 3d_diffusive_convection
+[ 93%] Linking CXX executable 2d_finger_convection
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 93%] Built target 2d_diffusive_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 93%] Built target 3d_diffusive_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 93%] Built target 2d_finger_convection_app
+[ 94%] Linking CXX executable 3d_finger_convection
+[ 95%] Linking CXX executable ddc_randomfield
+[ 95%] Linking CXX executable ddc_initialfield
+[ 96%] Linking CXX executable ddc_changegrid
+[ 97%] Linking CXX executable ddc_reloadfield
+[ 98%] Linking CXX executable ddc_readEQ
+[ 98%] Linking CXX executable ddc_nusselt
+[ 98%] Linking CXX executable nsolvertest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target 3d_finger_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target ddc_randomfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target ddc_initialfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target ddc_changegrid_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target ddc_reloadfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target ddc_readEQ_app
+[ 98%] Built target ddc_nusselt_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[ 98%] Built target nsolvertest_app
+[100%] Linking CXX executable yang2021jfm_case3_2d
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+[100%] Built target yang2021jfm_case3_2d_app
+make[2]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+make[1]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_35221431_MESH_IND_E1_256x129/build'
+L2Norm(u0)  == 0.04641622934896731
+L2Norm(u1)  == 0.0464162293489665
+bcNorm(u0)  == 1.360999642355607e-17
+bcNorm(u1)  == 1.812978077632813e-17
+divNorm(u0) == 3.073014468184183e-15
+divNorm(u1) == 2.048514635089624e-06
+Not fixing divergence...
+L2Norm(u0)  == 0.1490270425035345
+L2Norm(u1)  == 0.1490270425035345
+bcNorm(u0)  == 4.772694078779802e-16
+bcNorm(u1)  == 4.963721244514131e-16
+L2Norm(u0)  == 0.1808785257317263
+L2Norm(u1)  == 0.1808785254039509
+bcNorm(u0)  == 5.236919826150462e-16
+bcNorm(u1)  == 5.417215764702523e-16
+nu==0.0025, Vsuck==0, rotation==0, theta==0, dPdx==0, dPdz==0, Ubulk==0, Wbulk==0, uwall==1, uupper==0.5, ulower==-0.5, wupper==0, wlower==0, t0==0, dT==1, dt==0.001, variabledt==1, dtmin==1e-09, dtmax==0.2, CFLmin==0.4, CFLmax==0.5, LaminarBase, PressureGradient, SBDF3, SMRK2, Rotational, DealiasXZ, zero_bodyforce, TauCorrection, Silent
+430952 unknowns
+Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.289667
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 3.96238e-05
+   previous gx == 3.96238e-05
+   current  gx == 3.96238e-05
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 7.85022e-10
+   previous rx == 7.85022e-10
+   current  rx == 7.85022e-10
+         delta == 0.01
+Newt,GMRES == 0,0, f^T: ....10....20 res == 0.654752
+Newt,GMRES == 0,1, f^T: ....10....20 res == 0.0275015
+Newt,GMRES == 0,2, f^T: ....10....20 res == 0.0198121
+Newt,GMRES == 0,3, f^T: ....10....20 res == 0.00688749
+Newt,GMRES == 0,4, f^T: ....10....20 res == 0.00349888
+Newt,GMRES == 0,5, f^T: ....10....20 res == 0.00252005
+Newt,GMRES == 0,6, f^T: ....10....20 res == 0.00187772
+Newt,GMRES == 0,7, f^T: ....10....20 res == 0.00181199
+Newt,GMRES == 0,8, f^T: ....10....20 res == 0.00116128
+Newt,GMRES == 0,9, f^T: ....10....20 res == 0.000949736
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 0.000792576 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000792576
+f^T: ....10....20
+r(x), r(x+dxH) == 7.85022e-10, 1.48079e-15
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   7.85022e-10 residual at current position
+rH       ==   1.48079e-15 residual of newton/hookstep
+Delta_rH ==   -7.8502e-10 actual improvement in residual from newton/hookstep
+
+             -1.57009e-12 lower bound for acceptable improvement
+             -7.85021e-11 upper bound for ok improvement.
+             -5.88766e-10 upper bound for good improvement.
+             -7.06519e-10 upper bound for accurate prediction.
+Delta_rH ==   -7.8502e-10 ------> Accurate <------
+             -8.63523e-10 lower bound for accurate prediction.
+             -1.57009e-09 local linear model of improvement
+lambda       == 0.999966 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.00999966 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 5.44205e-08
+rx           == 1.48079e-15
+L2Norm(dxN)  == 0.000792576
+L2Norm(dxOpt)== 0.000792576
+========================================================
+Newton iteration number 1
+Current state of Newton iteration:
+   fcount_newton   == 11
+   fcount_optimiza == 2
+   L2Norm(x)       == 0.289652
+   L2Norm(dxN)     == 0.000792576
+   L2Norm(dxOpt)   == 0.000792576
+   L2Dist(x,x0)    == 0.000792576
+gx == L2Norm(G(x)) : 
+   initial  gx == 3.96238e-05
+   previous gx == 3.96238e-05
+   current  gx == 5.44205e-08
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 7.85022e-10
+   previous rx == 7.85022e-10
+   current  rx == 1.48079e-15
+         delta == 0.01
+Newt,GMRES == 1,0, f^T: ....10....20 res == 0.712555
+Newt,GMRES == 1,1, f^T: ....10....20 res == 0.706775
+Newt,GMRES == 1,2, f^T: ....10....20 res == 0.693093
+Newt,GMRES == 1,3, f^T: ....10....20 res == 0.601211
+Newt,GMRES == 1,4, f^T: ....10....20 res == 0.577307
+Newt,GMRES == 1,5, f^T: ....10....20 res == 0.577273
+Newt,GMRES == 1,6, f^T: ....10....20 res == 0.49321
+Newt,GMRES == 1,7, f^T: ....10....20 res == 0.431954
+Newt,GMRES == 1,8, f^T: ....10....20 res == 0.375515
+Newt,GMRES == 1,9, f^T: ....10....20 res == 0.323503
+Newt,GMRES == 1,10, f^T: ....10....20 res == 0.283292
+Newt,GMRES == 1,11, f^T: ....10....20 res == 0.24794
+Newt,GMRES == 1,12, f^T: ....10....20 res == 0.194789
+Newt,GMRES == 1,13, f^T: ....10....20 res == 0.136257
+Newt,GMRES == 1,14, f^T: ....10....20 res == 0.0981596
+Newt,GMRES == 1,15, f^T: ....10....20 res == 0.0719806
+Newt,GMRES == 1,16, f^T: ....10....20 res == 0.0510123
+Newt,GMRES == 1,17, f^T: ....10....20 res == 0.0368147
+Newt,GMRES == 1,18, f^T: ....10....20 res == 0.0228977
+Newt,GMRES == 1,19, f^T: ....10....20 res == 0.0161559
+Newt,GMRES == 1,20, f^T: ....10....20 res == 0.0107482
+Newt,GMRES == 1,21, f^T: ....10....20 res == 0.00773006
+Newt,GMRES == 1,22, f^T: ....10....20 res == 0.0042486
+Newt,GMRES == 1,23, f^T: ....10....20 res == 0.00222208
+Newt,GMRES == 1,24, f^T: ....10....20 res == 0.00166386
+Newt,GMRES == 1,25, f^T: ....10....20 res == 0.00111917
+Newt,GMRES == 1,26, f^T: ....10....20 res == 0.00068983
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 6.90892e-06 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 6.90892e-06
+f^T: ....10....20
+r(x), r(x+dxH) == 1.48079e-15, 1.46866e-20
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.48079e-15 residual at current position
+rH       ==   1.46866e-20 residual of newton/hookstep
+Delta_rH ==  -1.48078e-15 actual improvement in residual from newton/hookstep
+
+             -2.96428e-18 lower bound for acceptable improvement
+             -1.48079e-16 upper bound for ok improvement.
+             -1.11059e-15 upper bound for good improvement.
+             -1.33271e-15 upper bound for accurate prediction.
+Delta_rH ==  -1.48078e-15 ------> Accurate <------
+             -1.62887e-15 lower bound for accurate prediction.
+             -2.96428e-15 local linear model of improvement
+lambda       == 0.999083 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.00999083 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 1.71386e-10
+rx           == 1.46866e-20
+L2Norm(dxN)  == 6.90892e-06
+L2Norm(dxOpt)== 6.90892e-06
+========================================================
+Newton iteration number 2
+Current state of Newton iteration:
+   fcount_newton   == 38
+   fcount_optimiza == 4
+   L2Norm(x)       == 0.289653
+   L2Norm(dxN)     == 6.90892e-06
+   L2Norm(dxOpt)   == 6.90892e-06
+   L2Dist(x,x0)    == 0.000792599
+gx == L2Norm(G(x)) : 
+   initial  gx == 3.96238e-05
+   previous gx == 5.44205e-08
+   current  gx == 1.71386e-10
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 7.85022e-10
+   previous rx == 1.48079e-15
+   current  rx == 1.46866e-20
+         delta == 0.01
+Newt,GMRES == 2,0, f^T: ....10....20 res == 0.420418
+Newt,GMRES == 2,1, f^T: ....10....20 res == 0.409421
+Newt,GMRES == 2,2, f^T: ....10....20 res == 0.324561
+Newt,GMRES == 2,3, f^T: ....10....20 res == 0.246084
+Newt,GMRES == 2,4, f^T: ....10....20 res == 0.172249
+Newt,GMRES == 2,5, f^T: ....10....20 res == 0.123339
+Newt,GMRES == 2,6, f^T: ....10....20 res == 0.101666
+Newt,GMRES == 2,7, f^T: ....10....20 res == 0.084991
+Newt,GMRES == 2,8, f^T: ....10....20 res == 0.0565739
+Newt,GMRES == 2,9, f^T: ....10....20 res == 0.0376196
+Newt,GMRES == 2,10, f^T: ....10....20 res == 0.036965
+Newt,GMRES == 2,11, f^T: ....10....20 res == 0.0307492
+Newt,GMRES == 2,12, f^T: ....10....20 res == 0.0224219
+Newt,GMRES == 2,13, f^T: ....10....20 res == 0.0200849
+Newt,GMRES == 2,14, f^T: ....10....20 res == 0.0166013
+Newt,GMRES == 2,15, f^T: ....10....20 res == 0.015084
+Newt,GMRES == 2,16, f^T: ....10....20 res == 0.0126001
+Newt,GMRES == 2,17, f^T: ....10....20 res == 0.0103274
+Newt,GMRES == 2,18, f^T: ....10....20 res == 0.00918279
+Newt,GMRES == 2,19, f^T: ....10....20 res == 0.00773402
+Newt,GMRES == 2,20, f^T: ....10....20 res == 0.00627787
+Newt,GMRES == 2,21, f^T: ....10....20 res == 0.00494442
+Newt,GMRES == 2,22, f^T: ....10....20 res == 0.00341874
+Newt,GMRES == 2,23, f^T: ....10....20 res == 0.00236945
+Newt,GMRES == 2,24, f^T: ....10....20 res == 0.00181935
+Newt,GMRES == 2,25, f^T: ....10....20 res == 0.00142766
+Newt,GMRES == 2,26, f^T: ....10....20 res == 0.00103339
+Newt,GMRES == 2,27, f^T: ....10....20 res == 0.00063496
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 3.40951e-09 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 3.40951e-09
+f^T: ....10....20
+r(x), r(x+dxH) == 1.46866e-20, 1.16486e-25
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.46866e-20 residual at current position
+rH       ==   1.16486e-25 residual of newton/hookstep
+Delta_rH ==  -1.46865e-20 actual improvement in residual from newton/hookstep
+
+             -2.94148e-23 lower bound for acceptable improvement
+             -1.46865e-21 upper bound for ok improvement.
+             -1.10149e-20 upper bound for good improvement.
+             -1.32178e-20 upper bound for accurate prediction.
+Delta_rH ==  -1.46865e-20 ------> Accurate <------
+             -1.61551e-20 lower bound for accurate prediction.
+             -2.94148e-20 local linear model of improvement
+lambda       == 0.998577 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.00998577 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 4.82672e-13
+rx           == 1.16486e-25
+L2Norm(dxN)  == 3.40951e-09
+L2Norm(dxOpt)== 3.40951e-09
+========================================================
+Newton iteration number 3
+Current state of Newton iteration:
+   fcount_newton   == 66
+   fcount_optimiza == 6
+   L2Norm(x)       == 0.289653
+   L2Norm(dxN)     == 3.40951e-09
+   L2Norm(dxOpt)   == 3.40951e-09
+   L2Dist(x,x0)    == 0.000792599
+gx == L2Norm(G(x)) : 
+   initial  gx == 3.96238e-05
+   previous gx == 1.71386e-10
+   current  gx == 4.82672e-13
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 7.85022e-10
+   previous rx == 1.46866e-20
+   current  rx == 1.16486e-25
+         delta == 0.01
+Newt,GMRES == 3,0, f^T: ....10....20 res == 0.97126
+Newt,GMRES == 3,1, f^T: ....10....20 res == 0.502861
+Newt,GMRES == 3,2, f^T: ....10....20 res == 0.475923
+Newt,GMRES == 3,3, f^T: ....10....20 res == 0.414645
+Newt,GMRES == 3,4, f^T: ....10....20 res == 0.256329
+Newt,GMRES == 3,5, f^T: ....10....20 res == 0.178909
+Newt,GMRES == 3,6, f^T: ....10....20 res == 0.170439
+Newt,GMRES == 3,7, f^T: ....10....20 res == 0.136502
+Newt,GMRES == 3,8, f^T: ....10....20 res == 0.125166
+Newt,GMRES == 3,9, f^T: ....10....20 res == 0.0811257
+Newt,GMRES == 3,10, f^T: ....10....20 res == 0.0691303
+Newt,GMRES == 3,11, f^T: ....10....20 res == 0.0519289
+Newt,GMRES == 3,12, f^T: ....10....20 res == 0.035093
+Newt,GMRES == 3,13, f^T: ....10....20 res == 0.0286588
+Newt,GMRES == 3,14, f^T: ....10....20 res == 0.0227453
+Newt,GMRES == 3,15, f^T: ....10....20 res == 0.0191018
+Newt,GMRES == 3,16, f^T: ....10....20 res == 0.0148091
+Newt,GMRES == 3,17, f^T: ....10....20 res == 0.010994
+Newt,GMRES == 3,18, f^T: ....10....20 res == 0.00849492
+Newt,GMRES == 3,19, f^T: ....10....20 res == 0.00666436
+Newt,GMRES == 3,20, f^T: ....10....20 res == 0.00541045
+Newt,GMRES == 3,21, f^T: ....10....20 res == 0.00427824
+Newt,GMRES == 3,22, f^T: ....10....20 res == 0.00306597
+Newt,GMRES == 3,23, f^T: ....10....20 res == 0.00209615
+Newt,GMRES == 3,24, f^T: ....10....20 res == 0.00143981
+Newt,GMRES == 3,25, f^T: ....10....20 res == 0.000918268
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 1.52939e-11 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 1.52939e-11
+f^T: ....10....20
+r(x), r(x+dxH) == 1.16486e-25, 2.58074e-29
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.16486e-25 residual at current position
+rH       ==   2.58074e-29 residual of newton/hookstep
+Delta_rH ==   -1.1646e-25 actual improvement in residual from newton/hookstep
+
+             -2.31063e-28 lower bound for acceptable improvement
+              -1.1646e-26 upper bound for ok improvement.
+             -8.73451e-26 upper bound for good improvement.
+             -1.04814e-25 upper bound for accurate prediction.
+Delta_rH ==   -1.1646e-25 ------> Accurate <------
+             -1.28106e-25 lower bound for accurate prediction.
+             -2.31063e-25 local linear model of improvement
+lambda       == 1.0081 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.010081 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 7.18434e-15
+rx           == 2.58074e-29
+L2Norm(dxN)  == 1.52939e-11
+L2Norm(dxOpt)== 1.52939e-11
+========================================================
+Newton iteration number 4
+Current state of Newton iteration:
+   fcount_newton   == 92
+   fcount_optimiza == 8
+   L2Norm(x)       == 0.289653
+   L2Norm(dxN)     == 1.52939e-11
+   L2Norm(dxOpt)   == 1.52939e-11
+   L2Dist(x,x0)    == 0.000792599
+gx == L2Norm(G(x)) : 
+   initial  gx == 3.96238e-05
+   previous gx == 4.82672e-13
+   current  gx == 7.18434e-15
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 7.85022e-10
+   previous rx == 1.16486e-25
+   current  rx == 2.58074e-29
+         delta == 0.01
+Newton search converged. Breaking.
+L2Norm(G(x)) == 7.18434e-15 < epsSearch == 1e-13

@@ -1,0 +1,397 @@
+f^T: ....10....20f^T: ....10....20Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.283053
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 9.22363e-05
+   previous gx == 9.22363e-05
+   current  gx == 9.22363e-05
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 4.25376e-09
+   previous rx == 4.25376e-09
+   current  rx == 4.25376e-09
+         delta == 0.01
+Newt,GMRES == 0,0, f^T: ....10....20 res == 0.0452311
+Newt,GMRES == 0,1, f^T: ....10....20 res == 0.0277183
+Newt,GMRES == 0,2, f^T: ....10....20 res == 0.0265855
+Newt,GMRES == 0,3, f^T: ....10....20 res == 0.0246123
+Newt,GMRES == 0,4, f^T: ....10....20 res == 0.0198629
+Newt,GMRES == 0,5, f^T: ....10....20 res == 0.0138506
+Newt,GMRES == 0,6, f^T: ....10....20 res == 0.0138045
+Newt,GMRES == 0,7, f^T: ....10....20 res == 0.0137928
+Newt,GMRES == 0,8, f^T: ....10....20 res == 0.0126929
+Newt,GMRES == 0,9, f^T: ....10....20 res == 0.0116487
+Newt,GMRES == 0,10, f^T: ....10....20 res == 0.0114498
+Newt,GMRES == 0,11, f^T: ....10....20 res == 0.0111581
+Newt,GMRES == 0,12, f^T: ....10....20 res == 0.0108138
+Newt,GMRES == 0,13, f^T: ....10....20 res == 0.00625945
+Newt,GMRES == 0,14, f^T: ....10....20 res == 0.00442119
+Newt,GMRES == 0,15, f^T: ....10....20 res == 0.00343075
+Newt,GMRES == 0,16, f^T: ....10....20 res == 0.00176447
+Newt,GMRES == 0,17, f^T: ....10....20 res == 0.00125768
+Newt,GMRES == 0,18, f^T: ....10....20 res == 0.00112607
+Newt,GMRES == 0,19, f^T: ....10....20 res == 0.000849055
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 0.000261677 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000261677
+f^T: ....10....20
+r(x), r(x+dxH) == 4.25376e-09, 5.15674e-12
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   4.25376e-09 residual at current position
+rH       ==   5.15674e-12 residual of newton/hookstep
+Delta_rH ==  -4.24861e-09 actual improvement in residual from newton/hookstep
+
+             -8.51124e-12 lower bound for acceptable improvement
+             -4.25376e-10 upper bound for ok improvement.
+             -3.19032e-09 upper bound for good improvement.
+             -3.82838e-09 upper bound for accurate prediction.
+Delta_rH ==  -4.24861e-09 ------> Accurate <------
+             -4.67913e-09 lower bound for accurate prediction.
+             -8.51124e-09 local linear model of improvement
+lambda       == 0.998354 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.00998354 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 3.21146e-06
+rx           == 5.15674e-12
+L2Norm(dxN)  == 0.000261677
+L2Norm(dxOpt)== 0.000261677
+========================================================
+Newton iteration number 1
+Current state of Newton iteration:
+   fcount_newton   == 21
+   fcount_optimiza == 2
+   L2Norm(x)       == 0.283162
+   L2Norm(dxN)     == 0.000261677
+   L2Norm(dxOpt)   == 0.000261677
+   L2Dist(x,x0)    == 0.000261677
+gx == L2Norm(G(x)) : 
+   initial  gx == 9.22363e-05
+   previous gx == 9.22363e-05
+   current  gx == 3.21146e-06
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 4.25376e-09
+   previous rx == 4.25376e-09
+   current  rx == 5.15674e-12
+         delta == 0.01
+Newt,GMRES == 1,0, f^T: ....10....20 res == 0.872809
+Newt,GMRES == 1,1, f^T: ....10....20 res == 0.650969
+Newt,GMRES == 1,2, f^T: ....10....20 res == 0.633417
+Newt,GMRES == 1,3, f^T: ....10....20 res == 0.571378
+Newt,GMRES == 1,4, f^T: ....10....20 res == 0.468845
+Newt,GMRES == 1,5, f^T: ....10....20 res == 0.310953
+Newt,GMRES == 1,6, f^T: ....10....20 res == 0.309007
+Newt,GMRES == 1,7, f^T: ....10....20 res == 0.277565
+Newt,GMRES == 1,8, f^T: ....10....20 res == 0.277382
+Newt,GMRES == 1,9, f^T: ....10....20 res == 0.277141
+Newt,GMRES == 1,10, f^T: ....10....20 res == 0.277096
+Newt,GMRES == 1,11, f^T: ....10....20 res == 0.271374
+Newt,GMRES == 1,12, f^T: ....10....20 res == 0.254815
+Newt,GMRES == 1,13, f^T: ....10....20 res == 0.175891
+Newt,GMRES == 1,14, f^T: ....10....20 res == 0.1293
+Newt,GMRES == 1,15, f^T: ....10....20 res == 0.10705
+Newt,GMRES == 1,16, f^T: ....10....20 res == 0.047412
+Newt,GMRES == 1,17, f^T: ....10....20 res == 0.0409444
+Newt,GMRES == 1,18, f^T: ....10....20 res == 0.0360618
+Newt,GMRES == 1,19, f^T: ....10....20 res == 0.0261415
+Newt,GMRES == 1,20, f^T: ....10....20 res == 0.0168081
+Newt,GMRES == 1,21, f^T: ....10....20 res == 0.0111121
+Newt,GMRES == 1,22, f^T: ....10....20 res == 0.0097062
+Newt,GMRES == 1,23, f^T: ....10....20 res == 0.00758479
+Newt,GMRES == 1,24, f^T: ....10....20 res == 0.00611283
+Newt,GMRES == 1,25, f^T: ....10....20 res == 0.00547577
+Newt,GMRES == 1,26, f^T: ....10....20 res == 0.00436301
+Newt,GMRES == 1,27, f^T: ....10....20 res == 0.0038742
+Newt,GMRES == 1,28, f^T: ....10....20 res == 0.00305084
+Newt,GMRES == 1,29, f^T: ....10....20 res == 0.00272667
+Newt,GMRES == 1,30, f^T: ....10....20 res == 0.00208218
+Newt,GMRES == 1,31, f^T: ....10....20 res == 0.00168351
+Newt,GMRES == 1,32, f^T: ....10....20 res == 0.00115018
+Newt,GMRES == 1,33, f^T: ....10....20 res == 0.000934793
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 0.000242887 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000242887
+f^T: ....10....20
+r(x), r(x+dxH) == 5.15674e-12, 1.12251e-14
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   5.15674e-12 residual at current position
+rH       ==   1.12251e-14 residual of newton/hookstep
+Delta_rH ==  -5.14551e-12 actual improvement in residual from newton/hookstep
+
+             -1.00453e-14 lower bound for acceptable improvement
+              -5.1531e-13 upper bound for ok improvement.
+             -3.86482e-12 upper bound for good improvement.
+             -4.63779e-12 upper bound for accurate prediction.
+Delta_rH ==  -5.14551e-12 ------> Accurate <------
+             -5.66841e-12 lower bound for accurate prediction.
+             -1.00453e-11 local linear model of improvement
+lambda       == 1.02508 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0102508 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 1.49834e-07
+rx           == 1.12251e-14
+L2Norm(dxN)  == 0.000242887
+L2Norm(dxOpt)== 0.000242887
+========================================================
+Newton iteration number 2
+Current state of Newton iteration:
+   fcount_newton   == 55
+   fcount_optimiza == 4
+   L2Norm(x)       == 0.283059
+   L2Norm(dxN)     == 0.000242887
+   L2Norm(dxOpt)   == 0.000242887
+   L2Dist(x,x0)    == 4.1121e-05
+gx == L2Norm(G(x)) : 
+   initial  gx == 9.22363e-05
+   previous gx == 3.21146e-06
+   current  gx == 1.49834e-07
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 4.25376e-09
+   previous rx == 5.15674e-12
+   current  rx == 1.12251e-14
+         delta == 0.01
+Newt,GMRES == 2,0, f^T: ....10....20 res == 0.738709
+Newt,GMRES == 2,1, f^T: ....10....20 res == 0.385085
+Newt,GMRES == 2,2, f^T: ....10....20 res == 0.383572
+Newt,GMRES == 2,3, f^T: ....10....20 res == 0.367809
+Newt,GMRES == 2,4, f^T: ....10....20 res == 0.343788
+Newt,GMRES == 2,5, f^T: ....10....20 res == 0.239038
+Newt,GMRES == 2,6, f^T: ....10....20 res == 0.22632
+Newt,GMRES == 2,7, f^T: ....10....20 res == 0.22134
+Newt,GMRES == 2,8, f^T: ....10....20 res == 0.200715
+Newt,GMRES == 2,9, f^T: ....10....20 res == 0.196508
+Newt,GMRES == 2,10, f^T: ....10....20 res == 0.196326
+Newt,GMRES == 2,11, f^T: ....10....20 res == 0.196041
+Newt,GMRES == 2,12, f^T: ....10....20 res == 0.194658
+Newt,GMRES == 2,13, f^T: ....10....20 res == 0.145685
+Newt,GMRES == 2,14, f^T: ....10....20 res == 0.10571
+Newt,GMRES == 2,15, f^T: ....10....20 res == 0.0913667
+Newt,GMRES == 2,16, f^T: ....10....20 res == 0.0751841
+Newt,GMRES == 2,17, f^T: ....10....20 res == 0.0378315
+Newt,GMRES == 2,18, f^T: ....10....20 res == 0.0283628
+Newt,GMRES == 2,19, f^T: ....10....20 res == 0.0200556
+Newt,GMRES == 2,20, f^T: ....10....20 res == 0.0154453
+Newt,GMRES == 2,21, f^T: ....10....20 res == 0.0130121
+Newt,GMRES == 2,22, f^T: ....10....20 res == 0.00813474
+Newt,GMRES == 2,23, f^T: ....10....20 res == 0.00643737
+Newt,GMRES == 2,24, f^T: ....10....20 res == 0.0048748
+Newt,GMRES == 2,25, f^T: ....10....20 res == 0.0041069
+Newt,GMRES == 2,26, f^T: ....10....20 res == 0.00259741
+Newt,GMRES == 2,27, f^T: ....10....20 res == 0.00231828
+Newt,GMRES == 2,28, f^T: ....10....20 res == 0.00198664
+Newt,GMRES == 2,29, f^T: ....10....20 res == 0.00174869
+Newt,GMRES == 2,30, f^T: ....10....20 res == 0.00148746
+Newt,GMRES == 2,31, f^T: ....10....20 res == 0.00101786
+Newt,GMRES == 2,32, f^T: ....10....20 res == 0.000886343
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 7.41846e-06 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 7.41846e-06
+f^T: ....10....20
+r(x), r(x+dxH) == 1.12251e-14, 3.91468e-19
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.12251e-14 residual at current position
+rH       ==   3.91468e-19 residual of newton/hookstep
+Delta_rH ==  -1.12247e-14 actual improvement in residual from newton/hookstep
+
+             -2.24083e-17 lower bound for acceptable improvement
+             -1.12248e-15 upper bound for ok improvement.
+             -8.41857e-15 upper bound for good improvement.
+             -1.01023e-14 upper bound for accurate prediction.
+Delta_rH ==  -1.12247e-14 ------> Accurate <------
+             -1.23472e-14 lower bound for accurate prediction.
+             -2.24083e-14 local linear model of improvement
+lambda       == 1.00184 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0100184 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 8.84836e-10
+rx           == 3.91468e-19
+L2Norm(dxN)  == 7.41846e-06
+L2Norm(dxOpt)== 7.41846e-06
+========================================================
+Newton iteration number 3
+Current state of Newton iteration:
+   fcount_newton   == 88
+   fcount_optimiza == 6
+   L2Norm(x)       == 0.283056
+   L2Norm(dxN)     == 7.41846e-06
+   L2Norm(dxOpt)   == 7.41846e-06
+   L2Dist(x,x0)    == 3.86222e-05
+gx == L2Norm(G(x)) : 
+   initial  gx == 9.22363e-05
+   previous gx == 1.49834e-07
+   current  gx == 8.84836e-10
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 4.25376e-09
+   previous rx == 1.12251e-14
+   current  rx == 3.91468e-19
+         delta == 0.01
+Newt,GMRES == 3,0, f^T: ....10....20 res == 0.953209
+Newt,GMRES == 3,1, f^T: ....10....20 res == 0.653849
+Newt,GMRES == 3,2, f^T: ....10....20 res == 0.65365
+Newt,GMRES == 3,3, f^T: ....10....20 res == 0.584996
+Newt,GMRES == 3,4, f^T: ....10....20 res == 0.548514
+Newt,GMRES == 3,5, f^T: ....10....20 res == 0.329993
+Newt,GMRES == 3,6, f^T: ....10....20 res == 0.32991
+Newt,GMRES == 3,7, f^T: ....10....20 res == 0.323895
+Newt,GMRES == 3,8, f^T: ....10....20 res == 0.293473
+Newt,GMRES == 3,9, f^T: ....10....20 res == 0.291509
+Newt,GMRES == 3,10, f^T: ....10....20 res == 0.29148
+Newt,GMRES == 3,11, f^T: ....10....20 res == 0.291229
+Newt,GMRES == 3,12, f^T: ....10....20 res == 0.285426
+Newt,GMRES == 3,13, f^T: ....10....20 res == 0.254287
+Newt,GMRES == 3,14, f^T: ....10....20 res == 0.203343
+Newt,GMRES == 3,15, f^T: ....10....20 res == 0.189388
+Newt,GMRES == 3,16, f^T: ....10....20 res == 0.162703
+Newt,GMRES == 3,17, f^T: ....10....20 res == 0.123584
+Newt,GMRES == 3,18, f^T: ....10....20 res == 0.112231
+Newt,GMRES == 3,19, f^T: ....10....20 res == 0.0922644
+Newt,GMRES == 3,20, f^T: ....10....20 res == 0.0754993
+Newt,GMRES == 3,21, f^T: ....10....20 res == 0.066472
+Newt,GMRES == 3,22, f^T: ....10....20 res == 0.0523003
+Newt,GMRES == 3,23, f^T: ....10....20 res == 0.0485405
+Newt,GMRES == 3,24, f^T: ....10....20 res == 0.0392157
+Newt,GMRES == 3,25, f^T: ....10....20 res == 0.0358623
+Newt,GMRES == 3,26, f^T: ....10....20 res == 0.0318848
+Newt,GMRES == 3,27, f^T: ....10....20 res == 0.0269335
+Newt,GMRES == 3,28, f^T: ....10....20 res == 0.0185565
+Newt,GMRES == 3,29, f^T: ....10....20 res == 0.0142384
+Newt,GMRES == 3,30, f^T: ....10....20 res == 0.00903812
+Newt,GMRES == 3,31, f^T: ....10....20 res == 0.0054856
+Newt,GMRES == 3,32, f^T: ....10....20 res == 0.00413939
+Newt,GMRES == 3,33, f^T: ....10....20 res == 0.00232113
+Newt,GMRES == 3,34, f^T: ....10....20 res == 0.00119337
+Newt,GMRES == 3,35, f^T: ....10....20 res == 0.000806952
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is within trust region: 
+L2Norm(dxN) == 5.64125e-08 <= 0.01 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 5.64125e-08
+f^T: ....10....20
+r(x), r(x+dxH) == 3.91468e-19, 3.09842e-22
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.91468e-19 residual at current position
+rH       ==   3.09842e-22 residual of newton/hookstep
+Delta_rH ==  -3.91158e-19 actual improvement in residual from newton/hookstep
+
+             -7.61201e-22 lower bound for acceptable improvement
+             -3.91158e-20 upper bound for ok improvement.
+             -2.93368e-19 upper bound for good improvement.
+             -3.52042e-19 upper bound for accurate prediction.
+Delta_rH ==  -3.91158e-19 ------> Accurate <------
+             -4.30274e-19 lower bound for accurate prediction.
+             -7.61201e-19 local linear model of improvement
+lambda       == 1.02853 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0102853 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.01
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 2.48935e-11
+rx           == 3.09842e-22
+L2Norm(dxN)  == 5.64125e-08
+L2Norm(dxOpt)== 5.64125e-08
+========================================================
+Newton iteration number 4
+Current state of Newton iteration:
+   fcount_newton   == 124
+   fcount_optimiza == 8
+   L2Norm(x)       == 0.283056
+   L2Norm(dxN)     == 5.64125e-08
+   L2Norm(dxOpt)   == 5.64125e-08
+   L2Dist(x,x0)    == 3.86173e-05
+gx == L2Norm(G(x)) : 
+   initial  gx == 9.22363e-05
+   previous gx == 8.84836e-10
+   current  gx == 2.48935e-11
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 4.25376e-09
+   previous rx == 3.91468e-19
+   current  rx == 3.09842e-22
+         delta == 0.01
+Newton search converged. Breaking.
+L2Norm(G(x)) == 2.48935e-11 < epsSearch == 1e-10

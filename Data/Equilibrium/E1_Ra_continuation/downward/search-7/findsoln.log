@@ -1,0 +1,352 @@
+f^T: ....10....20Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.277071
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 1.88677e-05
+   current  gx == 1.88677e-05
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 1.77995e-10
+   current  rx == 1.77995e-10
+         delta == 0.01
+Newt,GMRES == 0,0, f^T: ....10....20 res == 0.97677
+Newt,GMRES == 0,1, f^T: ....10....20 res == 0.889823
+Newt,GMRES == 0,2, f^T: ....10....20 res == 0.888854
+Newt,GMRES == 0,3, f^T: ....10....20 res == 0.783168
+Newt,GMRES == 0,4, f^T: ....10....20 res == 0.694266
+Newt,GMRES == 0,5, f^T: ....10....20 res == 0.688701
+Newt,GMRES == 0,6, f^T: ....10....20 res == 0.683931
+Newt,GMRES == 0,7, f^T: ....10....20 res == 0.664799
+Newt,GMRES == 0,8, f^T: ....10....20 res == 0.662247
+Newt,GMRES == 0,9, f^T: ....10....20 res == 0.660758
+Newt,GMRES == 0,10, f^T: ....10....20 res == 0.638903
+Newt,GMRES == 0,11, f^T: ....10....20 res == 0.636462
+Newt,GMRES == 0,12, f^T: ....10....20 res == 0.466676
+Newt,GMRES == 0,13, f^T: ....10....20 res == 0.375832
+Newt,GMRES == 0,14, f^T: ....10....20 res == 0.272529
+Newt,GMRES == 0,15, f^T: ....10....20 res == 0.190464
+Newt,GMRES == 0,16, f^T: ....10....20 res == 0.101677
+Newt,GMRES == 0,17, f^T: ....10....20 res == 0.0503127
+Newt,GMRES == 0,18, f^T: ....10....20 res == 0.0263912
+Newt,GMRES == 0,19, f^T: ....10....20 res == 0.0128829
+Newt,GMRES == 0,20, f^T: ....10....20 res == 0.00840342
+Newt,GMRES == 0,21, f^T: ....10....20 res == 0.00601223
+Newt,GMRES == 0,22, f^T: ....10....20 res == 0.00426188
+Newt,GMRES == 0,23, f^T: ....10....20 res == 0.00222949
+Newt,GMRES == 0,24, f^T: ....10....20 res == 0.00105026
+Newt,GMRES == 0,25, f^T: ....10....20 res == 0.000563996
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 1.17649e-06 < 1.88677e-05
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 1.17649e-06
+rx           == 6.92062e-13
+L2Norm(dxN)  == 0.000702704
+L2Norm(dxOpt)== 0.000702704
+========================================================
+Newton iteration number 1
+Current state of Newton iteration:
+   fcount_newton   == 27
+   fcount_optimiza == 1
+   L2Norm(x)       == 0.276523
+   L2Norm(dxN)     == 0.000702704
+   L2Norm(dxOpt)   == 0.000702704
+   L2Dist(x,x0)    == 3.1565
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 1.88677e-05
+   current  gx == 1.17649e-06
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 1.77995e-10
+   current  rx == 6.92062e-13
+         delta == 0.01
+Newt,GMRES == 1,0, f^T: ....10....20 res == 0.996106
+Newt,GMRES == 1,1, f^T: ....10....20 res == 0.954316
+Newt,GMRES == 1,2, f^T: ....10....20 res == 0.933245
+Newt,GMRES == 1,3, f^T: ....10....20 res == 0.924473
+Newt,GMRES == 1,4, f^T: ....10....20 res == 0.902243
+Newt,GMRES == 1,5, f^T: ....10....20 res == 0.867602
+Newt,GMRES == 1,6, f^T: ....10....20 res == 0.856483
+Newt,GMRES == 1,7, f^T: ....10....20 res == 0.703434
+Newt,GMRES == 1,8, f^T: ....10....20 res == 0.655258
+Newt,GMRES == 1,9, f^T: ....10....20 res == 0.623196
+Newt,GMRES == 1,10, f^T: ....10....20 res == 0.613357
+Newt,GMRES == 1,11, f^T: ....10....20 res == 0.605695
+Newt,GMRES == 1,12, f^T: ....10....20 res == 0.605423
+Newt,GMRES == 1,13, f^T: ....10....20 res == 0.595093
+Newt,GMRES == 1,14, f^T: ....10....20 res == 0.490929
+Newt,GMRES == 1,15, f^T: ....10....20 res == 0.338029
+Newt,GMRES == 1,16, f^T: ....10....20 res == 0.184165
+Newt,GMRES == 1,17, f^T: ....10....20 res == 0.10158
+Newt,GMRES == 1,18, f^T: ....10....20 res == 0.0618204
+Newt,GMRES == 1,19, f^T: ....10....20 res == 0.0323313
+Newt,GMRES == 1,20, f^T: ....10....20 res == 0.0151919
+Newt,GMRES == 1,21, f^T: ....10....20 res == 0.0072312
+Newt,GMRES == 1,22, f^T: ....10....20 res == 0.00460182
+Newt,GMRES == 1,23, f^T: ....10....20 res == 0.00311282
+Newt,GMRES == 1,24, f^T: ....10....20 res == 0.00185077
+Newt,GMRES == 1,25, f^T: ....10....20 res == 0.00101096
+Newt,GMRES == 1,26, f^T: ....10....20 res == 0.000524716
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 3.84815e-08 < 1.17649e-06
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 3.84815e-08
+rx           == 7.40412e-16
+L2Norm(dxN)  == 3.80967e-05
+L2Norm(dxOpt)== 3.80967e-05
+========================================================
+Newton iteration number 2
+Current state of Newton iteration:
+   fcount_newton   == 54
+   fcount_optimiza == 2
+   L2Norm(x)       == 0.2765
+   L2Norm(dxN)     == 3.80967e-05
+   L2Norm(dxOpt)   == 3.80967e-05
+   L2Dist(x,x0)    == 3.31531
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 1.17649e-06
+   current  gx == 3.84815e-08
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 6.92062e-13
+   current  rx == 7.40412e-16
+         delta == 0.01
+Newt,GMRES == 2,0, f^T: ....10....20 res == 0.922103
+Newt,GMRES == 2,1, f^T: ....10....20 res == 0.839901
+Newt,GMRES == 2,2, f^T: ....10....20 res == 0.550756
+Newt,GMRES == 2,3, f^T: ....10....20 res == 0.525437
+Newt,GMRES == 2,4, f^T: ....10....20 res == 0.507909
+Newt,GMRES == 2,5, f^T: ....10....20 res == 0.479279
+Newt,GMRES == 2,6, f^T: ....10....20 res == 0.478993
+Newt,GMRES == 2,7, f^T: ....10....20 res == 0.477737
+Newt,GMRES == 2,8, f^T: ....10....20 res == 0.466748
+Newt,GMRES == 2,9, f^T: ....10....20 res == 0.440176
+Newt,GMRES == 2,10, f^T: ....10....20 res == 0.428321
+Newt,GMRES == 2,11, f^T: ....10....20 res == 0.415889
+Newt,GMRES == 2,12, f^T: ....10....20 res == 0.402939
+Newt,GMRES == 2,13, f^T: ....10....20 res == 0.377499
+Newt,GMRES == 2,14, f^T: ....10....20 res == 0.340266
+Newt,GMRES == 2,15, f^T: ....10....20 res == 0.224026
+Newt,GMRES == 2,16, f^T: ....10....20 res == 0.102072
+Newt,GMRES == 2,17, f^T: ....10....20 res == 0.054843
+Newt,GMRES == 2,18, f^T: ....10....20 res == 0.0328051
+Newt,GMRES == 2,19, f^T: ....10....20 res == 0.0218301
+Newt,GMRES == 2,20, f^T: ....10....20 res == 0.0140718
+Newt,GMRES == 2,21, f^T: ....10....20 res == 0.00897134
+Newt,GMRES == 2,22, f^T: ....10....20 res == 0.00500046
+Newt,GMRES == 2,23, f^T: ....10....20 res == 0.00248109
+Newt,GMRES == 2,24, f^T: ....10....20 res == 0.00117695
+Newt,GMRES == 2,25, f^T: ....10....20 res == 0.000638531
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 5.81536e-10 < 3.84815e-08
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 5.81536e-10
+rx           == 1.69092e-19
+L2Norm(dxN)  == 1.06364e-06
+L2Norm(dxOpt)== 1.06364e-06
+========================================================
+Newton iteration number 3
+Current state of Newton iteration:
+   fcount_newton   == 80
+   fcount_optimiza == 3
+   L2Norm(x)       == 0.2765
+   L2Norm(dxN)     == 1.06364e-06
+   L2Norm(dxOpt)   == 1.06364e-06
+   L2Dist(x,x0)    == 3.31902
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 3.84815e-08
+   current  gx == 5.81536e-10
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 7.40412e-16
+   current  rx == 1.69092e-19
+         delta == 0.01
+Newt,GMRES == 3,0, f^T: ....10....20 res == 0.979939
+Newt,GMRES == 3,1, f^T: ....10....20 res == 0.937163
+Newt,GMRES == 3,2, f^T: ....10....20 res == 0.802989
+Newt,GMRES == 3,3, f^T: ....10....20 res == 0.800131
+Newt,GMRES == 3,4, f^T: ....10....20 res == 0.787771
+Newt,GMRES == 3,5, f^T: ....10....20 res == 0.786215
+Newt,GMRES == 3,6, f^T: ....10....20 res == 0.761426
+Newt,GMRES == 3,7, f^T: ....10....20 res == 0.616994
+Newt,GMRES == 3,8, f^T: ....10....20 res == 0.587241
+Newt,GMRES == 3,9, f^T: ....10....20 res == 0.579758
+Newt,GMRES == 3,10, f^T: ....10....20 res == 0.567348
+Newt,GMRES == 3,11, f^T: ....10....20 res == 0.567072
+Newt,GMRES == 3,12, f^T: ....10....20 res == 0.532239
+Newt,GMRES == 3,13, f^T: ....10....20 res == 0.531712
+Newt,GMRES == 3,14, f^T: ....10....20 res == 0.385982
+Newt,GMRES == 3,15, f^T: ....10....20 res == 0.323282
+Newt,GMRES == 3,16, f^T: ....10....20 res == 0.194725
+Newt,GMRES == 3,17, f^T: ....10....20 res == 0.118623
+Newt,GMRES == 3,18, f^T: ....10....20 res == 0.0876633
+Newt,GMRES == 3,19, f^T: ....10....20 res == 0.05532
+Newt,GMRES == 3,20, f^T: ....10....20 res == 0.0282745
+Newt,GMRES == 3,21, f^T: ....10....20 res == 0.0147915
+Newt,GMRES == 3,22, f^T: ....10....20 res == 0.00812338
+Newt,GMRES == 3,23, f^T: ....10....20 res == 0.00533367
+Newt,GMRES == 3,24, f^T: ....10....20 res == 0.00371407
+Newt,GMRES == 3,25, f^T: ....10....20 res == 0.00242375
+Newt,GMRES == 3,26, f^T: ....10....20 res == 0.001342
+Newt,GMRES == 3,27, f^T: ....10....20 res == 0.000598169
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 1.78189e-11 < 5.81536e-10
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 1.78189e-11
+rx           == 1.58756e-22
+L2Norm(dxN)  == 1.56059e-08
+L2Norm(dxOpt)== 1.56059e-08
+========================================================
+Newton iteration number 4
+Current state of Newton iteration:
+   fcount_newton   == 108
+   fcount_optimiza == 4
+   L2Norm(x)       == 0.2765
+   L2Norm(dxN)     == 1.56059e-08
+   L2Norm(dxOpt)   == 1.56059e-08
+   L2Dist(x,x0)    == 3.31909
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 5.81536e-10
+   current  gx == 1.78189e-11
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 1.69092e-19
+   current  rx == 1.58756e-22
+         delta == 0.01
+Newt,GMRES == 4,0, f^T: ....10....20 res == 0.921596
+Newt,GMRES == 4,1, f^T: ....10....20 res == 0.886803
+Newt,GMRES == 4,2, f^T: ....10....20 res == 0.496058
+Newt,GMRES == 4,3, f^T: ....10....20 res == 0.495688
+Newt,GMRES == 4,4, f^T: ....10....20 res == 0.494435
+Newt,GMRES == 4,5, f^T: ....10....20 res == 0.49185
+Newt,GMRES == 4,6, f^T: ....10....20 res == 0.454182
+Newt,GMRES == 4,7, f^T: ....10....20 res == 0.423831
+Newt,GMRES == 4,8, f^T: ....10....20 res == 0.417969
+Newt,GMRES == 4,9, f^T: ....10....20 res == 0.414619
+Newt,GMRES == 4,10, f^T: ....10....20 res == 0.408586
+Newt,GMRES == 4,11, f^T: ....10....20 res == 0.404137
+Newt,GMRES == 4,12, f^T: ....10....20 res == 0.398387
+Newt,GMRES == 4,13, f^T: ....10....20 res == 0.389074
+Newt,GMRES == 4,14, f^T: ....10....20 res == 0.38148
+Newt,GMRES == 4,15, f^T: ....10....20 res == 0.273746
+Newt,GMRES == 4,16, f^T: ....10....20 res == 0.15377
+Newt,GMRES == 4,17, f^T: ....10....20 res == 0.0873624
+Newt,GMRES == 4,18, f^T: ....10....20 res == 0.0513881
+Newt,GMRES == 4,19, f^T: ....10....20 res == 0.0369817
+Newt,GMRES == 4,20, f^T: ....10....20 res == 0.026154
+Newt,GMRES == 4,21, f^T: ....10....20 res == 0.0122178
+Newt,GMRES == 4,22, f^T: ....10....20 res == 0.0045581
+Newt,GMRES == 4,23, f^T: ....10....20 res == 0.00271355
+Newt,GMRES == 4,24, f^T: ....10....20 res == 0.00179605
+Newt,GMRES == 4,25, f^T: ....10....20 res == 0.00129696
+Newt,GMRES == 4,26, f^T: ....10....20 res == 0.000866449
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 2.33698e-13 < 1.78189e-11
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 2.33698e-13
+rx           == 2.73074e-26
+L2Norm(dxN)  == 3.53968e-10
+L2Norm(dxOpt)== 3.53968e-10
+========================================================
+Newton iteration number 5
+Current state of Newton iteration:
+   fcount_newton   == 135
+   fcount_optimiza == 5
+   L2Norm(x)       == 0.2765
+   L2Norm(dxN)     == 3.53968e-10
+   L2Norm(dxOpt)   == 3.53968e-10
+   L2Dist(x,x0)    == 3.31909
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 1.78189e-11
+   current  gx == 2.33698e-13
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 1.58756e-22
+   current  rx == 2.73074e-26
+         delta == 0.01
+Newt,GMRES == 5,0, f^T: ....10....20 res == 0.961089
+Newt,GMRES == 5,1, f^T: ....10....20 res == 0.956955
+Newt,GMRES == 5,2, f^T: ....10....20 res == 0.610712
+Newt,GMRES == 5,3, f^T: ....10....20 res == 0.606108
+Newt,GMRES == 5,4, f^T: ....10....20 res == 0.568539
+Newt,GMRES == 5,5, f^T: ....10....20 res == 0.546471
+Newt,GMRES == 5,6, f^T: ....10....20 res == 0.540418
+Newt,GMRES == 5,7, f^T: ....10....20 res == 0.540323
+Newt,GMRES == 5,8, f^T: ....10....20 res == 0.499878
+Newt,GMRES == 5,9, f^T: ....10....20 res == 0.483655
+Newt,GMRES == 5,10, f^T: ....10....20 res == 0.481635
+Newt,GMRES == 5,11, f^T: ....10....20 res == 0.479264
+Newt,GMRES == 5,12, f^T: ....10....20 res == 0.46767
+Newt,GMRES == 5,13, f^T: ....10....20 res == 0.464412
+Newt,GMRES == 5,14, f^T: ....10....20 res == 0.433301
+Newt,GMRES == 5,15, f^T: ....10....20 res == 0.311106
+Newt,GMRES == 5,16, f^T: ....10....20 res == 0.182347
+Newt,GMRES == 5,17, f^T: ....10....20 res == 0.118661
+Newt,GMRES == 5,18, f^T: ....10....20 res == 0.0824287
+Newt,GMRES == 5,19, f^T: ....10....20 res == 0.0560994
+Newt,GMRES == 5,20, f^T: ....10....20 res == 0.0278514
+Newt,GMRES == 5,21, f^T: ....10....20 res == 0.012064
+Newt,GMRES == 5,22, f^T: ....10....20 res == 0.00745523
+Newt,GMRES == 5,23, f^T: ....10....20 res == 0.00540516
+Newt,GMRES == 5,24, f^T: ....10....20 res == 0.00362451
+Newt,GMRES == 5,25, f^T: ....10....20 res == 0.00253915
+Newt,GMRES == 5,26, f^T: ....10....20 res == 0.00146882
+Newt,GMRES == 5,27, f^T: ....10....20 res == 0.000641
+GMRES converged. Breaking.
+Hookstep optimization is currently not implemented with Arclength Continuation.
+Optimized Newton algorithm with AC: Computing residual to check convergence...f^T: ....10....20: gx = 4.39724e-15 < 2.33698e-13
+The residual is decreasing if we take this AC-Newton step.
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 4.39724e-15
+rx           == 9.66785e-30
+L2Norm(dxN)  == 6.04714e-12
+L2Norm(dxOpt)== 6.04714e-12
+========================================================
+Newton iteration number 6
+Current state of Newton iteration:
+   fcount_newton   == 163
+   fcount_optimiza == 6
+   L2Norm(x)       == 0.2765
+   L2Norm(dxN)     == 6.04714e-12
+   L2Norm(dxOpt)   == 6.04714e-12
+   L2Dist(x,x0)    == 3.31909
+gx == L2Norm(G(x)) : 
+   initial  gx == 1.88677e-05
+   previous gx == 2.33698e-13
+   current  gx == 4.39724e-15
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.77995e-10
+   previous rx == 2.73074e-26
+   current  rx == 9.66785e-30
+         delta == 0.01
+Newton search converged. Breaking.
+L2Norm(G(x)) == 4.39724e-15 < epsSearch == 1e-13

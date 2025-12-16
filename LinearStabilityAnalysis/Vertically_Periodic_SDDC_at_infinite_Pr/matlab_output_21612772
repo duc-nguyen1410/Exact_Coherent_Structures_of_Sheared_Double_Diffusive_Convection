@@ -1,0 +1,15 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2024 The MathWorks, Inc.
+             R2024b Update 1 (24.2.0.2740171) 64-bit (glnxa64)
+                             September 20, 2024
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Starting parallel pool (parpool) using the 'Processes' profile ...
+12-Dec-2025 11:45:05: Connected to 42 of 126 parallel pool workers.
+Connected to parallel pool with 126 workers.
+Launching updater executable
+slurmstepd: error: *** JOB 21612772 ON cn486 CANCELLED AT 2025-12-13T11:42:51 DUE TO TIME LIMIT ***

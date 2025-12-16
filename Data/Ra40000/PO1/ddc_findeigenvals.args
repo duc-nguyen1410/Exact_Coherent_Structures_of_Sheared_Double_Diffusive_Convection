@@ -1,0 +1,2 @@
+Mon Jul 14 14:30:49 2025	202223	../../../../chflow-ddc/build/modules/ddc/programs/ddc_findeigenvals -o PO1/ -Ra 40000 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.005 -dtmin 1e-9 -T 45.21364438723716 PO1/ubest PO1/tbest PO1/sbest 
+Mon Jul 14 15:17:32 2025	202281	../../../../chflow-ddc/build/modules/ddc/programs/ddc_findeigenvals -o PO1/ -Ra 40000 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -T 45.21364438723716 PO1/ubest PO1/tbest PO1/sbest 

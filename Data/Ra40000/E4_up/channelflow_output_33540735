@@ -1,0 +1,1310 @@
+git clone --depth=1 https://github.com/epfl-ecps/channelflow.git
+Cloning into 'channelflow'...
+cp ./CMakeLists.txt ./channelflow/CMakeLists.txt
+mkdir -p ./channelflow/modules/
+rm -rf ./channelflow/modules/ddc
+cp -r ./ddc ./channelflow/modules/ddc
+mkdir -p build
+cd build;\
+cmake ../channelflow -DCMAKE_CXX_COMPILER=/opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx -DWITH_DDC=ON -DWITH_NSOLVER=ON -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/chflow -DCMAKE_CXX_FLAGS_RELEASE:STRING=" -fPIC -lfftw3 -lm -Wno-unused-variable -Wno-deprecated " -DWITH_SHARED=OFF -DWITH_HDF5CXX=OFF;\
+make -j16
+CMake Deprecation Warning at CMakeLists.txt:7 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 8.5.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/x86_64-conda-linux-gnu-cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- configuring channelflow version 2.0.2
+-- Using GNU compiler options
+-- 
+-- Starting system introspection
+-- Looking for drand48
+-- Looking for drand48 - found
+-- Looking for include file wordexp.h
+-- Looking for include file wordexp.h - found
+-- Found Eigen3: /jet/home/vnguyen9/miniconda3/envs/channelflow/include/eigen3 (Required is at least version "2.91.0")
+-- Found FFTW 
+-- FFTW_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3.so
+-- FFTW_OMP_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_omp.so
+-- FFTW_MPI_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Looking for include file fftw3.h
+-- Looking for include file fftw3.h - found
+-- Found MPI_C: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libmpi.so (found version "3.1")
+-- Found MPI_CXX: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx (found version "3.1")
+-- Found MPI: TRUE (found version "3.1") found components: C CXX
+-- MPI libs: 
+-- FFTW_MPI library: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Found NetCDF: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libnetcdf.so
+-- NetCDF include dir: /jet/home/vnguyen9/miniconda3/envs/channelflow/include
+-- Looking for include file netcdf.h
+-- Looking for include file netcdf.h - found
+-- 
+-- Include directories: 
+-- Git revision ad37ef3022351d4e4a7a6c274c59a88605ad19e8
+CMake Deprecation Warning at bundled/gtest-1.8.0/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at bundled/gtest-1.8.0/googlemock/CMakeLists.txt:41 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at bundled/gtest-1.8.0/googletest/CMakeLists.txt:48 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Warning (dev) at bundled/gtest-1.8.0/googletest/cmake/internal_utils.cmake:209 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  bundled/gtest-1.8.0/googletest/CMakeLists.txt:60 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found PythonInterp: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/python (found version "3.13")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Found Doxygen: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/doxygen (found version "1.10.0") found components: doxygen dot
+
+
+   ###############################################
+   ###########  Configuration summary  ###########
+   ###############################################
+   Compiler:                       GNU 8.5.0
+   Build type:                     release
+   Install prefix:                 /chflow
+   Building shared library:        yes
+   Linking programs to:            shared library
+
+   Libraries
+   MPI:                            enabled
+   netcdf (default file format):   enabled
+   Parallel netcdf:                disabled
+   HDF5 C++ (legacy file format):  disabled
+
+   Channelflow components
+   nsolver:                        enabled
+   Double-diffusive convection:    enabled
+   Python wrapper:                 disabled
+   GTest unit testing:             enabled
+
+
+-- Configuring done (3.2s)
+-- Generating done (1.3s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    WITH_SHARED
+
+
+-- Build files have been written to: /ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build
+make[1]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[2]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[  0%] Building CXX object bundled/gtest-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+[  1%] Building CXX object bundled/gtest-1.8.0/googlemock/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[  1%] Building CXX object bundled/gtest-1.8.0/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/gtest-all.cc.o
+[  2%] Building CXX object bundled/gtest-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[  3%] Building CXX object bundled/gtest-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
+[  4%] Building CXX object nsolver/CMakeFiles/nsolver.dir/bicgstab.cpp.o
+[  4%] Building CXX object nsolver/CMakeFiles/nsolver.dir/arnoldi.cpp.o
+[  4%] Building CXX object nsolver/CMakeFiles/nsolver.dir/lanczos.cpp.o
+[  8%] Building CXX object nsolver/CMakeFiles/nsolver.dir/continuation.cpp.o
+[  8%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newtonalgorithm.cpp.o
+[  8%] Building CXX object nsolver/CMakeFiles/nsolver.dir/gmres.cpp.o
+[  8%] Building CXX object nsolver/CMakeFiles/nsolver.dir/dsi.cpp.o
+[ 10%] Building CXX object bundled/gtest-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 10%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newton.cpp.o
+[ 10%] Building CXX object nsolver/CMakeFiles/nsolver.dir/eigenvals.cpp.o
+[ 10%] Building CXX object nsolver/CMakeFiles/nsolver.dir/fgmres.cpp.o
+[ 10%] Building CXX object nsolver/CMakeFiles/nsolver.dir/multiShootingDSI.cpp.o
+[ 12%] Linking CXX shared library libgmock_main.so
+[ 12%] Linking CXX shared library libgmock.so
+[ 12%] Linking CXX shared library libgtest.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 12%] Built target gtest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 12%] Built target gmock_main
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 12%] Built target gmock
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 12%] Building CXX object bundled/gtest-1.8.0/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 13%] Linking CXX shared library libgtest_main.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 13%] Built target gtest_main
+[ 14%] Linking CXX shared library libnsolver.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 14%] Built target nsolver
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 16%] Building CXX object channelflow/CMakeFiles/chflow.dir/basisfunc.cpp.o
+[ 16%] Building CXX object channelflow/CMakeFiles/chflow.dir/diffops.cpp.o
+[ 17%] Building CXX object channelflow/CMakeFiles/chflow.dir/bandedtridiag.cpp.o
+[ 17%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfmpi.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/chebyshev.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsalgo.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/nse.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsflags.cpp.o
+[ 20%] Building CXX object channelflow/CMakeFiles/chflow.dir/flowfield.cpp.o
+[ 23%] Building CXX object channelflow/CMakeFiles/chflow.dir/dns.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofileng.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofile.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/poissonsolver.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/helmholtz.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/periodicfunc.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/symmetry.cpp.o
+[ 24%] Building CXX object channelflow/CMakeFiles/chflow.dir/tausolver.cpp.o
+[ 25%] Building CXX object channelflow/CMakeFiles/chflow.dir/turbstats.cpp.o
+[ 26%] Building CXX object channelflow/CMakeFiles/chflow.dir/utilfuncs.cpp.o
+[ 26%] Building CXX object channelflow/CMakeFiles/chflow.dir/__/GitSHA1.cpp.o
+[ 27%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfdsi.cpp.o
+[ 27%] Building CXX object channelflow/CMakeFiles/chflow.dir/laurettedsi.cpp.o
+[ 28%] Linking CXX shared library libchflow.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 28%] Built target chflow
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 29%] Building CXX object programs/CMakeFiles/simulateflow_app.dir/simulateflow.cpp.o
+[ 31%] Building CXX object programs/CMakeFiles/findsoln_app.dir/findsoln.cpp.o
+[ 31%] Building CXX object programs/CMakeFiles/edgetracking_app.dir/edgetracking.cpp.o
+[ 32%] Building CXX object programs/CMakeFiles/continuesoln_app.dir/continuesoln.cpp.o
+[ 32%] Building CXX object programs/CMakeFiles/findeigenvals_app.dir/findeigenvals.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/addfields_app.dir/addfields.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/benchmark_app.dir/benchmark.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/diffop_app.dir/diffop.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/changegrid_app.dir/changegrid.cpp.o
+[ 37%] Building CXX object tools/CMakeFiles/extrapolatefields_app.dir/extrapolatefields.cpp.o
+[ 37%] Building CXX object tools/CMakeFiles/fieldconvert_app.dir/fieldconvert.cpp.o
+[ 37%] Building CXX object tools/CMakeFiles/L2op_app.dir/L2op.cpp.o
+[ 37%] Building CXX object tools/CMakeFiles/findsymmetries_app.dir/findsymmetries.cpp.o
+[ 38%] Building CXX object tools/CMakeFiles/fieldprops_app.dir/fieldprops.cpp.o
+[ 38%] Building CXX object tools/CMakeFiles/optphaseshift_app.dir/optphaseshift.cpp.o
+[ 38%] Building CXX object tools/CMakeFiles/perturbfield_app.dir/perturbfield.cpp.o
+[ 39%] Linking CXX executable fieldconvert
+[ 40%] Linking CXX executable L2op
+[ 40%] Linking CXX executable optphaseshift
+[ 40%] Linking CXX executable perturbfield
+[ 40%] Linking CXX executable findsymmetries
+[ 42%] Linking CXX executable changegrid
+[ 43%] Linking CXX executable diffop
+[ 43%] Linking CXX executable benchmark
+[ 44%] Linking CXX executable extrapolatefields
+[ 44%] Linking CXX executable addfields
+[ 45%] Linking CXX executable simulateflow
+[ 46%] Linking CXX executable findeigenvals
+[ 46%] Linking CXX executable findsoln
+[ 47%] Linking CXX executable fieldprops
+[ 47%] Linking CXX executable continuesoln
+[ 47%] Linking CXX executable edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target L2op_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target optphaseshift_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target perturbfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target fieldconvert_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Building CXX object tools/CMakeFiles/pressure_app.dir/pressure.cpp.o
+[ 47%] Building CXX object tools/CMakeFiles/randomfield_app.dir/randomfield.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Building CXX object tools/CMakeFiles/symmetrize_app.dir/symmetrize.cpp.o
+[ 47%] Building CXX object tools/CMakeFiles/symmetryop_app.dir/symmetryop.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target benchmark_app
+[ 47%] Built target changegrid_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target diffop_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target findsymmetries_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 47%] Built target extrapolatefields_app
+[ 47%] Built target addfields_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 49%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcflags.cpp.o
+[ 49%] Building CXX object examples/CMakeFiles/couette_app.dir/couette.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 50%] Building CXX object tests/CMakeFiles/chebyTest_app.dir/chebyTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 50%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/dde.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 51%] Building CXX object tests/CMakeFiles/laminarTest_app.dir/laminarTest.cpp.o
+[ 51%] Built target simulateflow_app
+[ 51%] Building CXX object tests/CMakeFiles/dnsOrrsommTest_app.dir/dnsOrrsommTest.cpp.o
+[ 52%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddc.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 52%] Built target findeigenvals_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 52%] Built target findsoln_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 53%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcdsi.cpp.o
+[ 53%] Built target fieldprops_app
+[ 53%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddchelmholtz.cpp.o
+[ 53%] Built target continuesoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 54%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddctausolver.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 55%] Building CXX object tests/CMakeFiles/dnsParabolaTest_app.dir/dnsParabolaTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 55%] Built target edgetracking_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 56%] Building CXX object tests/CMakeFiles/dnsSinusoidTest_app.dir/dnsSinusoidTest.cpp.o
+[ 57%] Linking CXX executable pressure
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 57%] Linking CXX executable chebyTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 58%] Building CXX object tests/CMakeFiles/dnsZeroTest_app.dir/dnsZeroTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 61%] Linking CXX executable randomfield
+[ 61%] Building CXX object tests/CMakeFiles/helmholtzTest_app.dir/helmholtzTest.cpp.o
+[ 61%] Linking CXX executable symmetryop
+[ 63%] Linking CXX executable symmetrize
+[ 63%] Linking CXX executable laminarTest
+[ 63%] Linking CXX executable couette
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 64%] Building CXX object tests/CMakeFiles/ioTest_app.dir/ioTest.cpp.o
+[ 65%] Linking CXX executable dnsOrrsommTest
+[ 65%] Linking CXX executable dnsSinusoidTest
+[ 65%] Linking CXX executable dnsParabolaTest
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 66%] Built target pressure_app
+[ 66%] Building CXX object tests/CMakeFiles/poissonTest_app.dir/poissonTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 67%] Building CXX object tests/CMakeFiles/pressureTest_app.dir/pressureTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 67%] Built target chebyTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 68%] Building CXX object tests/CMakeFiles/realprofileTest_app.dir/realprofileTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 69%] Building CXX object tests/CMakeFiles/tausolverTest_app.dir/tausolverTest.cpp.o
+[ 69%] Built target symmetryop_app
+[ 69%] Built target randomfield_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 70%] Building CXX object tests/CMakeFiles/timeIntegrationTest_app.dir/timeIntegrationTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 71%] Building CXX object tests/CMakeFiles/tridiagTest_app.dir/tridiagTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 71%] Built target laminarTest_app
+[ 71%] Built target symmetrize_app
+[ 71%] Built target couette_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 72%] Building CXX object tests/CMakeFiles/vector2fieldTest_app.dir/vector2fieldTest.cpp.o
+[ 72%] Building CXX object tests/CMakeFiles/nsolvertest_app.dir/nsolvertest.cpp.o
+[ 73%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/periodicfunctest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 73%] Built target dnsOrrsommTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 73%] Built target dnsSinusoidTest_app
+[ 73%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/timesteptest.cpp.o
+[ 73%] Built target dnsParabolaTest_app
+[ 74%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/cfbasicstest.cpp.o
+[ 75%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/msDSItest.cpp.o
+[ 75%] Linking CXX shared library libddc.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 75%] Built target ddc
+[ 75%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/arnolditest.cpp.o
+[ 75%] Linking CXX executable helmholtzTest
+[ 76%] Linking CXX executable dnsZeroTest
+[ 76%] Linking CXX executable ioTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 76%] Built target helmholtzTest_app
+[ 77%] Building CXX object tests/gtest/CMakeFiles/runUnitTests.dir/lanczostest.cpp.o
+[ 77%] Linking CXX executable poissonTest
+[ 78%] Linking CXX executable pressureTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 78%] Built target dnsZeroTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 79%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_simulateflow_app.dir/ddc_simulateflow.cpp.o
+[ 79%] Built target ioTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 80%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findsoln_app.dir/ddc_findsoln.cpp.o
+[ 81%] Linking CXX executable tridiagTest
+[ 81%] Linking CXX executable tausolverTest
+[ 81%] Linking CXX executable vector2fieldTest
+[ 81%] Linking CXX executable realprofileTest
+[ 81%] Linking CXX executable timeIntegrationTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 81%] Built target poissonTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 81%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_continuesoln_app.dir/ddc_continuesoln.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 81%] Built target pressureTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findeigenvals_app.dir/ddc_findeigenvals.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Built target tridiagTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_edgetracking_app.dir/ddc_edgetracking.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Building CXX object modules/ddc/examples/CMakeFiles/2d_diffusive_convection_app.dir/2d_diffusive_convection.cpp.o
+[ 82%] Built target tausolverTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Building CXX object modules/ddc/examples/CMakeFiles/3d_diffusive_convection_app.dir/3d_diffusive_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 82%] Building CXX object modules/ddc/examples/CMakeFiles/2d_finger_convection_app.dir/2d_finger_convection.cpp.o
+[ 82%] Built target vector2fieldTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 83%] Building CXX object modules/ddc/examples/CMakeFiles/3d_finger_convection_app.dir/3d_finger_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 83%] Built target realprofileTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 83%] Built target timeIntegrationTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 84%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_initialfield_app.dir/ddc_initialfield.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 84%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_randomfield_app.dir/ddc_randomfield.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 85%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_readEQ_app.dir/ddc_readEQ.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 86%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_changegrid_app.dir/ddc_changegrid.cpp.o
+[ 86%] Linking CXX executable ddc_findsoln
+[ 87%] Linking CXX executable ddc_simulateflow
+[ 88%] Linking CXX executable 2d_diffusive_convection
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 89%] Linking CXX executable ddc_continuesoln
+[ 89%] Built target ddc_findsoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 90%] Linking CXX executable 3d_diffusive_convection
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 90%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_nusselt_app.dir/ddc_nusselt.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 91%] Linking CXX executable 2d_finger_convection
+[ 91%] Built target ddc_simulateflow_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 91%] Linking CXX executable 3d_finger_convection
+[ 92%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_reloadfield_app.dir/ddc_reloadfield.cpp.o
+[ 92%] Linking CXX executable ddc_findeigenvals
+[ 93%] Linking CXX executable ddc_randomfield
+[ 94%] Linking CXX executable ddc_initialfield
+[ 94%] Linking CXX executable ddc_readEQ
+[ 95%] Linking CXX executable nsolvertest
+[ 96%] Linking CXX executable ddc_changegrid
+[ 97%] Linking CXX executable ddc_edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 97%] Built target 2d_diffusive_convection_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Building CXX object modules/ddc/validations/CMakeFiles/yang2021jfm_case3_2d_app.dir/yang2021jfm_case3_2d.cpp.o
+[ 98%] Built target ddc_continuesoln_app
+[ 98%] Built target 3d_diffusive_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target 2d_finger_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target 3d_finger_convection_app
+[ 98%] Built target ddc_findeigenvals_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target nsolvertest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target ddc_randomfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target ddc_initialfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target ddc_readEQ_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target ddc_changegrid_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[ 98%] Built target ddc_edgetracking_app
+[ 98%] Linking CXX executable ddc_reloadfield
+[ 99%] Linking CXX executable ddc_nusselt
+[100%] Linking CXX executable yang2021jfm_case3_2d
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[100%] Built target ddc_nusselt_app
+[100%] Built target ddc_reloadfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[100%] Built target yang2021jfm_case3_2d_app
+[100%] Linking CXX executable runUnitTests
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+[100%] Built target runUnitTests
+make[2]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+make[1]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_33540735_Ra40K_S4_up/build'
+L2Norm(u0)  == 0.02962862019273938
+L2Norm(u1)  == 0.02962862019273938
+bcNorm(u0)  == 6.825945750602396e-18
+bcNorm(u1)  == 6.825945750602396e-18
+divNorm(u0) == 9.441359910975604e-16
+divNorm(u1) == 9.441359910975604e-16
+Not fixing divergence...
+L2Norm(u0)  == 0.06907633623130102
+L2Norm(u1)  == 0.06907633623130102
+bcNorm(u0)  == 1.389380285201663e-16
+bcNorm(u1)  == 1.389380285201663e-16
+L2Norm(u0)  == 0.09273149278794005
+L2Norm(u1)  == 0.09273149278794005
+bcNorm(u0)  == 3.552209504797466e-16
+bcNorm(u1)  == 3.552209504797466e-16
+nu==0.0025, Vsuck==0, rotation==0, theta==0, dPdx==0, dPdz==0, Ubulk==0, Wbulk==0, uwall==1, uupper==0.5, ulower==-0.5, wupper==0, wlower==0, t0==0, dT==1, dt==0.001, variabledt==1, dtmin==1e-09, dtmax==0.2, CFLmin==0.4, CFLmax==0.6, LaminarBase, PressureGradient, SBDF3, SMRK2, Rotational, DealiasXZ, zero_bodyforce, TauCorrection, Silent
+242572 unknowns
+Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.135931
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 0.00157816
+   current  gx == 0.00157816
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 1.24529e-06
+   current  rx == 1.24529e-06
+         delta == 0.01
+Newt,GMRES == 0,0, f^T: ....10....20 res == 0.179571
+Newt,GMRES == 0,1, f^T: ....10....20 res == 0.0363046
+Newt,GMRES == 0,2, f^T: ....10....20 res == 0.0252008
+Newt,GMRES == 0,3, f^T: ....10....20 res == 0.0198542
+Newt,GMRES == 0,4, f^T: ....10....20 res == 0.0151448
+Newt,GMRES == 0,5, f^T: ....10....20 res == 0.0124316
+Newt,GMRES == 0,6, f^T: ....10....20 res == 0.0111473
+Newt,GMRES == 0,7, f^T: ....10....20 res == 0.0111434
+Newt,GMRES == 0,8, f^T: ....10....20 res == 0.00992123
+Newt,GMRES == 0,9, f^T: ....10....20 res == 0.00883958
+Newt,GMRES == 0,10, f^T: ....10....20 res == 0.00881791
+Newt,GMRES == 0,11, f^T: ....10....20 res == 0.00784085
+Newt,GMRES == 0,12, f^T: ....10....20 res == 0.0062774
+Newt,GMRES == 0,13, f^T: ....10....20 res == 0.00442421
+Newt,GMRES == 0,14, f^T: ....10....20 res == 0.00294493
+Newt,GMRES == 0,15, f^T: ....10....20 res == 0.00195722
+Newt,GMRES == 0,16, f^T: ....10....20 res == 0.00124417
+Newt,GMRES == 0,17, f^T: ....10....20 res == 0.00075391
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.0240262 > 0.01 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 0.19221
+mu, L2Norm(dxH(mu)) == 1.467, 0.00785226
+Found hookstep of proper radius
+ndxHmu == 0.00785226 ~= 0.01 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000981533
+f^T: ....10....20
+r(x), r(x+dxH) == 1.24529e-06, 1.04543e-06
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.24529e-06 residual at current position
+rH       ==   1.04543e-06 residual of newton/hookstep
+Delta_rH ==  -1.99864e-07 actual improvement in residual from newton/hookstep
+
+             -2.19212e-10 lower bound for acceptable improvement
+              -2.0862e-08 upper bound for ok improvement.
+             -1.56465e-07 upper bound for good improvement.
+             -1.87758e-07 upper bound for accurate prediction.
+Delta_rH ==  -1.99864e-07 ------> Accurate <------
+             -2.29482e-07 lower bound for accurate prediction.
+             -2.19212e-07 local linear model of improvement
+lambda       == 5.66486 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0566486 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.01
+  new delta == 0.015
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.015 < 0.1
+Increase delta and recompute hookstep.
+ old delta == 0.01
+ new delta == 0.015
+-------------------------------------------
+Hookstep number 1
+delta == 0.015
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.0240262 > 0.015 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 0.19221
+mu, L2Norm(dxH(mu)) == 0.974683, 0.011328
+Found hookstep of proper radius
+ndxHmu == 0.011328 ~= 0.015 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.001416
+f^T: ....10....20
+r(x), r(x+dxH) == 1.24529e-06, 9.70074e-07
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.24529e-06 residual at current position
+rH       ==   9.70074e-07 residual of newton/hookstep
+Delta_rH ==  -2.75218e-07 actual improvement in residual from newton/hookstep
+
+             -3.14613e-10 lower bound for acceptable improvement
+             -2.92887e-08 upper bound for ok improvement.
+             -2.19665e-07 upper bound for good improvement.
+             -2.63598e-07 upper bound for accurate prediction.
+Delta_rH ==  -2.75218e-07 ------> Accurate <------
+             -3.22175e-07 lower bound for accurate prediction.
+             -3.14613e-07 local linear model of improvement
+lambda       == 3.99311 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0598967 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.015
+  new delta == 0.0225
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.0225 < 0.1
+And residual is improving:     rH < backup_sS     9.70074e-07 < 1.04543e-06
+Increase delta and recompute hookstep.
+ old delta == 0.015
+ new delta == 0.0225
+-------------------------------------------
+Hookstep number 2
+delta == 0.0225
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.0240262 > 0.0225 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 0.19221
+mu, L2Norm(dxH(mu)) == 0.644812, 0.0161201
+Found hookstep of proper radius
+ndxHmu == 0.0161201 ~= 0.0225 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00201501
+f^T: ....10....20
+r(x), r(x+dxH) == 1.24529e-06, 8.78045e-07
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.24529e-06 residual at current position
+rH       ==   8.78045e-07 residual of newton/hookstep
+Delta_rH ==  -3.67247e-07 actual improvement in residual from newton/hookstep
+
+             -4.44265e-10 lower bound for acceptable improvement
+             -4.01195e-08 upper bound for ok improvement.
+             -3.00896e-07 upper bound for good improvement.
+             -3.61076e-07 upper bound for accurate prediction.
+Delta_rH ==  -3.67247e-07 ------> Accurate <------
+             -4.41315e-07 lower bound for accurate prediction.
+             -4.44265e-07 local linear model of improvement
+lambda       == 2.88418 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0648939 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.0225
+  new delta == 0.03375
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.03375 < 0.1
+And residual is improving:     rH < backup_sS     8.78045e-07 < 9.70074e-07
+Increase delta and recompute hookstep.
+ old delta == 0.0225
+ new delta == 0.03375
+-------------------------------------------
+Hookstep number 3
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 0.0240262 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.0240262
+f^T: ....10....20
+r(x), r(x+dxH) == 1.24529e-06, 2.30102e-07
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.24529e-06 residual at current position
+rH       ==   2.30102e-07 residual of newton/hookstep
+Delta_rH ==  -1.01519e-06 actual improvement in residual from newton/hookstep
+
+             -2.49058e-09 lower bound for acceptable improvement
+             -1.24529e-07 upper bound for ok improvement.
+             -9.33969e-07 upper bound for good improvement.
+Delta_rH ==  -1.01519e-06 ------> Good <------
+             -1.12076e-06 upper bound for accurate prediction.
+             -1.36982e-06 lower bound for accurate prediction.
+             -2.49058e-06 local linear model of improvement
+lambda       == 0.844042 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0284864 is the delta suggested by quadratic model
+Improvement is Good (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 1
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and keep current delta, since it's produced best result.
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.000678383
+rx           == 2.30102e-07
+L2Norm(dxN)  == 0.0240262
+L2Norm(dxOpt)== 0.0240262
+========================================================
+Newton iteration number 1
+Current state of Newton iteration:
+   fcount_newton   == 19
+   fcount_optimiza == 8
+   L2Norm(x)       == 0.12287
+   L2Norm(dxN)     == 0.0240262
+   L2Norm(dxOpt)   == 0.0240262
+   L2Dist(x,x0)    == 0.0240262
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 0.00157816
+   current  gx == 0.000678383
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 1.24529e-06
+   current  rx == 2.30102e-07
+         delta == 0.03375
+Newt,GMRES == 1,0, f^T: ....10....20 res == 0.208062
+Newt,GMRES == 1,1, f^T: ....10....20 res == 0.0902017
+Newt,GMRES == 1,2, f^T: ....10....20 res == 0.0393375
+Newt,GMRES == 1,3, f^T: ....10....20 res == 0.0258657
+Newt,GMRES == 1,4, f^T: ....10....20 res == 0.0229835
+Newt,GMRES == 1,5, f^T: ....10....20 res == 0.0219948
+Newt,GMRES == 1,6, f^T: ....10....20 res == 0.0208287
+Newt,GMRES == 1,7, f^T: ....10....20 res == 0.0190309
+Newt,GMRES == 1,8, f^T: ....10....20 res == 0.0167065
+Newt,GMRES == 1,9, f^T: ....10....20 res == 0.016329
+Newt,GMRES == 1,10, f^T: ....10....20 res == 0.0159324
+Newt,GMRES == 1,11, f^T: ....10....20 res == 0.0144886
+Newt,GMRES == 1,12, f^T: ....10....20 res == 0.0132155
+Newt,GMRES == 1,13, f^T: ....10....20 res == 0.0117856
+Newt,GMRES == 1,14, f^T: ....10....20 res == 0.00910351
+Newt,GMRES == 1,15, f^T: ....10....20 res == 0.00647723
+Newt,GMRES == 1,16, f^T: ....10....20 res == 0.00478972
+Newt,GMRES == 1,17, f^T: ....10....20 res == 0.00436435
+Newt,GMRES == 1,18, f^T: ....10....20 res == 0.00422677
+Newt,GMRES == 1,19, f^T: ....10....20 res == 0.00335597
+Newt,GMRES == 1,20, f^T: ....10....20 res == 0.0022569
+Newt,GMRES == 1,21, f^T: ....10....20 res == 0.00175461
+Newt,GMRES == 1,22, f^T: ....10....20 res == 0.00175311
+Newt,GMRES == 1,23, f^T: ....10....20 res == 0.00135207
+Newt,GMRES == 1,24, f^T: ....10....20 res == 0.000775835
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 0.0176084 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.0176084
+f^T: ....10....20
+r(x), r(x+dxH) == 2.30102e-07, 9.08982e-09
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.30102e-07 residual at current position
+rH       ==   9.08982e-09 residual of newton/hookstep
+Delta_rH ==  -2.21012e-07 actual improvement in residual from newton/hookstep
+
+             -4.60199e-10 lower bound for acceptable improvement
+             -2.30102e-08 upper bound for ok improvement.
+             -1.72576e-07 upper bound for good improvement.
+             -2.07092e-07 upper bound for accurate prediction.
+Delta_rH ==  -2.21012e-07 ------> Accurate <------
+             -2.53112e-07 lower bound for accurate prediction.
+             -4.60199e-07 local linear model of improvement
+lambda       == 0.962007 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0324677 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.000134832
+rx           == 9.08982e-09
+L2Norm(dxN)  == 0.0176084
+L2Norm(dxOpt)== 0.0176084
+========================================================
+Newton iteration number 2
+Current state of Newton iteration:
+   fcount_newton   == 44
+   fcount_optimiza == 10
+   L2Norm(x)       == 0.12089
+   L2Norm(dxN)     == 0.0176084
+   L2Norm(dxOpt)   == 0.0176084
+   L2Dist(x,x0)    == 0.0194756
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 0.000678383
+   current  gx == 0.000134832
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 2.30102e-07
+   current  rx == 9.08982e-09
+         delta == 0.03375
+Newt,GMRES == 2,0, f^T: ....10....20 res == 0.159695
+Newt,GMRES == 2,1, f^T: ....10....20 res == 0.110458
+Newt,GMRES == 2,2, f^T: ....10....20 res == 0.10964
+Newt,GMRES == 2,3, f^T: ....10....20 res == 0.0987014
+Newt,GMRES == 2,4, f^T: ....10....20 res == 0.0783157
+Newt,GMRES == 2,5, f^T: ....10....20 res == 0.0492442
+Newt,GMRES == 2,6, f^T: ....10....20 res == 0.0332106
+Newt,GMRES == 2,7, f^T: ....10....20 res == 0.0317802
+Newt,GMRES == 2,8, f^T: ....10....20 res == 0.0288931
+Newt,GMRES == 2,9, f^T: ....10....20 res == 0.0225798
+Newt,GMRES == 2,10, f^T: ....10....20 res == 0.0174479
+Newt,GMRES == 2,11, f^T: ....10....20 res == 0.0134525
+Newt,GMRES == 2,12, f^T: ....10....20 res == 0.0106088
+Newt,GMRES == 2,13, f^T: ....10....20 res == 0.00740559
+Newt,GMRES == 2,14, f^T: ....10....20 res == 0.00556414
+Newt,GMRES == 2,15, f^T: ....10....20 res == 0.00418599
+Newt,GMRES == 2,16, f^T: ....10....20 res == 0.00332614
+Newt,GMRES == 2,17, f^T: ....10....20 res == 0.00281475
+Newt,GMRES == 2,18, f^T: ....10....20 res == 0.00259769
+Newt,GMRES == 2,19, f^T: ....10....20 res == 0.00235616
+Newt,GMRES == 2,20, f^T: ....10....20 res == 0.00213465
+Newt,GMRES == 2,21, f^T: ....10....20 res == 0.00205052
+Newt,GMRES == 2,22, f^T: ....10....20 res == 0.00203611
+Newt,GMRES == 2,23, f^T: ....10....20 res == 0.00192837
+Newt,GMRES == 2,24, f^T: ....10....20 res == 0.00165663
+Newt,GMRES == 2,25, f^T: ....10....20 res == 0.00111624
+Newt,GMRES == 2,26, f^T: ....10....20 res == 0.000549309
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 0.00360936 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00360936
+f^T: ....10....20
+r(x), r(x+dxH) == 9.08982e-09, 3.09864e-11
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   9.08982e-09 residual at current position
+rH       ==   3.09864e-11 residual of newton/hookstep
+Delta_rH ==  -9.05884e-09 actual improvement in residual from newton/hookstep
+
+             -1.81796e-11 lower bound for acceptable improvement
+             -9.08982e-10 upper bound for ok improvement.
+             -6.81736e-09 upper bound for good improvement.
+             -8.18084e-09 upper bound for accurate prediction.
+Delta_rH ==  -9.05884e-09 ------> Accurate <------
+              -9.9988e-09 lower bound for accurate prediction.
+             -1.81796e-08 local linear model of improvement
+lambda       == 0.996606 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0336354 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 7.87228e-06
+rx           == 3.09864e-11
+L2Norm(dxN)  == 0.00360936
+L2Norm(dxOpt)== 0.00360936
+========================================================
+Newton iteration number 3
+Current state of Newton iteration:
+   fcount_newton   == 71
+   fcount_optimiza == 12
+   L2Norm(x)       == 0.120135
+   L2Norm(dxN)     == 0.00360936
+   L2Norm(dxOpt)   == 0.00360936
+   L2Dist(x,x0)    == 0.0213869
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 0.000134832
+   current  gx == 7.87228e-06
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 9.08982e-09
+   current  rx == 3.09864e-11
+         delta == 0.03375
+Newt,GMRES == 3,0, f^T: ....10....20 res == 0.371983
+Newt,GMRES == 3,1, f^T: ....10....20 res == 0.200562
+Newt,GMRES == 3,2, f^T: ....10....20 res == 0.184111
+Newt,GMRES == 3,3, f^T: ....10....20 res == 0.164516
+Newt,GMRES == 3,4, f^T: ....10....20 res == 0.11668
+Newt,GMRES == 3,5, f^T: ....10....20 res == 0.116671
+Newt,GMRES == 3,6, f^T: ....10....20 res == 0.0791378
+Newt,GMRES == 3,7, f^T: ....10....20 res == 0.0581434
+Newt,GMRES == 3,8, f^T: ....10....20 res == 0.0462644
+Newt,GMRES == 3,9, f^T: ....10....20 res == 0.0374212
+Newt,GMRES == 3,10, f^T: ....10....20 res == 0.0311663
+Newt,GMRES == 3,11, f^T: ....10....20 res == 0.0262091
+Newt,GMRES == 3,12, f^T: ....10....20 res == 0.0238968
+Newt,GMRES == 3,13, f^T: ....10....20 res == 0.0220077
+Newt,GMRES == 3,14, f^T: ....10....20 res == 0.0217924
+Newt,GMRES == 3,15, f^T: ....10....20 res == 0.021309
+Newt,GMRES == 3,16, f^T: ....10....20 res == 0.019211
+Newt,GMRES == 3,17, f^T: ....10....20 res == 0.0171687
+Newt,GMRES == 3,18, f^T: ....10....20 res == 0.0157304
+Newt,GMRES == 3,19, f^T: ....10....20 res == 0.01506
+Newt,GMRES == 3,20, f^T: ....10....20 res == 0.0148719
+Newt,GMRES == 3,21, f^T: ....10....20 res == 0.0148714
+Newt,GMRES == 3,22, f^T: ....10....20 res == 0.0147821
+Newt,GMRES == 3,23, f^T: ....10....20 res == 0.0145048
+Newt,GMRES == 3,24, f^T: ....10....20 res == 0.0141615
+Newt,GMRES == 3,25, f^T: ....10....20 res == 0.0132044
+Newt,GMRES == 3,26, f^T: ....10....20 res == 0.011863
+Newt,GMRES == 3,27, f^T: ....10....20 res == 0.00966114
+Newt,GMRES == 3,28, f^T: ....10....20 res == 0.00644601
+Newt,GMRES == 3,29, f^T: ....10....20 res == 0.00373902
+Newt,GMRES == 3,30, f^T: ....10....20 res == 0.0024146
+Newt,GMRES == 3,31, f^T: ....10....20 res == 0.00163473
+Newt,GMRES == 3,32, f^T: ....10....20 res == 0.00114864
+Newt,GMRES == 3,33, f^T: ....10....20 res == 0.00075092
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 0.000268594 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000268594
+f^T: ....10....20
+r(x), r(x+dxH) == 3.09864e-11, 5.46592e-15
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.09864e-11 residual at current position
+rH       ==   5.46592e-15 residual of newton/hookstep
+Delta_rH ==   -3.0981e-11 actual improvement in residual from newton/hookstep
+
+             -6.19721e-14 lower bound for acceptable improvement
+             -3.09864e-12 upper bound for ok improvement.
+             -2.32398e-11 upper bound for good improvement.
+             -2.78878e-11 upper bound for accurate prediction.
+Delta_rH ==   -3.0981e-11 ------> Accurate <------
+             -3.40851e-11 lower bound for accurate prediction.
+             -6.19721e-11 local linear model of improvement
+lambda       == 0.999836 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0337445 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 1.04555e-07
+rx           == 5.46592e-15
+L2Norm(dxN)  == 0.000268594
+L2Norm(dxOpt)== 0.000268594
+========================================================
+Newton iteration number 4
+Current state of Newton iteration:
+   fcount_newton   == 105
+   fcount_optimiza == 14
+   L2Norm(x)       == 0.120184
+   L2Norm(dxN)     == 0.000268594
+   L2Norm(dxOpt)   == 0.000268594
+   L2Dist(x,x0)    == 0.0214571
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 7.87228e-06
+   current  gx == 1.04555e-07
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 3.09864e-11
+   current  rx == 5.46592e-15
+         delta == 0.03375
+Newt,GMRES == 4,0, f^T: ....10....20 res == 0.344756
+Newt,GMRES == 4,1, f^T: ....10....20 res == 0.216095
+Newt,GMRES == 4,2, f^T: ....10....20 res == 0.13741
+Newt,GMRES == 4,3, f^T: ....10....20 res == 0.12897
+Newt,GMRES == 4,4, f^T: ....10....20 res == 0.12618
+Newt,GMRES == 4,5, f^T: ....10....20 res == 0.109313
+Newt,GMRES == 4,6, f^T: ....10....20 res == 0.0845323
+Newt,GMRES == 4,7, f^T: ....10....20 res == 0.0618098
+Newt,GMRES == 4,8, f^T: ....10....20 res == 0.0505388
+Newt,GMRES == 4,9, f^T: ....10....20 res == 0.0392062
+Newt,GMRES == 4,10, f^T: ....10....20 res == 0.035074
+Newt,GMRES == 4,11, f^T: ....10....20 res == 0.0318226
+Newt,GMRES == 4,12, f^T: ....10....20 res == 0.0315814
+Newt,GMRES == 4,13, f^T: ....10....20 res == 0.0314125
+Newt,GMRES == 4,14, f^T: ....10....20 res == 0.0300806
+Newt,GMRES == 4,15, f^T: ....10....20 res == 0.026576
+Newt,GMRES == 4,16, f^T: ....10....20 res == 0.0222254
+Newt,GMRES == 4,17, f^T: ....10....20 res == 0.019357
+Newt,GMRES == 4,18, f^T: ....10....20 res == 0.0167849
+Newt,GMRES == 4,19, f^T: ....10....20 res == 0.0148208
+Newt,GMRES == 4,20, f^T: ....10....20 res == 0.0133371
+Newt,GMRES == 4,21, f^T: ....10....20 res == 0.0119131
+Newt,GMRES == 4,22, f^T: ....10....20 res == 0.0104718
+Newt,GMRES == 4,23, f^T: ....10....20 res == 0.00926746
+Newt,GMRES == 4,24, f^T: ....10....20 res == 0.00850475
+Newt,GMRES == 4,25, f^T: ....10....20 res == 0.00773456
+Newt,GMRES == 4,26, f^T: ....10....20 res == 0.00770587
+Newt,GMRES == 4,27, f^T: ....10....20 res == 0.00764238
+Newt,GMRES == 4,28, f^T: ....10....20 res == 0.00763773
+Newt,GMRES == 4,29, f^T: ....10....20 res == 0.00747009
+Newt,GMRES == 4,30, f^T: ....10....20 res == 0.00635178
+Newt,GMRES == 4,31, f^T: ....10....20 res == 0.00430014
+Newt,GMRES == 4,32, f^T: ....10....20 res == 0.00229853
+Newt,GMRES == 4,33, f^T: ....10....20 res == 0.00114718
+Newt,GMRES == 4,34, f^T: ....10....20 res == 0.00054143
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 3.77561e-06 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 3.77561e-06
+f^T: ....10....20
+r(x), r(x+dxH) == 5.46592e-15, 1.65717e-21
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   5.46592e-15 residual at current position
+rH       ==   1.65717e-21 residual of newton/hookstep
+Delta_rH ==  -5.46592e-15 actual improvement in residual from newton/hookstep
+
+             -1.09318e-17 lower bound for acceptable improvement
+             -5.46592e-16 upper bound for ok improvement.
+             -4.09944e-15 upper bound for good improvement.
+             -4.91933e-15 upper bound for accurate prediction.
+Delta_rH ==  -5.46592e-15 ------> Accurate <------
+             -6.01251e-15 lower bound for accurate prediction.
+             -1.09318e-14 local linear model of improvement
+lambda       == 1.00001 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0337502 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 5.75703e-11
+rx           == 1.65717e-21
+L2Norm(dxN)  == 3.77561e-06
+L2Norm(dxOpt)== 3.77561e-06
+========================================================
+Newton iteration number 5
+Current state of Newton iteration:
+   fcount_newton   == 140
+   fcount_optimiza == 16
+   L2Norm(x)       == 0.120184
+   L2Norm(dxN)     == 3.77561e-06
+   L2Norm(dxOpt)   == 3.77561e-06
+   L2Dist(x,x0)    == 0.0214588
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 1.04555e-07
+   current  gx == 5.75703e-11
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 5.46592e-15
+   current  rx == 1.65717e-21
+         delta == 0.03375
+Newt,GMRES == 5,0, f^T: ....10....20 res == 0.695131
+Newt,GMRES == 5,1, f^T: ....10....20 res == 0.640483
+Newt,GMRES == 5,2, f^T: ....10....20 res == 0.526579
+Newt,GMRES == 5,3, f^T: ....10....20 res == 0.517666
+Newt,GMRES == 5,4, f^T: ....10....20 res == 0.517412
+Newt,GMRES == 5,5, f^T: ....10....20 res == 0.494169
+Newt,GMRES == 5,6, f^T: ....10....20 res == 0.359924
+Newt,GMRES == 5,7, f^T: ....10....20 res == 0.2708
+Newt,GMRES == 5,8, f^T: ....10....20 res == 0.261922
+Newt,GMRES == 5,9, f^T: ....10....20 res == 0.261118
+Newt,GMRES == 5,10, f^T: ....10....20 res == 0.248397
+Newt,GMRES == 5,11, f^T: ....10....20 res == 0.221938
+Newt,GMRES == 5,12, f^T: ....10....20 res == 0.200025
+Newt,GMRES == 5,13, f^T: ....10....20 res == 0.19002
+Newt,GMRES == 5,14, f^T: ....10....20 res == 0.189874
+Newt,GMRES == 5,15, f^T: ....10....20 res == 0.176749
+Newt,GMRES == 5,16, f^T: ....10....20 res == 0.149018
+Newt,GMRES == 5,17, f^T: ....10....20 res == 0.111491
+Newt,GMRES == 5,18, f^T: ....10....20 res == 0.0828902
+Newt,GMRES == 5,19, f^T: ....10....20 res == 0.0652589
+Newt,GMRES == 5,20, f^T: ....10....20 res == 0.0529846
+Newt,GMRES == 5,21, f^T: ....10....20 res == 0.0436479
+Newt,GMRES == 5,22, f^T: ....10....20 res == 0.0324322
+Newt,GMRES == 5,23, f^T: ....10....20 res == 0.0272773
+Newt,GMRES == 5,24, f^T: ....10....20 res == 0.021336
+Newt,GMRES == 5,25, f^T: ....10....20 res == 0.0138616
+Newt,GMRES == 5,26, f^T: ....10....20 res == 0.00886316
+Newt,GMRES == 5,27, f^T: ....10....20 res == 0.00558867
+Newt,GMRES == 5,28, f^T: ....10....20 res == 0.00346313
+Newt,GMRES == 5,29, f^T: ....10....20 res == 0.00202709
+Newt,GMRES == 5,30, f^T: ....10....20 res == 0.00137326
+Newt,GMRES == 5,31, f^T: ....10....20 res == 0.00102343
+Newt,GMRES == 5,32, f^T: ....10....20 res == 0.000743084
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.03375
+Newton step is within trust region: 
+L2Norm(dxN) == 1.02185e-08 <= 0.03375 == delta
+Computing residual of hookstep dxH
+L2Norm(dxH) == 1.02185e-08
+f^T: ....10....20
+r(x), r(x+dxH) == 1.65717e-21, 9.41517e-28
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.65717e-21 residual at current position
+rH       ==   9.41517e-28 residual of newton/hookstep
+Delta_rH ==  -1.65717e-21 actual improvement in residual from newton/hookstep
+
+             -3.31434e-24 lower bound for acceptable improvement
+             -1.65717e-22 upper bound for ok improvement.
+             -1.24288e-21 upper bound for good improvement.
+             -1.49145e-21 upper bound for accurate prediction.
+Delta_rH ==  -1.65717e-21 ------> Accurate <------
+             -1.82289e-21 lower bound for accurate prediction.
+             -3.31434e-21 local linear model of improvement
+lambda       == 1 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 0.0337501 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 1
+Backup step is better                   : 0
+Delta has reached local limit           : 0
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : true
+delta >= deltaMax      : false
+delta == 0.03375
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 4.33939e-14
+rx           == 9.41517e-28
+L2Norm(dxN)  == 1.02185e-08
+L2Norm(dxOpt)== 1.02185e-08
+========================================================
+Newton iteration number 6
+Current state of Newton iteration:
+   fcount_newton   == 173
+   fcount_optimiza == 18
+   L2Norm(x)       == 0.120184
+   L2Norm(dxN)     == 1.02185e-08
+   L2Norm(dxOpt)   == 1.02185e-08
+   L2Dist(x,x0)    == 0.0214588
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00157816
+   previous gx == 5.75703e-11
+   current  gx == 4.33939e-14
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 1.24529e-06
+   previous rx == 1.65717e-21
+   current  rx == 9.41517e-28
+         delta == 0.03375
+Newton search converged. Breaking.
+L2Norm(G(x)) == 4.33939e-14 < epsSearch == 1e-13

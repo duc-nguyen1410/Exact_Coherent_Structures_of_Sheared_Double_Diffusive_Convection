@@ -1,0 +1,22 @@
+Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.295046
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 2.27921e-14
+   previous gx == 2.27921e-14
+   current  gx == 2.27921e-14
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 2.5974e-28
+   previous rx == 2.5974e-28
+   current  rx == 2.5974e-28
+         delta == 0.01
+Newton search converged. Breaking.
+L2Norm(G(x)) == 2.27921e-14 < epsSearch == 1e-13

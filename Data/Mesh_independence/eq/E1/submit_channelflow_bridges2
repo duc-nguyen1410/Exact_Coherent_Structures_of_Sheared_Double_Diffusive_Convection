@@ -1,0 +1,61 @@
+#!/bin/bash
+### partition 1: RM [default,use one or more full nodes], 
+### partition 2: RM-shared [use only part of one node] 128 cpu per node
+### partition 3: RM-512 [use one or more full 512GB-memory nodes]
+#SBATCH --partition=RM-shared # 
+#SBATCH --nodes=1 # no limit
+#SBATCH --ntasks=64 # no limit
+#SBATCH --time=72:00:00 # limit: 3 days or 72h
+#SBATCH --mail-user=duc.nguyen@uconn.edu      # Destination email address
+#SBATCH --mail-type=ALL                       # Event(s) that triggers email notification
+#SBATCH --job-name=MESH_IND_E1
+#SBATCH --output=channelflow_output_%j
+export SLURM_EXPORT_ENV=ALL
+#export I_MPI_FABRICS=shm,tcp
+
+##the slurm number to restart simulation... This need full state to be stored.
+SUBMITDIR=$SLURM_SUBMIT_DIR
+JOBNAME=channelflow_${SLURM_JOB_ID}_MESH_IND_E1
+WORKDIR=/ocean/projects/phy240052p/vnguyen9/channelflow/$JOBNAME
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2} "$WORKDIR" && cd "$WORKDIR" || exit -1
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input} "$WORKDIR" && cd "$WORKDIR" || exit -1
+mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input,./symms} "$WORKDIR" && cd "$WORKDIR" || exit -1
+
+source activate base
+conda activate channelflow
+make buildpsc
+
+mkdir 256x161
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 161 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 161 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 161 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -od "256x161" -eqb -Nn 100 -Ng 100 -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -CFLmax 0.5 -symms symms/sym_uS1 -tsymms symms/sym_tS1 -ssymms symms/sym_sS1 iniU iniT iniS
+
+
+# mkdir 256x129
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 256 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -od "256x129" -eqb -Nn 100 -Ng 100 -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -CFLmax 0.5 -symms symms/sym_uS1 -tsymms symms/sym_tS1 -ssymms symms/sym_sS1 iniU iniT iniS
+
+# mkdir 192x129
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 129 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -od "192x129" -eqb -Nn 100 -Ng 100 -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -CFLmax 0.5 -symms symms/sym_uS1 -tsymms symms/sym_tS1 -ssymms symms/sym_sS1 iniU iniT iniS
+
+# mkdir 128x97
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 128 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 128 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 128 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -od "128x97" -eqb -Nn 100 -Ng 100 -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -CFLmax 0.5 -symms symms/sym_uS1 -tsymms symms/sym_tS1 -ssymms symms/sym_sS1 iniU iniT iniS
+
+# mkdir 96x65
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 96 -Ny 65 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 96 -Ny 65 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 96 -Ny 65 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -od "96x65" -eqb -Nn 100 -Ng 100 -Ra 1e5 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -CFLmax 0.5 -symms symms/sym_uS1 -tsymms symms/sym_tS1 -ssymms symms/sym_sS1 iniU iniT iniS
+
+
+cd "$SUBMITDIR" && cp channelflow_output_$SLURM_JOB_ID "$WORKDIR"
+
