@@ -1,0 +1,36 @@
+#!/bin/bash
+### partition 1: RM [default,use one or more full nodes], 
+### partition 2: RM-shared [use only part of one node] 128 cpu per node
+### partition 3: RM-512 [use one or more full 512GB-memory nodes]
+#SBATCH --partition=RM-shared # 
+#SBATCH --nodes=1 # no limit
+#SBATCH --ntasks=64 # no limit
+#SBATCH --time=72:00:00 # limit: 3 days or 72h
+#SBATCH --mail-user=duc.nguyen@uconn.edu      # Destination email address
+#SBATCH --mail-type=ALL                       # Event(s) that triggers email notification
+#SBATCH --job-name=Ra40K_S4_low
+#SBATCH --output=channelflow_output_%j
+export SLURM_EXPORT_ENV=ALL
+#export I_MPI_FABRICS=shm,tcp
+
+##the slurm number to restart simulation... This need full state to be stored.
+SUBMITDIR=$SLURM_SUBMIT_DIR
+WORKDIR=/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_${SLURM_JOB_ID}_Ra40K_S4_low
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2} "$WORKDIR" && cd "$WORKDIR" || exit -1
+# mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input} "$WORKDIR" && cd "$WORKDIR" || exit -1
+mkdir -p "$WORKDIR" && cp -r {./ddc,makefile,CMakeLists.txt,submit_channelflow_bridges2,./input,./symms} "$WORKDIR" && cd "$WORKDIR" || exit -1
+source activate base
+conda activate channelflow
+make buildpsc
+
+
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/ubest iniU
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/tbest iniT
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/tools/ddc_changegrid -p false -dv false -Nx 192 -Ny 97 -Nz 10 -al 1 -Lz 0.005 ./input/sbest iniS
+mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -eqb -Nn 100 -Ng 100 -Ra 40000 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -symms symms/sym_uS4 -tsymms symms/sym_tS4 -ssymms symms/sym_sS4 iniU iniT iniS
+
+# mpiexec -n $SLURM_NTASKS ./build/modules/ddc/programs/ddc_findsoln -orb -es 1e-10 -Nn 50 -Ng 200 -Ra 40000 -Pr 7 -Le 100 -Rr 2 -Ua -0.5 -Ub 0.5 -Ta 0.5 -Tb -0.5 -Sa 0.5 -Sb -0.5 -dt 0.001 -dtmin 1e-9 -T 22 input/u200 input/t200 input/s200
+
+
+cd "$SUBMITDIR" && cp channelflow_output_$SLURM_JOB_ID "$WORKDIR"
+
