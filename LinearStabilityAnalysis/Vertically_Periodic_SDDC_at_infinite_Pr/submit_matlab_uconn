@@ -11,7 +11,7 @@
 #SBATCH --time=30-00:00:00
 #SBATCH --mail-user=duc.nguyen@uconn.edu      # Destination email address
 #SBATCH --mail-type=ALL                       # Event(s) that triggers email notification
-#SBATCH --job-name=LSA_SDDC_Pr1000
+#SBATCH --job-name=LSA_SDDC_Pr10
 #SBATCH --output=matlab_output_%j
 export SLURM_EXPORT_ENV=ALL
 #export I_MPI_FABRICS=shm,tcp
@@ -24,9 +24,9 @@ mkdir -p "$WORKDIR" && cp -r *.m "$WORKDIR" && cp submit_matlab_uconn "$WORKDIR"
 # ssh -y jms24002@hpc2.storrs.hpc.uconn.edu
 # LSA_SDDC_Pr10000: jobid 21646617 : running
 # LSA_SDDC_Pr1000: jobid 21646619 : pending
-# LSA_SDDC_Pr100: jobid 21642114 : running
-# LSA_SDDC_Pr10: jobid 21642116 : running
-# LSA_reducedSDDC_Pr10: jobid 21642189 : 
+# LSA_SDDC_Pr100: jobid 21642114 : running 
+# LSA_SDDC_Pr10: jobid 21655714 : running <<--
+# LSA_reducedSDDC_Pr10: jobid 21655719 : running <<--
 # Required modules
 module load matlab
 

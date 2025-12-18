@@ -8,7 +8,7 @@ Ri = logspace(log10(0.25),3,100)'; % Richardson number
 Pe = logspace(0,4,100)'; % Peclet number
 Lambda = 2.; % density ratio
 tau = 0.01; % diffusivity ratio
-Pr = 1000.;
+Pr = 10.;
 filename = ['./maxGrowthRateMap_RiPe_Lambda=' num2str(Lambda),'_tau=' num2str(tau),'_Pr=' num2str(Pr)];
 MGR_map = maxGrowthRateMap(Ri,Pe,Lambda,Pr,tau);
 writematrix(MGR_map,[filename '.csv']);
@@ -20,7 +20,7 @@ interpMGR_map(find(interpMGR_map<1e-5))=NaN;
 % plot growth rate for each case
 f = figure;
 pcolor(Rip,Pep,log10(transpose(interpMGR_map)));shading interp; colormap(jet);
-clim([-6 0])
+clim([-5 0])
 colorbar;
 set(gca, 'XScale', 'log');
 set(gca, 'YScale', 'log');
