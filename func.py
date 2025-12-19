@@ -466,7 +466,7 @@ def psd2(t, x0, name, L_ref=1.0, U_ref=1.0):
     max_PSD = P2_0[max_idx]
     max_St = St[max_idx]
 
-    print(f"Max PSD = {max_PSD:.6e} at St = {max_St:.6f}")
+    # print(f"Max PSD = {max_PSD:.6e} at St = {max_St:.6f}")
 
     # Plot PSD
     plt.figure(figsize=(4, 3))
