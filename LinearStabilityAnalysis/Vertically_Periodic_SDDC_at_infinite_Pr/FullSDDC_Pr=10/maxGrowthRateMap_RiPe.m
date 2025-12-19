@@ -6,11 +6,13 @@ setfigure;
 % define paramesters [figure 7b]
 Ri = logspace(log10(0.25),3,100)'; % Richardson number
 Pe = logspace(0,4,100)'; % Peclet number
+Lambda = 2.; % density ratio
+tau = 0.01; % diffusivity ratio
+Pr = 10.;
+filename = './maxGrowthRateMap_RiPe';
+MGR_map = maxGrowthRateMap(Ri,Pe,Lambda,Pr,tau);
+writematrix(MGR_map,[filename '.csv']);
 
-
-filename = 'maxGrowthRateMap_RiPe_Lambda=2_tau=0.01_Pr=10';
-
-MGR_map = readmatrix([filename '.csv']);
 
 [Rip,Pep,interpMGR_map] = interp_log10(Ri,Pe,MGR_map,1000,1000);
 interpMGR_map(find(interpMGR_map<1e-5))=NaN;
@@ -30,4 +32,4 @@ pbaspect([1 1 1])
 title("$\log_{10}$Re$(\lambda)$","Interpreter","latex")
 xlabel('{\it{Ri}}')
 ylabel('{\it{Pe}}',"Rotation",0)
-savefigure(gca,[filename '_replot.png']);
+savefigure(gca,[filename '.png']);
