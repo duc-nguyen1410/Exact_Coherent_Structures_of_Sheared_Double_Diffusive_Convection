@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Times New Roman']
 plt.rcParams['mathtext.fontset'] = 'stix'  # Use STIX fonts for math symbols
@@ -169,11 +170,14 @@ def plot_scalar(x,y,scalar,vmin=-1,vmax=1,colorbar=False):
     plt.yticks([-0.5, 0, 0.5],[r'$-0.5$',r'0',r'0.5'],fontsize=16)
     plt.xlim(0, 2*np.pi)
     plt.ylim(-0.5, 0.5)
+    plt.gca().set_aspect(1)
     if colorbar:
         ticks=[vmin, 0, vmax]
-        cbar = plt.colorbar(cax, ticks=ticks, shrink=1.0, aspect=10)
-        # cbar.ax.set_aspect(1)
-        cbar.ax.set_yticklabels([r'{:.2f}'.format(vmin), r'0', r'{:.2f}'.format(vmax)])
+        # divider = make_axes_locatable(plt.gca())
+        # colorbar_ax = divider.append_axes("right", size="5%", pad=0.1)
+        # cbar = plt.colorbar(cax, cax=colorbar_ax, ticks=ticks)
+        cbar = plt.colorbar(cax, ticks=ticks, pad=0.02, shrink=0.65, aspect=8)
+        cbar.ax.set_yticklabels([r'{:.2f}'.format(vmin), r'0', r'{:.2f}'.format(vmax)], fontsize=14)
 
 def plot_streamline(x,y,vec_x,vec_y):
     X, Y= np.meshgrid(x,y)
@@ -187,7 +191,7 @@ def plot_streamline(x,y,vec_x,vec_y):
     lw = 1.0 * speed / speed.max()
     # contour_levels = [0.1, 0.2, 0.5, 1.0]*speed.max()
     plt.streamplot(X_sorted, Y_sorted, vec_x_sorted.T, vec_y_sorted.T, 
-                   density = 0.7, color ='k', linewidth = lw.T, arrowstyle ='->',arrowsize = 0.8, broken_streamlines=True) 
+                   density = 0.8, color ='k', linewidth = lw.T, arrowstyle ='->',arrowsize = 0.6, broken_streamlines=True) 
     # plt.streamplot(X_sorted, Y_sorted, vec_x_sorted.T, vec_y_sorted.T, 
     #                density = 1, linewidth = lw.T,color ='k', broken_streamlines=False) 
     # contour = plt.contour(X, Y, vec_x_sorted.T, levels = contour_levels, colors='k',linewidths = 0.6)
