@@ -1,0 +1,3067 @@
+git clone --depth=1 https://github.com/epfl-ecps/channelflow.git
+Cloning into 'channelflow'...
+Updating files:  56% (279/496)Updating files:  57% (283/496)Updating files:  58% (288/496)Updating files:  59% (293/496)Updating files:  60% (298/496)Updating files:  61% (303/496)Updating files:  62% (308/496)Updating files:  63% (313/496)Updating files:  64% (318/496)Updating files:  65% (323/496)Updating files:  66% (328/496)Updating files:  67% (333/496)Updating files:  68% (338/496)Updating files:  69% (343/496)Updating files:  70% (348/496)Updating files:  71% (353/496)Updating files:  72% (358/496)Updating files:  73% (363/496)Updating files:  74% (368/496)Updating files:  75% (372/496)Updating files:  76% (377/496)Updating files:  77% (382/496)Updating files:  78% (387/496)Updating files:  79% (392/496)Updating files:  80% (397/496)Updating files:  81% (402/496)Updating files:  82% (407/496)Updating files:  83% (412/496)Updating files:  84% (417/496)Updating files:  85% (422/496)Updating files:  86% (427/496)Updating files:  87% (432/496)Updating files:  88% (437/496)Updating files:  89% (442/496)Updating files:  90% (447/496)Updating files:  91% (452/496)Updating files:  92% (457/496)Updating files:  93% (462/496)Updating files:  94% (467/496)Updating files:  95% (472/496)Updating files:  96% (477/496)Updating files:  97% (482/496)Updating files:  98% (487/496)Updating files:  99% (492/496)Updating files: 100% (496/496)Updating files: 100% (496/496), done.
+cp ./CMakeLists.txt ./channelflow/CMakeLists.txt
+mkdir -p ./channelflow/modules/
+rm -rf ./channelflow/modules/ddc
+cp -r ./ddc ./channelflow/modules/ddc
+mkdir -p build
+cd build;\
+cmake ../channelflow -DCMAKE_CXX_COMPILER=/opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx -DWITH_DDC=ON -DWITH_NSOLVER=ON -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/chflow -DCMAKE_CXX_FLAGS_RELEASE:STRING=" -fPIC -lfftw3 -lm -Wno-unused-variable -Wno-deprecated " -DWITH_SHARED=OFF -DWITH_HDF5CXX=OFF;\
+make -j16
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 8.5.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/x86_64-conda-linux-gnu-cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- 
+-- configuring channelflow version 2.0.2
+-- Using GNU compiler options
+-- 
+-- Starting system introspection
+-- Looking for drand48
+-- Looking for drand48 - found
+-- Looking for include file wordexp.h
+-- Looking for include file wordexp.h - found
+-- Found Eigen3: /jet/home/vnguyen9/miniconda3/envs/channelflow/include/eigen3 (Required is at least version "2.91.0")
+-- Found FFTW 
+-- FFTW_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3.so
+-- FFTW_OMP_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_omp.so
+-- FFTW_MPI_LIBRARY=/jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Looking for include file fftw3.h
+-- Looking for include file fftw3.h - found
+-- Found MPI_C: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libmpi.so (found version "3.1")
+-- Found MPI_CXX: /opt/packages/openmpi/gnu/5.0.3-gcc13.2.1-cpu/bin/mpicxx (found version "3.1")
+-- Found MPI: TRUE (found version "3.1") found components: C CXX
+-- MPI libs: 
+-- FFTW_MPI library: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libfftw3_mpi.so
+-- Found NetCDF: /jet/home/vnguyen9/miniconda3/envs/channelflow/lib/libnetcdf.so
+-- NetCDF include dir: /jet/home/vnguyen9/miniconda3/envs/channelflow/include
+-- Looking for include file netcdf.h
+-- Looking for include file netcdf.h - found
+-- 
+-- Include directories: 
+-- Git revision ad37ef3022351d4e4a7a6c274c59a88605ad19e8
+-- Found Doxygen: /jet/home/vnguyen9/miniconda3/envs/channelflow/bin/doxygen (found version "1.10.0") found components: doxygen dot
+
+
+   ###############################################
+   ###########  Configuration summary  ###########
+   ###############################################
+   Compiler:                       GNU 8.5.0
+   Build type:                     release
+   Install prefix:                 /chflow
+   Building shared library:        yes
+   Linking programs to:            shared library
+
+   Libraries
+   MPI:                            enabled
+   netcdf (default file format):   enabled
+   Parallel netcdf:                disabled
+   HDF5 C++ (legacy file format):  disabled
+
+   Channelflow components
+   nsolver:                        enabled
+   Double-diffusive convection:    enabled
+   Python wrapper:                 disabled
+   GTest unit testing:             disabled
+
+
+-- Configuring done (3.8s)
+-- Generating done (2.4s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    WITH_SHARED
+
+
+-- Build files have been written to: /ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build
+make[1]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[2]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[  1%] Building CXX object nsolver/CMakeFiles/nsolver.dir/arnoldi.cpp.o
+[  1%] Building CXX object nsolver/CMakeFiles/nsolver.dir/lanczos.cpp.o
+[  3%] Building CXX object nsolver/CMakeFiles/nsolver.dir/continuation.cpp.o
+[  3%] Building CXX object nsolver/CMakeFiles/nsolver.dir/bicgstab.cpp.o
+[  3%] Building CXX object nsolver/CMakeFiles/nsolver.dir/dsi.cpp.o
+[  6%] Building CXX object nsolver/CMakeFiles/nsolver.dir/multiShootingDSI.cpp.o
+[  6%] Building CXX object nsolver/CMakeFiles/nsolver.dir/gmres.cpp.o
+[  6%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newtonalgorithm.cpp.o
+[  6%] Building CXX object nsolver/CMakeFiles/nsolver.dir/fgmres.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/newton.cpp.o
+[  7%] Building CXX object nsolver/CMakeFiles/nsolver.dir/eigenvals.cpp.o
+[  8%] Linking CXX shared library libnsolver.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[  8%] Built target nsolver
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[  9%] Building CXX object channelflow/CMakeFiles/chflow.dir/bandedtridiag.cpp.o
+[  9%] Building CXX object channelflow/CMakeFiles/chflow.dir/chebyshev.cpp.o
+[ 10%] Building CXX object channelflow/CMakeFiles/chflow.dir/basisfunc.cpp.o
+[ 10%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfmpi.cpp.o
+[ 12%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsalgo.cpp.o
+[ 12%] Building CXX object channelflow/CMakeFiles/chflow.dir/diffops.cpp.o
+[ 13%] Building CXX object channelflow/CMakeFiles/chflow.dir/nse.cpp.o
+[ 16%] Building CXX object channelflow/CMakeFiles/chflow.dir/symmetry.cpp.o
+[ 16%] Building CXX object channelflow/CMakeFiles/chflow.dir/poissonsolver.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/periodicfunc.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/helmholtz.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/flowfield.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/dns.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofile.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/realprofileng.cpp.o
+[ 18%] Building CXX object channelflow/CMakeFiles/chflow.dir/dnsflags.cpp.o
+[ 19%] Building CXX object channelflow/CMakeFiles/chflow.dir/tausolver.cpp.o
+[ 20%] Building CXX object channelflow/CMakeFiles/chflow.dir/turbstats.cpp.o
+[ 20%] Building CXX object channelflow/CMakeFiles/chflow.dir/utilfuncs.cpp.o
+[ 21%] Building CXX object channelflow/CMakeFiles/chflow.dir/__/GitSHA1.cpp.o
+[ 22%] Building CXX object channelflow/CMakeFiles/chflow.dir/cfdsi.cpp.o
+[ 22%] Building CXX object channelflow/CMakeFiles/chflow.dir/laurettedsi.cpp.o
+[ 23%] Linking CXX shared library libchflow.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 23%] Built target chflow
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 23%] Building CXX object programs/CMakeFiles/edgetracking_app.dir/edgetracking.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 23%] Building CXX object programs/CMakeFiles/simulateflow_app.dir/simulateflow.cpp.o
+[ 24%] Building CXX object programs/CMakeFiles/continuesoln_app.dir/continuesoln.cpp.o
+[ 25%] Building CXX object programs/CMakeFiles/findeigenvals_app.dir/findeigenvals.cpp.o
+[ 26%] Building CXX object programs/CMakeFiles/findsoln_app.dir/findsoln.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/addfields_app.dir/addfields.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/benchmark_app.dir/benchmark.cpp.o
+[ 28%] Building CXX object tools/CMakeFiles/changegrid_app.dir/changegrid.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/fieldconvert_app.dir/fieldconvert.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/fieldprops_app.dir/fieldprops.cpp.o
+[ 30%] Building CXX object tools/CMakeFiles/diffop_app.dir/diffop.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/findsymmetries_app.dir/findsymmetries.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/extrapolatefields_app.dir/extrapolatefields.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/L2op_app.dir/L2op.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/perturbfield_app.dir/perturbfield.cpp.o
+[ 33%] Building CXX object tools/CMakeFiles/optphaseshift_app.dir/optphaseshift.cpp.o
+[ 34%] Linking CXX executable fieldconvert
+[ 36%] Linking CXX executable L2op
+[ 36%] Linking CXX executable addfields
+[ 36%] Linking CXX executable benchmark
+[ 37%] Linking CXX executable optphaseshift
+[ 38%] Linking CXX executable findsymmetries
+[ 39%] Linking CXX executable perturbfield
+[ 39%] Linking CXX executable changegrid
+[ 40%] Linking CXX executable simulateflow
+[ 41%] Linking CXX executable diffop
+[ 41%] Linking CXX executable extrapolatefields
+[ 41%] Linking CXX executable findeigenvals
+[ 43%] Linking CXX executable fieldprops
+[ 43%] Linking CXX executable continuesoln
+[ 43%] Linking CXX executable findsoln
+[ 44%] Linking CXX executable edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 44%] Built target fieldconvert_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 44%] Built target L2op_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 44%] Building CXX object tools/CMakeFiles/pressure_app.dir/pressure.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 45%] Building CXX object tools/CMakeFiles/randomfield_app.dir/randomfield.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 45%] Built target optphaseshift_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 45%] Built target benchmark_app
+[ 45%] Built target addfields_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 45%] Built target perturbfield_app
+[ 45%] Built target findsymmetries_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 48%] Building CXX object examples/CMakeFiles/couette_app.dir/couette.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 48%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcflags.cpp.o
+[ 49%] Building CXX object tests/CMakeFiles/chebyTest_app.dir/chebyTest.cpp.o
+[ 49%] Built target simulateflow_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 50%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/dde.cpp.o
+[ 50%] Building CXX object tools/CMakeFiles/symmetrize_app.dir/symmetrize.cpp.o
+[ 50%] Built target changegrid_app
+[ 51%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddc.cpp.o
+[ 51%] Building CXX object tools/CMakeFiles/symmetryop_app.dir/symmetryop.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 51%] Built target diffop_app
+[ 51%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddcdsi.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 51%] Built target findeigenvals_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 52%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddchelmholtz.cpp.o
+[ 52%] Built target extrapolatefields_app
+[ 53%] Building CXX object modules/ddc/CMakeFiles/ddc.dir/ddctausolver.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 53%] Built target continuesoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 53%] Built target edgetracking_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 53%] Built target fieldprops_app
+[ 53%] Built target findsoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 53%] Building CXX object tests/CMakeFiles/laminarTest_app.dir/laminarTest.cpp.o
+[ 53%] Building CXX object tests/CMakeFiles/dnsOrrsommTest_app.dir/dnsOrrsommTest.cpp.o
+[ 55%] Building CXX object tests/CMakeFiles/dnsSinusoidTest_app.dir/dnsSinusoidTest.cpp.o
+[ 55%] Building CXX object tests/CMakeFiles/dnsParabolaTest_app.dir/dnsParabolaTest.cpp.o
+[ 56%] Linking CXX executable chebyTest
+[ 57%] Linking CXX executable pressure
+[ 57%] Linking CXX executable randomfield
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 58%] Linking CXX executable couette
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 58%] Building CXX object tests/CMakeFiles/dnsZeroTest_app.dir/dnsZeroTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 59%] Building CXX object tests/CMakeFiles/helmholtzTest_app.dir/helmholtzTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 60%] Building CXX object tests/CMakeFiles/ioTest_app.dir/ioTest.cpp.o
+[ 60%] Linking CXX executable symmetrize
+[ 61%] Linking CXX executable symmetryop
+[ 62%] Linking CXX executable laminarTest
+[ 63%] Linking CXX executable dnsSinusoidTest
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 64%] Linking CXX executable dnsParabolaTest
+[ 64%] Built target pressure_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 64%] Building CXX object tests/CMakeFiles/poissonTest_app.dir/poissonTest.cpp.o
+[ 64%] Built target chebyTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 65%] Building CXX object tests/CMakeFiles/pressureTest_app.dir/pressureTest.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 66%] Building CXX object tests/CMakeFiles/realprofileTest_app.dir/realprofileTest.cpp.o
+[ 67%] Linking CXX executable dnsOrrsommTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 67%] Built target randomfield_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 67%] Building CXX object tests/CMakeFiles/tausolverTest_app.dir/tausolverTest.cpp.o
+[ 67%] Built target couette_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 68%] Building CXX object tests/CMakeFiles/timeIntegrationTest_app.dir/timeIntegrationTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 69%] Building CXX object tests/CMakeFiles/tridiagTest_app.dir/tridiagTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 69%] Built target laminarTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 69%] Built target symmetryop_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 69%] Built target symmetrize_app
+[ 69%] Building CXX object tests/CMakeFiles/vector2fieldTest_app.dir/vector2fieldTest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 70%] Building CXX object tests/CMakeFiles/nsolvertest_app.dir/nsolvertest.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 70%] Built target dnsSinusoidTest_app
+[ 70%] Linking CXX shared library libddc.so
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 70%] Built target dnsOrrsommTest_app
+[ 70%] Built target dnsParabolaTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 70%] Built target ddc
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 70%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_simulateflow_app.dir/ddc_simulateflow.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findeigenvals_app.dir/ddc_findeigenvals.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_continuesoln_app.dir/ddc_continuesoln.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_findsoln_app.dir/ddc_findsoln.cpp.o
+[ 72%] Building CXX object modules/ddc/programs/CMakeFiles/ddc_edgetracking_app.dir/ddc_edgetracking.cpp.o
+[ 72%] Linking CXX executable helmholtzTest
+[ 73%] Linking CXX executable ioTest
+[ 74%] Linking CXX executable dnsZeroTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 74%] Built target helmholtzTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 74%] Linking CXX executable poissonTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 74%] Building CXX object modules/ddc/examples/CMakeFiles/2d_diffusive_convection_app.dir/2d_diffusive_convection.cpp.o
+[ 75%] Linking CXX executable pressureTest
+[ 76%] Linking CXX executable tridiagTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 76%] Built target ioTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 77%] Building CXX object modules/ddc/examples/CMakeFiles/3d_diffusive_convection_app.dir/3d_diffusive_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 79%] Linking CXX executable realprofileTest
+[ 79%] Linking CXX executable tausolverTest
+[ 79%] Built target dnsZeroTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 80%] Building CXX object modules/ddc/examples/CMakeFiles/2d_finger_convection_app.dir/2d_finger_convection.cpp.o
+[ 81%] Linking CXX executable timeIntegrationTest
+[ 81%] Linking CXX executable vector2fieldTest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 81%] Built target pressureTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 81%] Building CXX object modules/ddc/examples/CMakeFiles/3d_finger_convection_app.dir/3d_finger_convection.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 81%] Built target tausolverTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 82%] Built target realprofileTest_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 82%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_initialfield_app.dir/ddc_initialfield.cpp.o
+[ 82%] Built target timeIntegrationTest_app
+[ 82%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_randomfield_app.dir/ddc_randomfield.cpp.o
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 83%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_readEQ_app.dir/ddc_readEQ.cpp.o
+[ 84%] Linking CXX executable ddc_findsoln
+[ 85%] Linking CXX executable ddc_continuesoln
+[ 86%] Linking CXX executable ddc_findeigenvals
+[ 87%] Linking CXX executable ddc_simulateflow
+[ 87%] Linking CXX executable ddc_edgetracking
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 87%] Built target ddc_findsoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 88%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_changegrid_app.dir/ddc_changegrid.cpp.o
+[ 88%] Built target ddc_continuesoln_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 88%] Built target ddc_findeigenvals_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 89%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_nusselt_app.dir/ddc_nusselt.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 90%] Building CXX object modules/ddc/tools/CMakeFiles/ddc_reloadfield_app.dir/ddc_reloadfield.cpp.o
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 90%] Built target ddc_simulateflow_app
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Entering directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 91%] Building CXX object modules/ddc/validations/CMakeFiles/yang2021jfm_case3_2d_app.dir/yang2021jfm_case3_2d.cpp.o
+[ 91%] Built target vector2fieldTest_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 91%] Built target ddc_edgetracking_app
+[ 91%] Built target poissonTest_app
+[ 91%] Built target tridiagTest_app
+[ 92%] Linking CXX executable 2d_diffusive_convection
+[ 93%] Linking CXX executable 3d_diffusive_convection
+[ 93%] Linking CXX executable 2d_finger_convection
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 94%] Linking CXX executable 3d_finger_convection
+[ 94%] Built target 2d_diffusive_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 94%] Built target 2d_finger_convection_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 94%] Built target 3d_diffusive_convection_app
+[ 94%] Linking CXX executable ddc_readEQ
+[ 95%] Linking CXX executable ddc_randomfield
+[ 95%] Linking CXX executable ddc_initialfield
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 95%] Built target 3d_finger_convection_app
+[ 95%] Linking CXX executable nsolvertest
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 95%] Built target ddc_readEQ_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 95%] Built target ddc_randomfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 95%] Built target ddc_initialfield_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[ 95%] Built target nsolvertest_app
+[ 96%] Linking CXX executable ddc_changegrid
+[ 97%] Linking CXX executable ddc_reloadfield
+[ 98%] Linking CXX executable ddc_nusselt
+[100%] Linking CXX executable yang2021jfm_case3_2d
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[100%] Built target ddc_changegrid_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[100%] Built target ddc_nusselt_app
+make[3]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+[100%] Built target yang2021jfm_case3_2d_app
+[100%] Built target ddc_reloadfield_app
+make[2]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+make[1]: Leaving directory '/ocean/projects/phy240052p/vnguyen9/channelflow/channelflow_41902720_MESH_IND_E2_3D/build'
+Leaving rescale
+L2Norm(u0)  == 0.0983505371956766
+L2Norm(u1)  == 0.09835053719567663
+bcNorm(u0)  == 2.530396206549336e-17
+bcNorm(u1)  == 2.878065567620236e-17
+divNorm(u0) == 2.248903808053008e-15
+divNorm(u1) == 2.245117978269296e-15
+Not fixing divergence...
+Leaving rescale
+L2Norm(u0)  == 0.1609158944061646
+L2Norm(u1)  == 0.1609158944061646
+bcNorm(u0)  == 2.992917257712616e-16
+bcNorm(u1)  == 2.992917257712616e-16
+Leaving rescale
+L2Norm(u0)  == 0.205668185020789
+L2Norm(u1)  == 0.205668185020789
+bcNorm(u0)  == 2.520547457954672e-15
+bcNorm(u1)  == 2.520547457954672e-15
+nu==0.0025, Vsuck==0, rotation==0, theta==0, dPdx==0, dPdz==0, Ubulk==0, Wbulk==0, uwall==1, uupper==0.5, ulower==-0.5, wupper==0, wlower==0, t0==0, dT==1, dt==0.001, variabledt==1, dtmin==1e-09, dtmax==0.02, CFLmin==0.3, CFLmax==0.4, LaminarBase, PressureGradient, SBDF3, SMRK2, Rotational, DealiasXZ, zero_bodyforce, TauCorrection, Silent
+1487892 unknowns
+Computing G(x)
+f^T: ....10....20
+========================================================
+Newton iteration number 0
+Current state of Newton iteration:
+   fcount_newton   == 1
+   fcount_optimiza == 0
+   L2Norm(x)       == 0.325283
+   L2Norm(dxN)     == 0
+   L2Norm(dxOpt)   == 0
+   L2Dist(x,x0)    == 0
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00807546
+   current  gx == 0.00807546
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.26065e-05
+   current  rx == 3.26065e-05
+         delta == 0.01
+Newt,GMRES == 0,0, f^T: ....10....20 res == 0.646513
+Newt,GMRES == 0,1, f^T: ....10....20 res == 0.0791168
+Newt,GMRES == 0,2, f^T: ....10....20 res == 0.0488611
+Newt,GMRES == 0,3, f^T: ....10....20 res == 0.0404349
+Newt,GMRES == 0,4, f^T: ....10....20 res == 0.0404149
+Newt,GMRES == 0,5, f^T: ....10....20 res == 0.032795
+Newt,GMRES == 0,6, f^T: ....10....20 res == 0.0292857
+Newt,GMRES == 0,7, f^T: ....10....20 res == 0.0266495
+Newt,GMRES == 0,8, f^T: ....10....20 res == 0.0238913
+Newt,GMRES == 0,9, f^T: ....10....20 res == 0.016423
+Newt,GMRES == 0,10, f^T: ....10....20 res == 0.0155884
+Newt,GMRES == 0,11, f^T: ....10....20 res == 0.0138187
+Newt,GMRES == 0,12, f^T: ....10....20 res == 0.00851108
+Newt,GMRES == 0,13, f^T: ....10....20 res == 0.00823449
+Newt,GMRES == 0,14, f^T: ....10....20 res == 0.00451038
+Newt,GMRES == 0,15, f^T: ....10....20 res == 0.00432365
+Newt,GMRES == 0,16, f^T: ....10....20 res == 0.00210768
+Newt,GMRES == 0,17, f^T: ....10....20 res == 0.00100225
+Newt,GMRES == 0,18, f^T: ....10....20 res == 0.00061608
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.01
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.01 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 64.7365, 0.00099698
+Found hookstep of proper radius
+ndxHmu == 0.00099698 ~= 0.01 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000124622
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.25432e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.25432e-05 residual of newton/hookstep
+Delta_rH ==  -6.33421e-08 actual improvement in residual from newton/hookstep
+
+             -6.33094e-11 lower bound for acceptable improvement
+             -6.32504e-09 upper bound for ok improvement.
+             -4.74378e-08 upper bound for good improvement.
+             -5.69254e-08 upper bound for accurate prediction.
+Delta_rH ==  -6.33421e-08 ------> Accurate <------
+             -6.95755e-08 lower bound for accurate prediction.
+             -6.33094e-08 local linear model of improvement
+lambda       == -970.615 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -9.70615 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.01
+  new delta == 0.015
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.015 < 0.1
+Increase delta and recompute hookstep.
+ old delta == 0.01
+ new delta == 0.015
+-------------------------------------------
+Hookstep number 1
+delta == 0.015
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.015 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 43.1553, 0.00149483
+Found hookstep of proper radius
+ndxHmu == 0.00149483 ~= 0.015 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000186853
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.25115e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.25115e-05 residual of newton/hookstep
+Delta_rH ==  -9.49538e-08 actual improvement in residual from newton/hookstep
+
+             -9.48809e-11 lower bound for acceptable improvement
+             -9.47487e-09 upper bound for ok improvement.
+             -7.10615e-08 upper bound for good improvement.
+             -8.52738e-08 upper bound for accurate prediction.
+Delta_rH ==  -9.49538e-08 ------> Accurate <------
+             -1.04224e-07 lower bound for accurate prediction.
+             -9.48809e-08 local linear model of improvement
+lambda       == -651.029 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -9.76543 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.015
+  new delta == 0.0225
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.0225 < 0.1
+And residual is improving:     rH < backup_sS     3.25115e-05 < 3.25432e-05
+Increase delta and recompute hookstep.
+ old delta == 0.015
+ new delta == 0.0225
+-------------------------------------------
+Hookstep number 2
+delta == 0.0225
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.0225 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 28.7667, 0.00224088
+Found hookstep of proper radius
+ndxHmu == 0.00224088 ~= 0.0225 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000280111
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.24642e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.24642e-05 residual of newton/hookstep
+Delta_rH ==  -1.42303e-07 actual improvement in residual from newton/hookstep
+
+             -1.42141e-10 lower bound for acceptable improvement
+             -1.41845e-08 upper bound for ok improvement.
+             -1.06384e-07 upper bound for good improvement.
+              -1.2766e-07 upper bound for accurate prediction.
+Delta_rH ==  -1.42303e-07 ------> Accurate <------
+             -1.56029e-07 lower bound for accurate prediction.
+             -1.42141e-07 local linear model of improvement
+lambda       == -438.275 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -9.86119 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.0225
+  new delta == 0.03375
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.03375 < 0.1
+And residual is improving:     rH < backup_sS     3.24642e-05 < 3.25115e-05
+Increase delta and recompute hookstep.
+ old delta == 0.0225
+ new delta == 0.03375
+-------------------------------------------
+Hookstep number 3
+delta == 0.03375
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.03375 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 19.1726, 0.0033586
+Found hookstep of proper radius
+ndxHmu == 0.0033586 ~= 0.03375 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000419825
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.23933e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.23933e-05 residual of newton/hookstep
+Delta_rH ==  -2.13186e-07 actual improvement in residual from newton/hookstep
+
+             -2.12827e-10 lower bound for acceptable improvement
+             -2.12166e-08 upper bound for ok improvement.
+             -1.59125e-07 upper bound for good improvement.
+              -1.9095e-07 upper bound for accurate prediction.
+Delta_rH ==  -2.13186e-07 ------> Accurate <------
+             -2.33383e-07 lower bound for accurate prediction.
+             -2.12827e-07 local linear model of improvement
+lambda       == -296.592 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -10.01 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.03375
+  new delta == 0.050625
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.050625 < 0.1
+And residual is improving:     rH < backup_sS     3.23933e-05 < 3.24642e-05
+Increase delta and recompute hookstep.
+ old delta == 0.03375
+ new delta == 0.050625
+-------------------------------------------
+Hookstep number 4
+delta == 0.050625
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.050625 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 12.7739, 0.00503282
+Found hookstep of proper radius
+ndxHmu == 0.00503282 ~= 0.050625 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.000629102
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.22873e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.22873e-05 residual of newton/hookstep
+Delta_rH ==  -3.19236e-07 actual improvement in residual from newton/hookstep
+
+             -3.18449e-10 lower bound for acceptable improvement
+             -3.16981e-08 upper bound for ok improvement.
+             -2.37735e-07 upper bound for good improvement.
+             -2.85283e-07 upper bound for accurate prediction.
+Delta_rH ==  -3.19236e-07 ------> Accurate <------
+             -3.48679e-07 lower bound for accurate prediction.
+             -3.18449e-07 local linear model of improvement
+lambda       == -202.249 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -10.2389 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.050625
+  new delta == 0.0759375
+Continue adjusting trust region radius delta because
+Suggested delta has room: new_delta < deltaMaxLocal 0.0759375 < 0.1
+And residual is improving:     rH < backup_sS     3.22873e-05 < 3.23933e-05
+Increase delta and recompute hookstep.
+ old delta == 0.050625
+ new delta == 0.0759375
+-------------------------------------------
+Hookstep number 5
+delta == 0.0759375
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.190775 > 0.0759375 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.5262
+mu, L2Norm(dxH(mu)) == 8.50423, 0.00754136
+Found hookstep of proper radius
+ndxHmu == 0.00754136 ~= 0.0759375 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00094267
+f^T: ....10....20
+r(x), r(x+dxH) == 3.26065e-05, 3.21287e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.26065e-05 residual at current position
+rH       ==   3.21287e-05 residual of newton/hookstep
+Delta_rH ==  -4.77846e-07 actual improvement in residual from newton/hookstep
+
+             -4.76139e-10 lower bound for acceptable improvement
+             -4.72889e-08 upper bound for ok improvement.
+             -3.54666e-07 upper bound for good improvement.
+               -4.256e-07 upper bound for accurate prediction.
+Delta_rH ==  -4.77846e-07 ------> Accurate <------
+             -5.20177e-07 lower bound for accurate prediction.
+             -4.76139e-07 local linear model of improvement
+lambda       == -139.472 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -10.5912 is the delta suggested by quadratic model
+Improvement is Accurate
+  old delta == 0.0759375
+delta topped out at deltaMax
+  new delta == 0.1
+Stop adjusting trust region radius delta and take step because the new delta
+reached a local limit:  new_delta >= deltaMaxLocal 0.1 >= 0.1
+Reset delta to local limit and go to next Newton iteration
+  delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00801607
+rx           == 3.21287e-05
+L2Norm(dxN)  == 0.190775
+L2Norm(dxOpt)== 0.00094267
+========================================================
+Newton iteration number 1
+Current state of Newton iteration:
+   fcount_newton   == 20
+   fcount_optimiza == 12
+   L2Norm(x)       == 0.324754
+   L2Norm(dxN)     == 0.190775
+   L2Norm(dxOpt)   == 0.00094267
+   L2Dist(x,x0)    == 0.00094267
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00807546
+   current  gx == 0.00801607
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.26065e-05
+   current  rx == 3.21287e-05
+         delta == 0.1
+Newt,GMRES == 1,0, f^T: ....10....20 res == 0.636879
+Newt,GMRES == 1,1, f^T: ....10....20 res == 0.314064
+Newt,GMRES == 1,2, f^T: ....10....20 res == 0.0775903
+Newt,GMRES == 1,3, f^T: ....10....20 res == 0.0732075
+Newt,GMRES == 1,4, f^T: ....10....20 res == 0.0579276
+Newt,GMRES == 1,5, f^T: ....10....20 res == 0.050582
+Newt,GMRES == 1,6, f^T: ....10....20 res == 0.0504858
+Newt,GMRES == 1,7, f^T: ....10....20 res == 0.045866
+Newt,GMRES == 1,8, f^T: ....10....20 res == 0.0422096
+Newt,GMRES == 1,9, f^T: ....10....20 res == 0.0410085
+Newt,GMRES == 1,10, f^T: ....10....20 res == 0.0373368
+Newt,GMRES == 1,11, f^T: ....10....20 res == 0.0349126
+Newt,GMRES == 1,12, f^T: ....10....20 res == 0.0289703
+Newt,GMRES == 1,13, f^T: ....10....20 res == 0.0179449
+Newt,GMRES == 1,14, f^T: ....10....20 res == 0.0153765
+Newt,GMRES == 1,15, f^T: ....10....20 res == 0.0139003
+Newt,GMRES == 1,16, f^T: ....10....20 res == 0.00883905
+Newt,GMRES == 1,17, f^T: ....10....20 res == 0.00480097
+Newt,GMRES == 1,18, f^T: ....10....20 res == 0.00377504
+Newt,GMRES == 1,19, f^T: ....10....20 res == 0.00375731
+Newt,GMRES == 1,20, f^T: ....10....20 res == 0.00285074
+Newt,GMRES == 1,21, f^T: ....10....20 res == 0.00197397
+Newt,GMRES == 1,22, f^T: ....10....20 res == 0.00163555
+Newt,GMRES == 1,23, f^T: ....10....20 res == 0.000791702
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.18886 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.51088
+mu, L2Norm(dxH(mu)) == 6.37846, 0.00995477
+Found hookstep of proper radius
+ndxHmu == 0.00995477 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00124435
+f^T: ....10....20
+r(x), r(x+dxH) == 3.21287e-05, 3.14897e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.21287e-05 residual at current position
+rH       ==   3.14897e-05 residual of newton/hookstep
+Delta_rH ==  -6.38953e-07 actual improvement in residual from newton/hookstep
+
+             -6.36339e-10 lower bound for acceptable improvement
+             -6.30451e-08 upper bound for ok improvement.
+             -4.72838e-07 upper bound for good improvement.
+             -5.67406e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.38953e-07 ------> Accurate <------
+             -6.93496e-07 lower bound for accurate prediction.
+             -6.36339e-07 local linear model of improvement
+lambda       == -121.746 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -12.1746 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00793596
+rx           == 3.14897e-05
+L2Norm(dxN)  == 0.18886
+L2Norm(dxOpt)== 0.00124435
+========================================================
+Newton iteration number 2
+Current state of Newton iteration:
+   fcount_newton   == 44
+   fcount_optimiza == 14
+   L2Norm(x)       == 0.324062
+   L2Norm(dxN)     == 0.18886
+   L2Norm(dxOpt)   == 0.00124435
+   L2Dist(x,x0)    == 0.00218641
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00801607
+   current  gx == 0.00793596
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.21287e-05
+   current  rx == 3.14897e-05
+         delta == 0.1
+Newt,GMRES == 2,0, f^T: ....10....20 res == 0.622832
+Newt,GMRES == 2,1, f^T: ....10....20 res == 0.452685
+Newt,GMRES == 2,2, f^T: ....10....20 res == 0.0758343
+Newt,GMRES == 2,3, f^T: ....10....20 res == 0.0757833
+Newt,GMRES == 2,4, f^T: ....10....20 res == 0.0594254
+Newt,GMRES == 2,5, f^T: ....10....20 res == 0.0541895
+Newt,GMRES == 2,6, f^T: ....10....20 res == 0.0523689
+Newt,GMRES == 2,7, f^T: ....10....20 res == 0.0522648
+Newt,GMRES == 2,8, f^T: ....10....20 res == 0.0503663
+Newt,GMRES == 2,9, f^T: ....10....20 res == 0.0437503
+Newt,GMRES == 2,10, f^T: ....10....20 res == 0.0397365
+Newt,GMRES == 2,11, f^T: ....10....20 res == 0.0355217
+Newt,GMRES == 2,12, f^T: ....10....20 res == 0.028721
+Newt,GMRES == 2,13, f^T: ....10....20 res == 0.0191492
+Newt,GMRES == 2,14, f^T: ....10....20 res == 0.0189909
+Newt,GMRES == 2,15, f^T: ....10....20 res == 0.0154833
+Newt,GMRES == 2,16, f^T: ....10....20 res == 0.0133048
+Newt,GMRES == 2,17, f^T: ....10....20 res == 0.0100142
+Newt,GMRES == 2,18, f^T: ....10....20 res == 0.0100106
+Newt,GMRES == 2,19, f^T: ....10....20 res == 0.00874184
+Newt,GMRES == 2,20, f^T: ....10....20 res == 0.00620061
+Newt,GMRES == 2,21, f^T: ....10....20 res == 0.00322007
+Newt,GMRES == 2,22, f^T: ....10....20 res == 0.00259163
+Newt,GMRES == 2,23, f^T: ....10....20 res == 0.00258045
+Newt,GMRES == 2,24, f^T: ....10....20 res == 0.00245717
+Newt,GMRES == 2,25, f^T: ....10....20 res == 0.00225674
+Newt,GMRES == 2,26, f^T: ....10....20 res == 0.00125265
+Newt,GMRES == 2,27, f^T: ....10....20 res == 0.000728741
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.186065 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.48852
+mu, L2Norm(dxH(mu)) == 6.2502, 0.0100511
+Found hookstep of proper radius
+ndxHmu == 0.0100511 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00125639
+f^T: ....10....20
+r(x), r(x+dxH) == 3.14897e-05, 3.08227e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.14897e-05 residual at current position
+rH       ==   3.08227e-05 residual of newton/hookstep
+Delta_rH ==  -6.66986e-07 actual improvement in residual from newton/hookstep
+
+             -6.64252e-10 lower bound for acceptable improvement
+             -6.57186e-08 upper bound for ok improvement.
+              -4.9289e-07 upper bound for good improvement.
+             -5.91467e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.66986e-07 ------> Accurate <------
+             -7.22905e-07 lower bound for accurate prediction.
+             -6.64252e-07 local linear model of improvement
+lambda       == -121.484 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -12.1484 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00785146
+rx           == 3.08227e-05
+L2Norm(dxN)  == 0.186065
+L2Norm(dxOpt)== 0.00125639
+========================================================
+Newton iteration number 3
+Current state of Newton iteration:
+   fcount_newton   == 72
+   fcount_optimiza == 16
+   L2Norm(x)       == 0.32336
+   L2Norm(dxN)     == 0.186065
+   L2Norm(dxOpt)   == 0.00125639
+   L2Dist(x,x0)    == 0.00344036
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00793596
+   current  gx == 0.00785146
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.14897e-05
+   current  rx == 3.08227e-05
+         delta == 0.1
+Newt,GMRES == 3,0, f^T: ....10....20 res == 0.606818
+Newt,GMRES == 3,1, f^T: ....10....20 res == 0.593055
+Newt,GMRES == 3,2, f^T: ....10....20 res == 0.0890211
+Newt,GMRES == 3,3, f^T: ....10....20 res == 0.0739874
+Newt,GMRES == 3,4, f^T: ....10....20 res == 0.073404
+Newt,GMRES == 3,5, f^T: ....10....20 res == 0.0568105
+Newt,GMRES == 3,6, f^T: ....10....20 res == 0.0523674
+Newt,GMRES == 3,7, f^T: ....10....20 res == 0.0522431
+Newt,GMRES == 3,8, f^T: ....10....20 res == 0.0464942
+Newt,GMRES == 3,9, f^T: ....10....20 res == 0.044129
+Newt,GMRES == 3,10, f^T: ....10....20 res == 0.0391234
+Newt,GMRES == 3,11, f^T: ....10....20 res == 0.0364383
+Newt,GMRES == 3,12, f^T: ....10....20 res == 0.0317382
+Newt,GMRES == 3,13, f^T: ....10....20 res == 0.0301873
+Newt,GMRES == 3,14, f^T: ....10....20 res == 0.0290577
+Newt,GMRES == 3,15, f^T: ....10....20 res == 0.023019
+Newt,GMRES == 3,16, f^T: ....10....20 res == 0.0228665
+Newt,GMRES == 3,17, f^T: ....10....20 res == 0.0203825
+Newt,GMRES == 3,18, f^T: ....10....20 res == 0.0138179
+Newt,GMRES == 3,19, f^T: ....10....20 res == 0.0107511
+Newt,GMRES == 3,20, f^T: ....10....20 res == 0.00659215
+Newt,GMRES == 3,21, f^T: ....10....20 res == 0.00322914
+Newt,GMRES == 3,22, f^T: ....10....20 res == 0.0027527
+Newt,GMRES == 3,23, f^T: ....10....20 res == 0.00251755
+Newt,GMRES == 3,24, f^T: ....10....20 res == 0.00245745
+Newt,GMRES == 3,25, f^T: ....10....20 res == 0.00229404
+Newt,GMRES == 3,26, f^T: ....10....20 res == 0.00145768
+Newt,GMRES == 3,27, f^T: ....10....20 res == 0.00117592
+Newt,GMRES == 3,28, f^T: ....10....20 res == 0.00105753
+Newt,GMRES == 3,29, f^T: ....10....20 res == 0.0010553
+Newt,GMRES == 3,30, f^T: ....10....20 res == 0.000885519
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.183171 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.46537
+mu, L2Norm(dxH(mu)) == 6.1511, 0.010099
+Found hookstep of proper radius
+ndxHmu == 0.010099 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00126237
+f^T: ....10....20
+r(x), r(x+dxH) == 3.08227e-05, 3.01374e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.08227e-05 residual at current position
+rH       ==   3.01374e-05 residual of newton/hookstep
+Delta_rH ==  -6.85359e-07 actual improvement in residual from newton/hookstep
+
+             -6.83099e-10 lower bound for acceptable improvement
+              -6.7521e-08 upper bound for ok improvement.
+             -5.06407e-07 upper bound for good improvement.
+             -6.07689e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.85359e-07 ------> Accurate <------
+             -7.42731e-07 lower bound for accurate prediction.
+             -6.83099e-07 local linear model of improvement
+lambda       == -151.099 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -15.1099 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00776368
+rx           == 3.01374e-05
+L2Norm(dxN)  == 0.183171
+L2Norm(dxOpt)== 0.00126237
+========================================================
+Newton iteration number 4
+Current state of Newton iteration:
+   fcount_newton   == 103
+   fcount_optimiza == 18
+   L2Norm(x)       == 0.322659
+   L2Norm(dxN)     == 0.183171
+   L2Norm(dxOpt)   == 0.00126237
+   L2Dist(x,x0)    == 0.00469583
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00785146
+   current  gx == 0.00776368
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.08227e-05
+   current  rx == 3.01374e-05
+         delta == 0.1
+Newt,GMRES == 4,0, f^T: ....10....20 res == 0.588961
+Newt,GMRES == 4,1, f^T: ....10....20 res == 0.587064
+Newt,GMRES == 4,2, f^T: ....10....20 res == 0.171276
+Newt,GMRES == 4,3, f^T: ....10....20 res == 0.0713549
+Newt,GMRES == 4,4, f^T: ....10....20 res == 0.0712007
+Newt,GMRES == 4,5, f^T: ....10....20 res == 0.0547043
+Newt,GMRES == 4,6, f^T: ....10....20 res == 0.0524283
+Newt,GMRES == 4,7, f^T: ....10....20 res == 0.0496934
+Newt,GMRES == 4,8, f^T: ....10....20 res == 0.044401
+Newt,GMRES == 4,9, f^T: ....10....20 res == 0.0443495
+Newt,GMRES == 4,10, f^T: ....10....20 res == 0.0385579
+Newt,GMRES == 4,11, f^T: ....10....20 res == 0.0381316
+Newt,GMRES == 4,12, f^T: ....10....20 res == 0.0371351
+Newt,GMRES == 4,13, f^T: ....10....20 res == 0.0360823
+Newt,GMRES == 4,14, f^T: ....10....20 res == 0.0317815
+Newt,GMRES == 4,15, f^T: ....10....20 res == 0.0279842
+Newt,GMRES == 4,16, f^T: ....10....20 res == 0.0259475
+Newt,GMRES == 4,17, f^T: ....10....20 res == 0.0231665
+Newt,GMRES == 4,18, f^T: ....10....20 res == 0.0144885
+Newt,GMRES == 4,19, f^T: ....10....20 res == 0.0125171
+Newt,GMRES == 4,20, f^T: ....10....20 res == 0.00761866
+Newt,GMRES == 4,21, f^T: ....10....20 res == 0.00506119
+Newt,GMRES == 4,22, f^T: ....10....20 res == 0.00501618
+Newt,GMRES == 4,23, f^T: ....10....20 res == 0.00497715
+Newt,GMRES == 4,24, f^T: ....10....20 res == 0.00470656
+Newt,GMRES == 4,25, f^T: ....10....20 res == 0.00347306
+Newt,GMRES == 4,26, f^T: ....10....20 res == 0.00188681
+Newt,GMRES == 4,27, f^T: ....10....20 res == 0.00137813
+Newt,GMRES == 4,28, f^T: ....10....20 res == 0.00117745
+Newt,GMRES == 4,29, f^T: ....10....20 res == 0.00117652
+Newt,GMRES == 4,30, f^T: ....10....20 res == 0.00106129
+Newt,GMRES == 4,31, f^T: ....10....20 res == 0.000752142
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.180107 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.44086
+mu, L2Norm(dxH(mu)) == 6.05604, 0.0101379
+Found hookstep of proper radius
+ndxHmu == 0.0101379 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00126724
+f^T: ....10....20
+r(x), r(x+dxH) == 3.01374e-05, 2.94378e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   3.01374e-05 residual at current position
+rH       ==   2.94378e-05 residual of newton/hookstep
+Delta_rH ==  -6.99513e-07 actual improvement in residual from newton/hookstep
+
+             -6.97566e-10 lower bound for acceptable improvement
+             -6.88526e-08 upper bound for ok improvement.
+             -5.16394e-07 upper bound for good improvement.
+             -6.19673e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.99513e-07 ------> Accurate <------
+             -7.57379e-07 lower bound for accurate prediction.
+             -6.97566e-07 local linear model of improvement
+lambda       == -179.142 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -17.9142 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00767305
+rx           == 2.94378e-05
+L2Norm(dxN)  == 0.180107
+L2Norm(dxOpt)== 0.00126724
+========================================================
+Newton iteration number 5
+Current state of Newton iteration:
+   fcount_newton   == 135
+   fcount_optimiza == 20
+   L2Norm(x)       == 0.321937
+   L2Norm(dxN)     == 0.180107
+   L2Norm(dxOpt)   == 0.00126724
+   L2Dist(x,x0)    == 0.00594872
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00776368
+   current  gx == 0.00767305
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 3.01374e-05
+   current  rx == 2.94378e-05
+         delta == 0.1
+Newt,GMRES == 5,0, f^T: ....10....20 res == 0.58144
+Newt,GMRES == 5,1, f^T: ....10....20 res == 0.572263
+Newt,GMRES == 5,2, f^T: ....10....20 res == 0.171299
+Newt,GMRES == 5,3, f^T: ....10....20 res == 0.0857943
+Newt,GMRES == 5,4, f^T: ....10....20 res == 0.0722846
+Newt,GMRES == 5,5, f^T: ....10....20 res == 0.0722622
+Newt,GMRES == 5,6, f^T: ....10....20 res == 0.0678855
+Newt,GMRES == 5,7, f^T: ....10....20 res == 0.0541858
+Newt,GMRES == 5,8, f^T: ....10....20 res == 0.0529028
+Newt,GMRES == 5,9, f^T: ....10....20 res == 0.044522
+Newt,GMRES == 5,10, f^T: ....10....20 res == 0.0378274
+Newt,GMRES == 5,11, f^T: ....10....20 res == 0.0363758
+Newt,GMRES == 5,12, f^T: ....10....20 res == 0.0311206
+Newt,GMRES == 5,13, f^T: ....10....20 res == 0.0305444
+Newt,GMRES == 5,14, f^T: ....10....20 res == 0.0290477
+Newt,GMRES == 5,15, f^T: ....10....20 res == 0.0270621
+Newt,GMRES == 5,16, f^T: ....10....20 res == 0.0269625
+Newt,GMRES == 5,17, f^T: ....10....20 res == 0.0246568
+Newt,GMRES == 5,18, f^T: ....10....20 res == 0.0182277
+Newt,GMRES == 5,19, f^T: ....10....20 res == 0.0137136
+Newt,GMRES == 5,20, f^T: ....10....20 res == 0.0091827
+Newt,GMRES == 5,21, f^T: ....10....20 res == 0.0067687
+Newt,GMRES == 5,22, f^T: ....10....20 res == 0.00666784
+Newt,GMRES == 5,23, f^T: ....10....20 res == 0.00662911
+Newt,GMRES == 5,24, f^T: ....10....20 res == 0.0060726
+Newt,GMRES == 5,25, f^T: ....10....20 res == 0.00445258
+Newt,GMRES == 5,26, f^T: ....10....20 res == 0.00346863
+Newt,GMRES == 5,27, f^T: ....10....20 res == 0.0034525
+Newt,GMRES == 5,28, f^T: ....10....20 res == 0.00293091
+Newt,GMRES == 5,29, f^T: ....10....20 res == 0.0026849
+Newt,GMRES == 5,30, f^T: ....10....20 res == 0.00154369
+Newt,GMRES == 5,31, f^T: ....10....20 res == 0.00133809
+Newt,GMRES == 5,32, f^T: ....10....20 res == 0.00129601
+Newt,GMRES == 5,33, f^T: ....10....20 res == 0.00129228
+Newt,GMRES == 5,34, f^T: ....10....20 res == 0.00118735
+Newt,GMRES == 5,35, f^T: ....10....20 res == 0.000884722
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.176993 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.41594
+mu, L2Norm(dxH(mu)) == 6.00482, 0.0100931
+Found hookstep of proper radius
+ndxHmu == 0.0100931 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00126164
+f^T: ....10....20
+r(x), r(x+dxH) == 2.94378e-05, 2.8683e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.94378e-05 residual at current position
+rH       ==    2.8683e-05 residual of newton/hookstep
+Delta_rH ==  -7.54854e-07 actual improvement in residual from newton/hookstep
+
+              -7.5318e-10 lower bound for acceptable improvement
+             -7.40343e-08 upper bound for ok improvement.
+             -5.55257e-07 upper bound for good improvement.
+             -6.66308e-07 upper bound for accurate prediction.
+Delta_rH ==  -7.54854e-07 ------> Accurate <------
+             -8.14377e-07 lower bound for accurate prediction.
+              -7.5318e-07 local linear model of improvement
+lambda       == -224.94 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -22.494 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00757403
+rx           == 2.8683e-05
+L2Norm(dxN)  == 0.176993
+L2Norm(dxOpt)== 0.00126164
+========================================================
+Newton iteration number 6
+Current state of Newton iteration:
+   fcount_newton   == 171
+   fcount_optimiza == 22
+   L2Norm(x)       == 0.321225
+   L2Norm(dxN)     == 0.176993
+   L2Norm(dxOpt)   == 0.00126164
+   L2Dist(x,x0)    == 0.00718793
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00767305
+   current  gx == 0.00757403
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.94378e-05
+   current  rx == 2.8683e-05
+         delta == 0.1
+Newt,GMRES == 6,0, f^T: ....10....20 res == 0.551159
+Newt,GMRES == 6,1, f^T: ....10....20 res == 0.539242
+Newt,GMRES == 6,2, f^T: ....10....20 res == 0.130668
+Newt,GMRES == 6,3, f^T: ....10....20 res == 0.0803851
+Newt,GMRES == 6,4, f^T: ....10....20 res == 0.0703308
+Newt,GMRES == 6,5, f^T: ....10....20 res == 0.0703152
+Newt,GMRES == 6,6, f^T: ....10....20 res == 0.0677131
+Newt,GMRES == 6,7, f^T: ....10....20 res == 0.0538177
+Newt,GMRES == 6,8, f^T: ....10....20 res == 0.0533652
+Newt,GMRES == 6,9, f^T: ....10....20 res == 0.0445058
+Newt,GMRES == 6,10, f^T: ....10....20 res == 0.0393163
+Newt,GMRES == 6,11, f^T: ....10....20 res == 0.0384507
+Newt,GMRES == 6,12, f^T: ....10....20 res == 0.0318201
+Newt,GMRES == 6,13, f^T: ....10....20 res == 0.0284763
+Newt,GMRES == 6,14, f^T: ....10....20 res == 0.028396
+Newt,GMRES == 6,15, f^T: ....10....20 res == 0.0278984
+Newt,GMRES == 6,16, f^T: ....10....20 res == 0.0278767
+Newt,GMRES == 6,17, f^T: ....10....20 res == 0.0272526
+Newt,GMRES == 6,18, f^T: ....10....20 res == 0.0253451
+Newt,GMRES == 6,19, f^T: ....10....20 res == 0.0217249
+Newt,GMRES == 6,20, f^T: ....10....20 res == 0.019461
+Newt,GMRES == 6,21, f^T: ....10....20 res == 0.0194069
+Newt,GMRES == 6,22, f^T: ....10....20 res == 0.0171483
+Newt,GMRES == 6,23, f^T: ....10....20 res == 0.0108803
+Newt,GMRES == 6,24, f^T: ....10....20 res == 0.0068882
+Newt,GMRES == 6,25, f^T: ....10....20 res == 0.00604083
+Newt,GMRES == 6,26, f^T: ....10....20 res == 0.00594354
+Newt,GMRES == 6,27, f^T: ....10....20 res == 0.00516748
+Newt,GMRES == 6,28, f^T: ....10....20 res == 0.00321202
+Newt,GMRES == 6,29, f^T: ....10....20 res == 0.00204575
+Newt,GMRES == 6,30, f^T: ....10....20 res == 0.00194292
+Newt,GMRES == 6,31, f^T: ....10....20 res == 0.0015201
+Newt,GMRES == 6,32, f^T: ....10....20 res == 0.00149057
+Newt,GMRES == 6,33, f^T: ....10....20 res == 0.00144515
+Newt,GMRES == 6,34, f^T: ....10....20 res == 0.00129205
+Newt,GMRES == 6,35, f^T: ....10....20 res == 0.000916058
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.173651 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.38921
+mu, L2Norm(dxH(mu)) == 5.96114, 0.0100321
+Found hookstep of proper radius
+ndxHmu == 0.0100321 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00125402
+f^T: ....10....20
+r(x), r(x+dxH) == 2.8683e-05, 2.79288e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==    2.8683e-05 residual at current position
+rH       ==   2.79288e-05 residual of newton/hookstep
+Delta_rH ==  -7.54187e-07 actual improvement in residual from newton/hookstep
+
+             -7.54462e-10 lower bound for acceptable improvement
+             -7.42189e-08 upper bound for ok improvement.
+             -5.56642e-07 upper bound for good improvement.
+              -6.6797e-07 upper bound for accurate prediction.
+Delta_rH ==  -7.54187e-07 ------> Accurate <------
+             -8.16408e-07 lower bound for accurate prediction.
+             -7.54462e-07 local linear model of improvement
+lambda       == 1369.85 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 136.985 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00747379
+rx           == 2.79288e-05
+L2Norm(dxN)  == 0.173651
+L2Norm(dxOpt)== 0.00125402
+========================================================
+Newton iteration number 7
+Current state of Newton iteration:
+   fcount_newton   == 207
+   fcount_optimiza == 24
+   L2Norm(x)       == 0.320522
+   L2Norm(dxN)     == 0.173651
+   L2Norm(dxOpt)   == 0.00125402
+   L2Dist(x,x0)    == 0.00841708
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00757403
+   current  gx == 0.00747379
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.8683e-05
+   current  rx == 2.79288e-05
+         delta == 0.1
+Newt,GMRES == 7,0, f^T: ....10....20 res == 0.508252
+Newt,GMRES == 7,1, f^T: ....10....20 res == 0.50391
+Newt,GMRES == 7,2, f^T: ....10....20 res == 0.228746
+Newt,GMRES == 7,3, f^T: ....10....20 res == 0.102437
+Newt,GMRES == 7,4, f^T: ....10....20 res == 0.0731772
+Newt,GMRES == 7,5, f^T: ....10....20 res == 0.0697841
+Newt,GMRES == 7,6, f^T: ....10....20 res == 0.0690701
+Newt,GMRES == 7,7, f^T: ....10....20 res == 0.0528787
+Newt,GMRES == 7,8, f^T: ....10....20 res == 0.0526583
+Newt,GMRES == 7,9, f^T: ....10....20 res == 0.0441983
+Newt,GMRES == 7,10, f^T: ....10....20 res == 0.0398428
+Newt,GMRES == 7,11, f^T: ....10....20 res == 0.0382696
+Newt,GMRES == 7,12, f^T: ....10....20 res == 0.0309803
+Newt,GMRES == 7,13, f^T: ....10....20 res == 0.0243063
+Newt,GMRES == 7,14, f^T: ....10....20 res == 0.0194242
+Newt,GMRES == 7,15, f^T: ....10....20 res == 0.0186655
+Newt,GMRES == 7,16, f^T: ....10....20 res == 0.0174333
+Newt,GMRES == 7,17, f^T: ....10....20 res == 0.0153666
+Newt,GMRES == 7,18, f^T: ....10....20 res == 0.0152972
+Newt,GMRES == 7,19, f^T: ....10....20 res == 0.0151398
+Newt,GMRES == 7,20, f^T: ....10....20 res == 0.0148408
+Newt,GMRES == 7,21, f^T: ....10....20 res == 0.0147442
+Newt,GMRES == 7,22, f^T: ....10....20 res == 0.0142108
+Newt,GMRES == 7,23, f^T: ....10....20 res == 0.0131643
+Newt,GMRES == 7,24, f^T: ....10....20 res == 0.00740113
+Newt,GMRES == 7,25, f^T: ....10....20 res == 0.00509807
+Newt,GMRES == 7,26, f^T: ....10....20 res == 0.00469494
+Newt,GMRES == 7,27, f^T: ....10....20 res == 0.00452208
+Newt,GMRES == 7,28, f^T: ....10....20 res == 0.0038904
+Newt,GMRES == 7,29, f^T: ....10....20 res == 0.00330147
+Newt,GMRES == 7,30, f^T: ....10....20 res == 0.0032597
+Newt,GMRES == 7,31, f^T: ....10....20 res == 0.00278779
+Newt,GMRES == 7,32, f^T: ....10....20 res == 0.00260768
+Newt,GMRES == 7,33, f^T: ....10....20 res == 0.00237224
+Newt,GMRES == 7,34, f^T: ....10....20 res == 0.00142737
+Newt,GMRES == 7,35, f^T: ....10....20 res == 0.000885501
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.170683 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.36547
+mu, L2Norm(dxH(mu)) == 5.88294, 0.0100371
+Found hookstep of proper radius
+ndxHmu == 0.0100371 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00125464
+f^T: ....10....20
+r(x), r(x+dxH) == 2.79288e-05, 2.72294e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.79288e-05 residual at current position
+rH       ==   2.72294e-05 residual of newton/hookstep
+Delta_rH ==  -6.99425e-07 actual improvement in residual from newton/hookstep
+
+             -6.98208e-10 lower bound for acceptable improvement
+             -6.89221e-08 upper bound for ok improvement.
+             -5.16916e-07 upper bound for good improvement.
+             -6.20299e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.99425e-07 ------> Accurate <------
+             -7.58143e-07 lower bound for accurate prediction.
+             -6.98208e-07 local linear model of improvement
+lambda       == -286.859 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == -28.6859 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00737962
+rx           == 2.72294e-05
+L2Norm(dxN)  == 0.170683
+L2Norm(dxOpt)== 0.00125464
+========================================================
+Newton iteration number 8
+Current state of Newton iteration:
+   fcount_newton   == 243
+   fcount_optimiza == 26
+   L2Norm(x)       == 0.319809
+   L2Norm(dxN)     == 0.170683
+   L2Norm(dxOpt)   == 0.00125464
+   L2Dist(x,x0)    == 0.00964162
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00747379
+   current  gx == 0.00737962
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.79288e-05
+   current  rx == 2.72294e-05
+         delta == 0.1
+Newt,GMRES == 8,0, f^T: ....10....20 res == 0.48645
+Newt,GMRES == 8,1, f^T: ....10....20 res == 0.479791
+Newt,GMRES == 8,2, f^T: ....10....20 res == 0.300284
+Newt,GMRES == 8,3, f^T: ....10....20 res == 0.101868
+Newt,GMRES == 8,4, f^T: ....10....20 res == 0.077178
+Newt,GMRES == 8,5, f^T: ....10....20 res == 0.0697043
+Newt,GMRES == 8,6, f^T: ....10....20 res == 0.0690194
+Newt,GMRES == 8,7, f^T: ....10....20 res == 0.0526811
+Newt,GMRES == 8,8, f^T: ....10....20 res == 0.052648
+Newt,GMRES == 8,9, f^T: ....10....20 res == 0.0439855
+Newt,GMRES == 8,10, f^T: ....10....20 res == 0.0387349
+Newt,GMRES == 8,11, f^T: ....10....20 res == 0.0381779
+Newt,GMRES == 8,12, f^T: ....10....20 res == 0.0303771
+Newt,GMRES == 8,13, f^T: ....10....20 res == 0.0254547
+Newt,GMRES == 8,14, f^T: ....10....20 res == 0.0214203
+Newt,GMRES == 8,15, f^T: ....10....20 res == 0.02006
+Newt,GMRES == 8,16, f^T: ....10....20 res == 0.0185757
+Newt,GMRES == 8,17, f^T: ....10....20 res == 0.0182634
+Newt,GMRES == 8,18, f^T: ....10....20 res == 0.0173948
+Newt,GMRES == 8,19, f^T: ....10....20 res == 0.0140553
+Newt,GMRES == 8,20, f^T: ....10....20 res == 0.011963
+Newt,GMRES == 8,21, f^T: ....10....20 res == 0.00886607
+Newt,GMRES == 8,22, f^T: ....10....20 res == 0.00865095
+Newt,GMRES == 8,23, f^T: ....10....20 res == 0.00863765
+Newt,GMRES == 8,24, f^T: ....10....20 res == 0.00797786
+Newt,GMRES == 8,25, f^T: ....10....20 res == 0.00654537
+Newt,GMRES == 8,26, f^T: ....10....20 res == 0.00554173
+Newt,GMRES == 8,27, f^T: ....10....20 res == 0.00550999
+Newt,GMRES == 8,28, f^T: ....10....20 res == 0.00412689
+Newt,GMRES == 8,29, f^T: ....10....20 res == 0.00295806
+Newt,GMRES == 8,30, f^T: ....10....20 res == 0.00264453
+Newt,GMRES == 8,31, f^T: ....10....20 res == 0.00236903
+Newt,GMRES == 8,32, f^T: ....10....20 res == 0.00215009
+Newt,GMRES == 8,33, f^T: ....10....20 res == 0.0021483
+Newt,GMRES == 8,34, f^T: ....10....20 res == 0.00214799
+Newt,GMRES == 8,35, f^T: ....10....20 res == 0.00208857
+Newt,GMRES == 8,36, f^T: ....10....20 res == 0.00208728
+Newt,GMRES == 8,37, f^T: ....10....20 res == 0.00207802
+Newt,GMRES == 8,38, f^T: ....10....20 res == 0.0019083
+Newt,GMRES == 8,39, f^T: ....10....20 res == 0.00150838
+Newt,GMRES == 8,40, f^T: ....10....20 res == 0.00124114
+Newt,GMRES == 8,41, f^T: ....10....20 res == 0.00123303
+Newt,GMRES == 8,42, f^T: ....10....20 res == 0.00119296
+Newt,GMRES == 8,43, f^T: ....10....20 res == 0.0011078
+Newt,GMRES == 8,44, f^T: ....10....20 res == 0.00105982
+Newt,GMRES == 8,45, f^T: ....10....20 res == 0.000747075
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.168217 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.34574
+mu, L2Norm(dxH(mu)) == 5.3726, 0.010822
+Found hookstep of proper radius
+ndxHmu == 0.010822 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00135274
+f^T: ....10....20
+r(x), r(x+dxH) == 2.72294e-05, 2.64009e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.72294e-05 residual at current position
+rH       ==   2.64009e-05 residual of newton/hookstep
+Delta_rH ==  -8.28512e-07 actual improvement in residual from newton/hookstep
+
+             -8.33905e-10 lower bound for acceptable improvement
+             -8.19374e-08 upper bound for ok improvement.
+             -6.14531e-07 upper bound for good improvement.
+             -7.37437e-07 upper bound for accurate prediction.
+Delta_rH ==  -8.28512e-07 ------> Accurate <------
+             -9.01312e-07 lower bound for accurate prediction.
+             -8.33905e-07 local linear model of improvement
+lambda       == 77.3182 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 7.73182 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00726648
+rx           == 2.64009e-05
+L2Norm(dxN)  == 0.168217
+L2Norm(dxOpt)== 0.00135274
+========================================================
+Newton iteration number 9
+Current state of Newton iteration:
+   fcount_newton   == 289
+   fcount_optimiza == 28
+   L2Norm(x)       == 0.319061
+   L2Norm(dxN)     == 0.168217
+   L2Norm(dxOpt)   == 0.00135274
+   L2Dist(x,x0)    == 0.0109559
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00737962
+   current  gx == 0.00726648
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.72294e-05
+   current  rx == 2.64009e-05
+         delta == 0.1
+Newt,GMRES == 9,0, f^T: ....10....20 res == 0.458699
+Newt,GMRES == 9,1, f^T: ....10....20 res == 0.43938
+Newt,GMRES == 9,2, f^T: ....10....20 res == 0.246261
+Newt,GMRES == 9,3, f^T: ....10....20 res == 0.121503
+Newt,GMRES == 9,4, f^T: ....10....20 res == 0.0702684
+Newt,GMRES == 9,5, f^T: ....10....20 res == 0.0682907
+Newt,GMRES == 9,6, f^T: ....10....20 res == 0.0662031
+Newt,GMRES == 9,7, f^T: ....10....20 res == 0.055245
+Newt,GMRES == 9,8, f^T: ....10....20 res == 0.0532191
+Newt,GMRES == 9,9, f^T: ....10....20 res == 0.0432268
+Newt,GMRES == 9,10, f^T: ....10....20 res == 0.0430918
+Newt,GMRES == 9,11, f^T: ....10....20 res == 0.0377477
+Newt,GMRES == 9,12, f^T: ....10....20 res == 0.0301469
+Newt,GMRES == 9,13, f^T: ....10....20 res == 0.0258685
+Newt,GMRES == 9,14, f^T: ....10....20 res == 0.0224471
+Newt,GMRES == 9,15, f^T: ....10....20 res == 0.0221162
+Newt,GMRES == 9,16, f^T: ....10....20 res == 0.0216227
+Newt,GMRES == 9,17, f^T: ....10....20 res == 0.0199288
+Newt,GMRES == 9,18, f^T: ....10....20 res == 0.0191263
+Newt,GMRES == 9,19, f^T: ....10....20 res == 0.0171918
+Newt,GMRES == 9,20, f^T: ....10....20 res == 0.0136185
+Newt,GMRES == 9,21, f^T: ....10....20 res == 0.00997788
+Newt,GMRES == 9,22, f^T: ....10....20 res == 0.00745116
+Newt,GMRES == 9,23, f^T: ....10....20 res == 0.00722061
+Newt,GMRES == 9,24, f^T: ....10....20 res == 0.00686993
+Newt,GMRES == 9,25, f^T: ....10....20 res == 0.00579365
+Newt,GMRES == 9,26, f^T: ....10....20 res == 0.00439671
+Newt,GMRES == 9,27, f^T: ....10....20 res == 0.00351448
+Newt,GMRES == 9,28, f^T: ....10....20 res == 0.00351356
+Newt,GMRES == 9,29, f^T: ....10....20 res == 0.00349873
+Newt,GMRES == 9,30, f^T: ....10....20 res == 0.00348882
+Newt,GMRES == 9,31, f^T: ....10....20 res == 0.00346847
+Newt,GMRES == 9,32, f^T: ....10....20 res == 0.00300767
+Newt,GMRES == 9,33, f^T: ....10....20 res == 0.00271299
+Newt,GMRES == 9,34, f^T: ....10....20 res == 0.00203542
+Newt,GMRES == 9,35, f^T: ....10....20 res == 0.00149088
+Newt,GMRES == 9,36, f^T: ....10....20 res == 0.00129401
+Newt,GMRES == 9,37, f^T: ....10....20 res == 0.00115991
+Newt,GMRES == 9,38, f^T: ....10....20 res == 0.00104476
+Newt,GMRES == 9,39, f^T: ....10....20 res == 0.00103414
+Newt,GMRES == 9,40, f^T: ....10....20 res == 0.00102508
+Newt,GMRES == 9,41, f^T: ....10....20 res == 0.000980607
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.164725 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.3178
+mu, L2Norm(dxH(mu)) == 5.9495, 0.00963976
+Found hookstep of proper radius
+ndxHmu == 0.00963976 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00120497
+f^T: ....10....20
+r(x), r(x+dxH) == 2.64009e-05, 2.56936e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.64009e-05 residual at current position
+rH       ==   2.56936e-05 residual of newton/hookstep
+Delta_rH ==  -7.07298e-07 actual improvement in residual from newton/hookstep
+
+             -7.14091e-10 lower bound for acceptable improvement
+             -7.03765e-08 upper bound for ok improvement.
+             -5.27824e-07 upper bound for good improvement.
+             -6.33389e-07 upper bound for accurate prediction.
+Delta_rH ==  -7.07298e-07 ------> Accurate <------
+             -7.74142e-07 lower bound for accurate prediction.
+             -7.14091e-07 local linear model of improvement
+lambda       == 52.5553 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 5.25553 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00716848
+rx           == 2.56936e-05
+L2Norm(dxN)  == 0.164725
+L2Norm(dxOpt)== 0.00120497
+========================================================
+Newton iteration number 10
+Current state of Newton iteration:
+   fcount_newton   == 331
+   fcount_optimiza == 30
+   L2Norm(x)       == 0.318364
+   L2Norm(dxN)     == 0.164725
+   L2Norm(dxOpt)   == 0.00120497
+   L2Dist(x,x0)    == 0.012126
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00726648
+   current  gx == 0.00716848
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.64009e-05
+   current  rx == 2.56936e-05
+         delta == 0.1
+Newt,GMRES == 10,0, f^T: ....10....20 res == 0.443229
+Newt,GMRES == 10,1, f^T: ....10....20 res == 0.404304
+Newt,GMRES == 10,2, f^T: ....10....20 res == 0.250541
+Newt,GMRES == 10,3, f^T: ....10....20 res == 0.11536
+Newt,GMRES == 10,4, f^T: ....10....20 res == 0.0780623
+Newt,GMRES == 10,5, f^T: ....10....20 res == 0.0685107
+Newt,GMRES == 10,6, f^T: ....10....20 res == 0.0669779
+Newt,GMRES == 10,7, f^T: ....10....20 res == 0.0562127
+Newt,GMRES == 10,8, f^T: ....10....20 res == 0.0542558
+Newt,GMRES == 10,9, f^T: ....10....20 res == 0.042853
+Newt,GMRES == 10,10, f^T: ....10....20 res == 0.0428523
+Newt,GMRES == 10,11, f^T: ....10....20 res == 0.0373765
+Newt,GMRES == 10,12, f^T: ....10....20 res == 0.0306034
+Newt,GMRES == 10,13, f^T: ....10....20 res == 0.026013
+Newt,GMRES == 10,14, f^T: ....10....20 res == 0.0197672
+Newt,GMRES == 10,15, f^T: ....10....20 res == 0.0194975
+Newt,GMRES == 10,16, f^T: ....10....20 res == 0.0186265
+Newt,GMRES == 10,17, f^T: ....10....20 res == 0.0168288
+Newt,GMRES == 10,18, f^T: ....10....20 res == 0.016388
+Newt,GMRES == 10,19, f^T: ....10....20 res == 0.0127011
+Newt,GMRES == 10,20, f^T: ....10....20 res == 0.0096076
+Newt,GMRES == 10,21, f^T: ....10....20 res == 0.00699101
+Newt,GMRES == 10,22, f^T: ....10....20 res == 0.0065782
+Newt,GMRES == 10,23, f^T: ....10....20 res == 0.00655482
+Newt,GMRES == 10,24, f^T: ....10....20 res == 0.00636246
+Newt,GMRES == 10,25, f^T: ....10....20 res == 0.00597662
+Newt,GMRES == 10,26, f^T: ....10....20 res == 0.00560705
+Newt,GMRES == 10,27, f^T: ....10....20 res == 0.0052729
+Newt,GMRES == 10,28, f^T: ....10....20 res == 0.00525285
+Newt,GMRES == 10,29, f^T: ....10....20 res == 0.00470899
+Newt,GMRES == 10,30, f^T: ....10....20 res == 0.00399496
+Newt,GMRES == 10,31, f^T: ....10....20 res == 0.00397862
+Newt,GMRES == 10,32, f^T: ....10....20 res == 0.00318492
+Newt,GMRES == 10,33, f^T: ....10....20 res == 0.00260129
+Newt,GMRES == 10,34, f^T: ....10....20 res == 0.00199571
+Newt,GMRES == 10,35, f^T: ....10....20 res == 0.00177947
+Newt,GMRES == 10,36, f^T: ....10....20 res == 0.00173312
+Newt,GMRES == 10,37, f^T: ....10....20 res == 0.00161911
+Newt,GMRES == 10,38, f^T: ....10....20 res == 0.00146574
+Newt,GMRES == 10,39, f^T: ....10....20 res == 0.00124931
+Newt,GMRES == 10,40, f^T: ....10....20 res == 0.00103796
+Newt,GMRES == 10,41, f^T: ....10....20 res == 0.000648418
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.162282 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.29825
+mu, L2Norm(dxH(mu)) == 5.70729, 0.0099061
+Found hookstep of proper radius
+ndxHmu == 0.0099061 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00123826
+f^T: ....10....20
+r(x), r(x+dxH) == 2.56936e-05, 2.49695e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.56936e-05 residual at current position
+rH       ==   2.49695e-05 residual of newton/hookstep
+Delta_rH ==   -7.2403e-07 actual improvement in residual from newton/hookstep
+
+             -7.32731e-10 lower bound for acceptable improvement
+              -7.2146e-08 upper bound for ok improvement.
+             -5.41095e-07 upper bound for good improvement.
+             -6.49314e-07 upper bound for accurate prediction.
+Delta_rH ==   -7.2403e-07 ------> Accurate <------
+             -7.93606e-07 lower bound for accurate prediction.
+             -7.32731e-07 local linear model of improvement
+lambda       == 42.1027 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 4.21027 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00706676
+rx           == 2.49695e-05
+L2Norm(dxN)  == 0.162282
+L2Norm(dxOpt)== 0.00123826
+========================================================
+Newton iteration number 11
+Current state of Newton iteration:
+   fcount_newton   == 373
+   fcount_optimiza == 32
+   L2Norm(x)       == 0.317656
+   L2Norm(dxN)     == 0.162282
+   L2Norm(dxOpt)   == 0.00123826
+   L2Dist(x,x0)    == 0.0133287
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00716848
+   current  gx == 0.00706676
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.56936e-05
+   current  rx == 2.49695e-05
+         delta == 0.1
+Newt,GMRES == 11,0, f^T: ....10....20 res == 0.42676
+Newt,GMRES == 11,1, f^T: ....10....20 res == 0.367106
+Newt,GMRES == 11,2, f^T: ....10....20 res == 0.319337
+Newt,GMRES == 11,3, f^T: ....10....20 res == 0.20289
+Newt,GMRES == 11,4, f^T: ....10....20 res == 0.0882502
+Newt,GMRES == 11,5, f^T: ....10....20 res == 0.0685577
+Newt,GMRES == 11,6, f^T: ....10....20 res == 0.0665861
+Newt,GMRES == 11,7, f^T: ....10....20 res == 0.0567603
+Newt,GMRES == 11,8, f^T: ....10....20 res == 0.0558193
+Newt,GMRES == 11,9, f^T: ....10....20 res == 0.0426264
+Newt,GMRES == 11,10, f^T: ....10....20 res == 0.0417438
+Newt,GMRES == 11,11, f^T: ....10....20 res == 0.036779
+Newt,GMRES == 11,12, f^T: ....10....20 res == 0.0300862
+Newt,GMRES == 11,13, f^T: ....10....20 res == 0.0259794
+Newt,GMRES == 11,14, f^T: ....10....20 res == 0.0201256
+Newt,GMRES == 11,15, f^T: ....10....20 res == 0.0200388
+Newt,GMRES == 11,16, f^T: ....10....20 res == 0.0184545
+Newt,GMRES == 11,17, f^T: ....10....20 res == 0.0159427
+Newt,GMRES == 11,18, f^T: ....10....20 res == 0.0159214
+Newt,GMRES == 11,19, f^T: ....10....20 res == 0.0131519
+Newt,GMRES == 11,20, f^T: ....10....20 res == 0.0103719
+Newt,GMRES == 11,21, f^T: ....10....20 res == 0.00828817
+Newt,GMRES == 11,22, f^T: ....10....20 res == 0.00644159
+Newt,GMRES == 11,23, f^T: ....10....20 res == 0.00575427
+Newt,GMRES == 11,24, f^T: ....10....20 res == 0.00530532
+Newt,GMRES == 11,25, f^T: ....10....20 res == 0.00518121
+Newt,GMRES == 11,26, f^T: ....10....20 res == 0.00510214
+Newt,GMRES == 11,27, f^T: ....10....20 res == 0.00440285
+Newt,GMRES == 11,28, f^T: ....10....20 res == 0.00429516
+Newt,GMRES == 11,29, f^T: ....10....20 res == 0.0042937
+Newt,GMRES == 11,30, f^T: ....10....20 res == 0.00406522
+Newt,GMRES == 11,31, f^T: ....10....20 res == 0.00351891
+Newt,GMRES == 11,32, f^T: ....10....20 res == 0.00343068
+Newt,GMRES == 11,33, f^T: ....10....20 res == 0.00325407
+Newt,GMRES == 11,34, f^T: ....10....20 res == 0.00259404
+Newt,GMRES == 11,35, f^T: ....10....20 res == 0.00221705
+Newt,GMRES == 11,36, f^T: ....10....20 res == 0.00200228
+Newt,GMRES == 11,37, f^T: ....10....20 res == 0.00149994
+Newt,GMRES == 11,38, f^T: ....10....20 res == 0.000771991
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.159738 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.27791
+mu, L2Norm(dxH(mu)) == 5.8807, 0.00948323
+Found hookstep of proper radius
+ndxHmu == 0.00948323 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.0011854
+f^T: ....10....20
+r(x), r(x+dxH) == 2.49695e-05, 2.4295e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.49695e-05 residual at current position
+rH       ==    2.4295e-05 residual of newton/hookstep
+Delta_rH ==  -6.74554e-07 actual improvement in residual from newton/hookstep
+
+             -6.82326e-10 lower bound for acceptable improvement
+              -6.7214e-08 upper bound for ok improvement.
+             -5.04105e-07 upper bound for good improvement.
+             -6.04926e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.74554e-07 ------> Accurate <------
+             -7.39354e-07 lower bound for accurate prediction.
+             -6.82326e-07 local linear model of improvement
+lambda       == 43.8971 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 4.38971 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00697065
+rx           == 2.4295e-05
+L2Norm(dxN)  == 0.159738
+L2Norm(dxOpt)== 0.0011854
+========================================================
+Newton iteration number 12
+Current state of Newton iteration:
+   fcount_newton   == 412
+   fcount_optimiza == 34
+   L2Norm(x)       == 0.31698
+   L2Norm(dxN)     == 0.159738
+   L2Norm(dxOpt)   == 0.0011854
+   L2Dist(x,x0)    == 0.0144782
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00706676
+   current  gx == 0.00697065
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.49695e-05
+   current  rx == 2.4295e-05
+         delta == 0.1
+Newt,GMRES == 12,0, f^T: ....10....20 res == 0.413011
+Newt,GMRES == 12,1, f^T: ....10....20 res == 0.329121
+Newt,GMRES == 12,2, f^T: ....10....20 res == 0.278265
+Newt,GMRES == 12,3, f^T: ....10....20 res == 0.190955
+Newt,GMRES == 12,4, f^T: ....10....20 res == 0.0797948
+Newt,GMRES == 12,5, f^T: ....10....20 res == 0.0688191
+Newt,GMRES == 12,6, f^T: ....10....20 res == 0.0671123
+Newt,GMRES == 12,7, f^T: ....10....20 res == 0.0573472
+Newt,GMRES == 12,8, f^T: ....10....20 res == 0.0572304
+Newt,GMRES == 12,9, f^T: ....10....20 res == 0.042806
+Newt,GMRES == 12,10, f^T: ....10....20 res == 0.0350451
+Newt,GMRES == 12,11, f^T: ....10....20 res == 0.0350319
+Newt,GMRES == 12,12, f^T: ....10....20 res == 0.0288546
+Newt,GMRES == 12,13, f^T: ....10....20 res == 0.0240421
+Newt,GMRES == 12,14, f^T: ....10....20 res == 0.0185596
+Newt,GMRES == 12,15, f^T: ....10....20 res == 0.0184086
+Newt,GMRES == 12,16, f^T: ....10....20 res == 0.0173023
+Newt,GMRES == 12,17, f^T: ....10....20 res == 0.0146281
+Newt,GMRES == 12,18, f^T: ....10....20 res == 0.0138883
+Newt,GMRES == 12,19, f^T: ....10....20 res == 0.0138882
+Newt,GMRES == 12,20, f^T: ....10....20 res == 0.0138812
+Newt,GMRES == 12,21, f^T: ....10....20 res == 0.0130236
+Newt,GMRES == 12,22, f^T: ....10....20 res == 0.0102076
+Newt,GMRES == 12,23, f^T: ....10....20 res == 0.00592347
+Newt,GMRES == 12,24, f^T: ....10....20 res == 0.00539137
+Newt,GMRES == 12,25, f^T: ....10....20 res == 0.00538429
+Newt,GMRES == 12,26, f^T: ....10....20 res == 0.00488789
+Newt,GMRES == 12,27, f^T: ....10....20 res == 0.00425991
+Newt,GMRES == 12,28, f^T: ....10....20 res == 0.00409074
+Newt,GMRES == 12,29, f^T: ....10....20 res == 0.00384576
+Newt,GMRES == 12,30, f^T: ....10....20 res == 0.00378588
+Newt,GMRES == 12,31, f^T: ....10....20 res == 0.00376667
+Newt,GMRES == 12,32, f^T: ....10....20 res == 0.00373217
+Newt,GMRES == 12,33, f^T: ....10....20 res == 0.00347125
+Newt,GMRES == 12,34, f^T: ....10....20 res == 0.00253658
+Newt,GMRES == 12,35, f^T: ....10....20 res == 0.00188125
+Newt,GMRES == 12,36, f^T: ....10....20 res == 0.00124342
+Newt,GMRES == 12,37, f^T: ....10....20 res == 0.000807749
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.157207 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.25766
+mu, L2Norm(dxH(mu)) == 6.00433, 0.00915969
+Found hookstep of proper radius
+ndxHmu == 0.00915969 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00114496
+f^T: ....10....20
+r(x), r(x+dxH) == 2.4295e-05, 2.36284e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==    2.4295e-05 residual at current position
+rH       ==   2.36284e-05 residual of newton/hookstep
+Delta_rH ==  -6.66549e-07 actual improvement in residual from newton/hookstep
+
+             -6.74908e-10 lower bound for acceptable improvement
+             -6.64027e-08 upper bound for ok improvement.
+              -4.9802e-07 upper bound for good improvement.
+             -5.97624e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.66549e-07 ------> Accurate <------
+             -7.30429e-07 lower bound for accurate prediction.
+             -6.74908e-07 local linear model of improvement
+lambda       == 40.3705 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 4.03705 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00687436
+rx           == 2.36284e-05
+L2Norm(dxN)  == 0.157207
+L2Norm(dxOpt)== 0.00114496
+========================================================
+Newton iteration number 13
+Current state of Newton iteration:
+   fcount_newton   == 450
+   fcount_optimiza == 36
+   L2Norm(x)       == 0.316337
+   L2Norm(dxN)     == 0.157207
+   L2Norm(dxOpt)   == 0.00114496
+   L2Dist(x,x0)    == 0.0155899
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00697065
+   current  gx == 0.00687436
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.4295e-05
+   current  rx == 2.36284e-05
+         delta == 0.1
+Newt,GMRES == 13,0, f^T: ....10....20 res == 0.407197
+Newt,GMRES == 13,1, f^T: ....10....20 res == 0.289064
+Newt,GMRES == 13,2, f^T: ....10....20 res == 0.242015
+Newt,GMRES == 13,3, f^T: ....10....20 res == 0.19735
+Newt,GMRES == 13,4, f^T: ....10....20 res == 0.152198
+Newt,GMRES == 13,5, f^T: ....10....20 res == 0.0696323
+Newt,GMRES == 13,6, f^T: ....10....20 res == 0.0677362
+Newt,GMRES == 13,7, f^T: ....10....20 res == 0.0590998
+Newt,GMRES == 13,8, f^T: ....10....20 res == 0.0590256
+Newt,GMRES == 13,9, f^T: ....10....20 res == 0.0438264
+Newt,GMRES == 13,10, f^T: ....10....20 res == 0.043815
+Newt,GMRES == 13,11, f^T: ....10....20 res == 0.0350722
+Newt,GMRES == 13,12, f^T: ....10....20 res == 0.0279741
+Newt,GMRES == 13,13, f^T: ....10....20 res == 0.0245293
+Newt,GMRES == 13,14, f^T: ....10....20 res == 0.0175884
+Newt,GMRES == 13,15, f^T: ....10....20 res == 0.0171949
+Newt,GMRES == 13,16, f^T: ....10....20 res == 0.0171846
+Newt,GMRES == 13,17, f^T: ....10....20 res == 0.0167769
+Newt,GMRES == 13,18, f^T: ....10....20 res == 0.0138025
+Newt,GMRES == 13,19, f^T: ....10....20 res == 0.00859237
+Newt,GMRES == 13,20, f^T: ....10....20 res == 0.0075818
+Newt,GMRES == 13,21, f^T: ....10....20 res == 0.00739862
+Newt,GMRES == 13,22, f^T: ....10....20 res == 0.00725463
+Newt,GMRES == 13,23, f^T: ....10....20 res == 0.00675659
+Newt,GMRES == 13,24, f^T: ....10....20 res == 0.005422
+Newt,GMRES == 13,25, f^T: ....10....20 res == 0.00455986
+Newt,GMRES == 13,26, f^T: ....10....20 res == 0.00444081
+Newt,GMRES == 13,27, f^T: ....10....20 res == 0.00417711
+Newt,GMRES == 13,28, f^T: ....10....20 res == 0.00395286
+Newt,GMRES == 13,29, f^T: ....10....20 res == 0.00333395
+Newt,GMRES == 13,30, f^T: ....10....20 res == 0.00275122
+Newt,GMRES == 13,31, f^T: ....10....20 res == 0.00260208
+Newt,GMRES == 13,32, f^T: ....10....20 res == 0.00251908
+Newt,GMRES == 13,33, f^T: ....10....20 res == 0.00251568
+Newt,GMRES == 13,34, f^T: ....10....20 res == 0.00213897
+Newt,GMRES == 13,35, f^T: ....10....20 res == 0.00169174
+Newt,GMRES == 13,36, f^T: ....10....20 res == 0.00121617
+Newt,GMRES == 13,37, f^T: ....10....20 res == 0.000845674
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.154783 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.23826
+mu, L2Norm(dxH(mu)) == 6.03065, 0.00898757
+Found hookstep of proper radius
+ndxHmu == 0.00898757 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00112345
+f^T: ....10....20
+r(x), r(x+dxH) == 2.36284e-05, 2.29495e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.36284e-05 residual at current position
+rH       ==   2.29495e-05 residual of newton/hookstep
+Delta_rH ==  -6.78963e-07 actual improvement in residual from newton/hookstep
+
+             -6.89688e-10 lower bound for acceptable improvement
+              -6.7741e-08 upper bound for ok improvement.
+             -5.08057e-07 upper bound for good improvement.
+             -6.09669e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.78963e-07 ------> Accurate <------
+             -7.45151e-07 lower bound for accurate prediction.
+             -6.89688e-07 local linear model of improvement
+lambda       == 32.1556 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 3.21556 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00677488
+rx           == 2.29495e-05
+L2Norm(dxN)  == 0.154783
+L2Norm(dxOpt)== 0.00112345
+========================================================
+Newton iteration number 14
+Current state of Newton iteration:
+   fcount_newton   == 488
+   fcount_optimiza == 38
+   L2Norm(x)       == 0.315734
+   L2Norm(dxN)     == 0.154783
+   L2Norm(dxOpt)   == 0.00112345
+   L2Dist(x,x0)    == 0.0166768
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00687436
+   current  gx == 0.00677488
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.36284e-05
+   current  rx == 2.29495e-05
+         delta == 0.1
+Newt,GMRES == 14,0, f^T: ....10....20 res == 0.414021
+Newt,GMRES == 14,1, f^T: ....10....20 res == 0.246702
+Newt,GMRES == 14,2, f^T: ....10....20 res == 0.241333
+Newt,GMRES == 14,3, f^T: ....10....20 res == 0.196345
+Newt,GMRES == 14,4, f^T: ....10....20 res == 0.166683
+Newt,GMRES == 14,5, f^T: ....10....20 res == 0.0719899
+Newt,GMRES == 14,6, f^T: ....10....20 res == 0.0695406
+Newt,GMRES == 14,7, f^T: ....10....20 res == 0.0603809
+Newt,GMRES == 14,8, f^T: ....10....20 res == 0.0522896
+Newt,GMRES == 14,9, f^T: ....10....20 res == 0.0449583
+Newt,GMRES == 14,10, f^T: ....10....20 res == 0.0449322
+Newt,GMRES == 14,11, f^T: ....10....20 res == 0.0351905
+Newt,GMRES == 14,12, f^T: ....10....20 res == 0.0275472
+Newt,GMRES == 14,13, f^T: ....10....20 res == 0.0239657
+Newt,GMRES == 14,14, f^T: ....10....20 res == 0.016431
+Newt,GMRES == 14,15, f^T: ....10....20 res == 0.0143323
+Newt,GMRES == 14,16, f^T: ....10....20 res == 0.0137144
+Newt,GMRES == 14,17, f^T: ....10....20 res == 0.0135591
+Newt,GMRES == 14,18, f^T: ....10....20 res == 0.0119268
+Newt,GMRES == 14,19, f^T: ....10....20 res == 0.00799983
+Newt,GMRES == 14,20, f^T: ....10....20 res == 0.00726928
+Newt,GMRES == 14,21, f^T: ....10....20 res == 0.00661493
+Newt,GMRES == 14,22, f^T: ....10....20 res == 0.00659491
+Newt,GMRES == 14,23, f^T: ....10....20 res == 0.00610822
+Newt,GMRES == 14,24, f^T: ....10....20 res == 0.00446602
+Newt,GMRES == 14,25, f^T: ....10....20 res == 0.00352642
+Newt,GMRES == 14,26, f^T: ....10....20 res == 0.00287506
+Newt,GMRES == 14,27, f^T: ....10....20 res == 0.00228149
+Newt,GMRES == 14,28, f^T: ....10....20 res == 0.00161936
+Newt,GMRES == 14,29, f^T: ....10....20 res == 0.00154178
+Newt,GMRES == 14,30, f^T: ....10....20 res == 0.00146863
+Newt,GMRES == 14,31, f^T: ....10....20 res == 0.00132868
+Newt,GMRES == 14,32, f^T: ....10....20 res == 0.00108735
+Newt,GMRES == 14,33, f^T: ....10....20 res == 0.000875062
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.152421 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.21937
+mu, L2Norm(dxH(mu)) == 6.07333, 0.00879455
+Found hookstep of proper radius
+ndxHmu == 0.00879455 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00109932
+f^T: ....10....20
+r(x), r(x+dxH) == 2.29495e-05, 2.22902e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.29495e-05 residual at current position
+rH       ==   2.22902e-05 residual of newton/hookstep
+Delta_rH ==   -6.5924e-07 actual improvement in residual from newton/hookstep
+
+             -6.72947e-10 lower bound for acceptable improvement
+             -6.61485e-08 upper bound for ok improvement.
+             -4.96114e-07 upper bound for good improvement.
+             -5.95337e-07 upper bound for accurate prediction.
+Delta_rH ==   -6.5924e-07 ------> Accurate <------
+             -7.27634e-07 lower bound for accurate prediction.
+             -6.72947e-07 local linear model of improvement
+lambda       == 24.5467 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 2.45467 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00667686
+rx           == 2.22902e-05
+L2Norm(dxN)  == 0.152421
+L2Norm(dxOpt)== 0.00109932
+========================================================
+Newton iteration number 15
+Current state of Newton iteration:
+   fcount_newton   == 522
+   fcount_optimiza == 40
+   L2Norm(x)       == 0.315168
+   L2Norm(dxN)     == 0.152421
+   L2Norm(dxOpt)   == 0.00109932
+   L2Dist(x,x0)    == 0.0177281
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00677488
+   current  gx == 0.00667686
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.29495e-05
+   current  rx == 2.22902e-05
+         delta == 0.1
+Newt,GMRES == 15,0, f^T: ....10....20 res == 0.382714
+Newt,GMRES == 15,1, f^T: ....10....20 res == 0.21166
+Newt,GMRES == 15,2, f^T: ....10....20 res == 0.209953
+Newt,GMRES == 15,3, f^T: ....10....20 res == 0.199544
+Newt,GMRES == 15,4, f^T: ....10....20 res == 0.174755
+Newt,GMRES == 15,5, f^T: ....10....20 res == 0.0789236
+Newt,GMRES == 15,6, f^T: ....10....20 res == 0.0775753
+Newt,GMRES == 15,7, f^T: ....10....20 res == 0.0611822
+Newt,GMRES == 15,8, f^T: ....10....20 res == 0.0546359
+Newt,GMRES == 15,9, f^T: ....10....20 res == 0.045237
+Newt,GMRES == 15,10, f^T: ....10....20 res == 0.0424178
+Newt,GMRES == 15,11, f^T: ....10....20 res == 0.0353785
+Newt,GMRES == 15,12, f^T: ....10....20 res == 0.027454
+Newt,GMRES == 15,13, f^T: ....10....20 res == 0.022986
+Newt,GMRES == 15,14, f^T: ....10....20 res == 0.0151613
+Newt,GMRES == 15,15, f^T: ....10....20 res == 0.0115645
+Newt,GMRES == 15,16, f^T: ....10....20 res == 0.0109986
+Newt,GMRES == 15,17, f^T: ....10....20 res == 0.0106113
+Newt,GMRES == 15,18, f^T: ....10....20 res == 0.00878118
+Newt,GMRES == 15,19, f^T: ....10....20 res == 0.00776141
+Newt,GMRES == 15,20, f^T: ....10....20 res == 0.00695169
+Newt,GMRES == 15,21, f^T: ....10....20 res == 0.00470012
+Newt,GMRES == 15,22, f^T: ....10....20 res == 0.00267684
+Newt,GMRES == 15,23, f^T: ....10....20 res == 0.00237117
+Newt,GMRES == 15,24, f^T: ....10....20 res == 0.00236956
+Newt,GMRES == 15,25, f^T: ....10....20 res == 0.00221952
+Newt,GMRES == 15,26, f^T: ....10....20 res == 0.00185979
+Newt,GMRES == 15,27, f^T: ....10....20 res == 0.00162189
+Newt,GMRES == 15,28, f^T: ....10....20 res == 0.00149032
+Newt,GMRES == 15,29, f^T: ....10....20 res == 0.00148722
+Newt,GMRES == 15,30, f^T: ....10....20 res == 0.00145631
+Newt,GMRES == 15,31, f^T: ....10....20 res == 0.0013457
+Newt,GMRES == 15,32, f^T: ....10....20 res == 0.00107527
+Newt,GMRES == 15,33, f^T: ....10....20 res == 0.000915084
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.150014 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.20011
+mu, L2Norm(dxH(mu)) == 6.10906, 0.00861853
+Found hookstep of proper radius
+ndxHmu == 0.00861853 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00107732
+f^T: ....10....20
+r(x), r(x+dxH) == 2.22902e-05, 2.16621e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.22902e-05 residual at current position
+rH       ==   2.16621e-05 residual of newton/hookstep
+Delta_rH ==  -6.28097e-07 actual improvement in residual from newton/hookstep
+
+             -6.42753e-10 lower bound for acceptable improvement
+             -6.32813e-08 upper bound for ok improvement.
+             -4.74609e-07 upper bound for good improvement.
+             -5.69531e-07 upper bound for accurate prediction.
+Delta_rH ==  -6.28097e-07 ------> Accurate <------
+             -6.96094e-07 lower bound for accurate prediction.
+             -6.42753e-07 local linear model of improvement
+lambda       == 21.9274 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 2.19274 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00658212
+rx           == 2.16621e-05
+L2Norm(dxN)  == 0.150014
+L2Norm(dxOpt)== 0.00107732
+========================================================
+Newton iteration number 16
+Current state of Newton iteration:
+   fcount_newton   == 556
+   fcount_optimiza == 42
+   L2Norm(x)       == 0.314611
+   L2Norm(dxN)     == 0.150014
+   L2Norm(dxOpt)   == 0.00107732
+   L2Dist(x,x0)    == 0.0187471
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00667686
+   current  gx == 0.00658212
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.22902e-05
+   current  rx == 2.16621e-05
+         delta == 0.1
+Newt,GMRES == 16,0, f^T: ....10....20 res == 0.38848
+Newt,GMRES == 16,1, f^T: ....10....20 res == 0.185568
+Newt,GMRES == 16,2, f^T: ....10....20 res == 0.176461
+Newt,GMRES == 16,3, f^T: ....10....20 res == 0.176369
+Newt,GMRES == 16,4, f^T: ....10....20 res == 0.166165
+Newt,GMRES == 16,5, f^T: ....10....20 res == 0.0985494
+Newt,GMRES == 16,6, f^T: ....10....20 res == 0.0981432
+Newt,GMRES == 16,7, f^T: ....10....20 res == 0.0539275
+Newt,GMRES == 16,8, f^T: ....10....20 res == 0.0538718
+Newt,GMRES == 16,9, f^T: ....10....20 res == 0.0482708
+Newt,GMRES == 16,10, f^T: ....10....20 res == 0.0461912
+Newt,GMRES == 16,11, f^T: ....10....20 res == 0.0367282
+Newt,GMRES == 16,12, f^T: ....10....20 res == 0.028119
+Newt,GMRES == 16,13, f^T: ....10....20 res == 0.0225615
+Newt,GMRES == 16,14, f^T: ....10....20 res == 0.0142172
+Newt,GMRES == 16,15, f^T: ....10....20 res == 0.0133614
+Newt,GMRES == 16,16, f^T: ....10....20 res == 0.0133292
+Newt,GMRES == 16,17, f^T: ....10....20 res == 0.0109611
+Newt,GMRES == 16,18, f^T: ....10....20 res == 0.00926364
+Newt,GMRES == 16,19, f^T: ....10....20 res == 0.00819904
+Newt,GMRES == 16,20, f^T: ....10....20 res == 0.00628452
+Newt,GMRES == 16,21, f^T: ....10....20 res == 0.00478252
+Newt,GMRES == 16,22, f^T: ....10....20 res == 0.00473758
+Newt,GMRES == 16,23, f^T: ....10....20 res == 0.00363829
+Newt,GMRES == 16,24, f^T: ....10....20 res == 0.00265184
+Newt,GMRES == 16,25, f^T: ....10....20 res == 0.00174316
+Newt,GMRES == 16,26, f^T: ....10....20 res == 0.00117289
+Newt,GMRES == 16,27, f^T: ....10....20 res == 0.000922802
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.147983 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.18386
+mu, L2Norm(dxH(mu)) == 6.0928, 0.0085304
+Found hookstep of proper radius
+ndxHmu == 0.0085304 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.0010663
+f^T: ....10....20
+r(x), r(x+dxH) == 2.16621e-05, 2.11075e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.16621e-05 residual at current position
+rH       ==   2.11075e-05 residual of newton/hookstep
+Delta_rH ==  -5.54643e-07 actual improvement in residual from newton/hookstep
+
+             -5.65294e-10 lower bound for acceptable improvement
+             -5.58209e-08 upper bound for ok improvement.
+             -4.18656e-07 upper bound for good improvement.
+             -5.02388e-07 upper bound for accurate prediction.
+Delta_rH ==  -5.54643e-07 ------> Accurate <------
+              -6.1403e-07 lower bound for accurate prediction.
+             -5.65294e-07 local linear model of improvement
+lambda       == 26.5373 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 2.65373 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00649731
+rx           == 2.11075e-05
+L2Norm(dxN)  == 0.147983
+L2Norm(dxOpt)== 0.0010663
+========================================================
+Newton iteration number 17
+Current state of Newton iteration:
+   fcount_newton   == 584
+   fcount_optimiza == 44
+   L2Norm(x)       == 0.31404
+   L2Norm(dxN)     == 0.147983
+   L2Norm(dxOpt)   == 0.0010663
+   L2Dist(x,x0)    == 0.0197562
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00658212
+   current  gx == 0.00649731
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.16621e-05
+   current  rx == 2.11075e-05
+         delta == 0.1
+Newt,GMRES == 17,0, f^T: ....10....20 res == 0.437622
+Newt,GMRES == 17,1, f^T: ....10....20 res == 0.156397
+Newt,GMRES == 17,2, f^T: ....10....20 res == 0.152815
+Newt,GMRES == 17,3, f^T: ....10....20 res == 0.152811
+Newt,GMRES == 17,4, f^T: ....10....20 res == 0.149854
+Newt,GMRES == 17,5, f^T: ....10....20 res == 0.125815
+Newt,GMRES == 17,6, f^T: ....10....20 res == 0.123603
+Newt,GMRES == 17,7, f^T: ....10....20 res == 0.0536451
+Newt,GMRES == 17,8, f^T: ....10....20 res == 0.0531631
+Newt,GMRES == 17,9, f^T: ....10....20 res == 0.0506869
+Newt,GMRES == 17,10, f^T: ....10....20 res == 0.0506549
+Newt,GMRES == 17,11, f^T: ....10....20 res == 0.0376715
+Newt,GMRES == 17,12, f^T: ....10....20 res == 0.0289292
+Newt,GMRES == 17,13, f^T: ....10....20 res == 0.0240127
+Newt,GMRES == 17,14, f^T: ....10....20 res == 0.0189637
+Newt,GMRES == 17,15, f^T: ....10....20 res == 0.0189633
+Newt,GMRES == 17,16, f^T: ....10....20 res == 0.0168712
+Newt,GMRES == 17,17, f^T: ....10....20 res == 0.0117489
+Newt,GMRES == 17,18, f^T: ....10....20 res == 0.0101154
+Newt,GMRES == 17,19, f^T: ....10....20 res == 0.00840567
+Newt,GMRES == 17,20, f^T: ....10....20 res == 0.00816978
+Newt,GMRES == 17,21, f^T: ....10....20 res == 0.00814631
+Newt,GMRES == 17,22, f^T: ....10....20 res == 0.00600237
+Newt,GMRES == 17,23, f^T: ....10....20 res == 0.00371688
+Newt,GMRES == 17,24, f^T: ....10....20 res == 0.00256153
+Newt,GMRES == 17,25, f^T: ....10....20 res == 0.00166278
+Newt,GMRES == 17,26, f^T: ....10....20 res == 0.00119831
+Newt,GMRES == 17,27, f^T: ....10....20 res == 0.000999124
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.146295 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.17036
+mu, L2Norm(dxH(mu)) == 6.06788, 0.00845991
+Found hookstep of proper radius
+ndxHmu == 0.00845991 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00105749
+f^T: ....10....20
+r(x), r(x+dxH) == 2.11075e-05, 2.05899e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.11075e-05 residual at current position
+rH       ==   2.05899e-05 residual of newton/hookstep
+Delta_rH ==  -5.17616e-07 actual improvement in residual from newton/hookstep
+
+             -5.26367e-10 lower bound for acceptable improvement
+             -5.20346e-08 upper bound for ok improvement.
+              -3.9026e-07 upper bound for good improvement.
+             -4.68311e-07 upper bound for accurate prediction.
+Delta_rH ==  -5.17616e-07 ------> Accurate <------
+             -5.72381e-07 lower bound for accurate prediction.
+             -5.26367e-07 local linear model of improvement
+lambda       == 30.0724 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 3.00724 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00641715
+rx           == 2.05899e-05
+L2Norm(dxN)  == 0.146295
+L2Norm(dxOpt)== 0.00105749
+========================================================
+Newton iteration number 18
+Current state of Newton iteration:
+   fcount_newton   == 612
+   fcount_optimiza == 46
+   L2Norm(x)       == 0.31347
+   L2Norm(dxN)     == 0.146295
+   L2Norm(dxOpt)   == 0.00105749
+   L2Dist(x,x0)    == 0.0207623
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00649731
+   current  gx == 0.00641715
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.11075e-05
+   current  rx == 2.05899e-05
+         delta == 0.1
+Newt,GMRES == 18,0, f^T: ....10....20 res == 0.462592
+Newt,GMRES == 18,1, f^T: ....10....20 res == 0.140028
+Newt,GMRES == 18,2, f^T: ....10....20 res == 0.137937
+Newt,GMRES == 18,3, f^T: ....10....20 res == 0.137761
+Newt,GMRES == 18,4, f^T: ....10....20 res == 0.137734
+Newt,GMRES == 18,5, f^T: ....10....20 res == 0.134115
+Newt,GMRES == 18,6, f^T: ....10....20 res == 0.122896
+Newt,GMRES == 18,7, f^T: ....10....20 res == 0.0575581
+Newt,GMRES == 18,8, f^T: ....10....20 res == 0.0538746
+Newt,GMRES == 18,9, f^T: ....10....20 res == 0.0505087
+Newt,GMRES == 18,10, f^T: ....10....20 res == 0.0504096
+Newt,GMRES == 18,11, f^T: ....10....20 res == 0.0386293
+Newt,GMRES == 18,12, f^T: ....10....20 res == 0.0298807
+Newt,GMRES == 18,13, f^T: ....10....20 res == 0.025057
+Newt,GMRES == 18,14, f^T: ....10....20 res == 0.0232285
+Newt,GMRES == 18,15, f^T: ....10....20 res == 0.0231588
+Newt,GMRES == 18,16, f^T: ....10....20 res == 0.0188588
+Newt,GMRES == 18,17, f^T: ....10....20 res == 0.0126516
+Newt,GMRES == 18,18, f^T: ....10....20 res == 0.0100744
+Newt,GMRES == 18,19, f^T: ....10....20 res == 0.00764497
+Newt,GMRES == 18,20, f^T: ....10....20 res == 0.0072692
+Newt,GMRES == 18,21, f^T: ....10....20 res == 0.00723753
+Newt,GMRES == 18,22, f^T: ....10....20 res == 0.00531219
+Newt,GMRES == 18,23, f^T: ....10....20 res == 0.00340913
+Newt,GMRES == 18,24, f^T: ....10....20 res == 0.00250083
+Newt,GMRES == 18,25, f^T: ....10....20 res == 0.00179746
+Newt,GMRES == 18,26, f^T: ....10....20 res == 0.00135327
+Newt,GMRES == 18,27, f^T: ....10....20 res == 0.0011396
+Newt,GMRES == 18,28, f^T: ....10....20 res == 0.000870275
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.144825 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.1586
+mu, L2Norm(dxH(mu)) == 6.01343, 0.0084327
+Found hookstep of proper radius
+ndxHmu == 0.0084327 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00105409
+f^T: ....10....20
+r(x), r(x+dxH) == 2.05899e-05, 2.00914e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.05899e-05 residual at current position
+rH       ==   2.00914e-05 residual of newton/hookstep
+Delta_rH ==   -4.9847e-07 actual improvement in residual from newton/hookstep
+
+             -5.05967e-10 lower bound for acceptable improvement
+             -5.00434e-08 upper bound for ok improvement.
+             -3.75325e-07 upper bound for good improvement.
+              -4.5039e-07 upper bound for accurate prediction.
+Delta_rH ==   -4.9847e-07 ------> Accurate <------
+             -5.50477e-07 lower bound for accurate prediction.
+             -5.05967e-07 local linear model of improvement
+lambda       == 33.7442 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 3.37442 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00633899
+rx           == 2.00914e-05
+L2Norm(dxN)  == 0.144825
+L2Norm(dxOpt)== 0.00105409
+========================================================
+Newton iteration number 19
+Current state of Newton iteration:
+   fcount_newton   == 641
+   fcount_optimiza == 48
+   L2Norm(x)       == 0.312901
+   L2Norm(dxN)     == 0.144825
+   L2Norm(dxOpt)   == 0.00105409
+   L2Dist(x,x0)    == 0.0217668
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00641715
+   current  gx == 0.00633899
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.05899e-05
+   current  rx == 2.00914e-05
+         delta == 0.1
+Newt,GMRES == 19,0, f^T: ....10....20 res == 0.461001
+Newt,GMRES == 19,1, f^T: ....10....20 res == 0.132114
+Newt,GMRES == 19,2, f^T: ....10....20 res == 0.128112
+Newt,GMRES == 19,3, f^T: ....10....20 res == 0.126872
+Newt,GMRES == 19,4, f^T: ....10....20 res == 0.125704
+Newt,GMRES == 19,5, f^T: ....10....20 res == 0.125694
+Newt,GMRES == 19,6, f^T: ....10....20 res == 0.109898
+Newt,GMRES == 19,7, f^T: ....10....20 res == 0.0612334
+Newt,GMRES == 19,8, f^T: ....10....20 res == 0.0565406
+Newt,GMRES == 19,9, f^T: ....10....20 res == 0.0511019
+Newt,GMRES == 19,10, f^T: ....10....20 res == 0.0509967
+Newt,GMRES == 19,11, f^T: ....10....20 res == 0.0395671
+Newt,GMRES == 19,12, f^T: ....10....20 res == 0.0304221
+Newt,GMRES == 19,13, f^T: ....10....20 res == 0.0257565
+Newt,GMRES == 19,14, f^T: ....10....20 res == 0.0235361
+Newt,GMRES == 19,15, f^T: ....10....20 res == 0.0233547
+Newt,GMRES == 19,16, f^T: ....10....20 res == 0.0200016
+Newt,GMRES == 19,17, f^T: ....10....20 res == 0.0129348
+Newt,GMRES == 19,18, f^T: ....10....20 res == 0.00931867
+Newt,GMRES == 19,19, f^T: ....10....20 res == 0.00614904
+Newt,GMRES == 19,20, f^T: ....10....20 res == 0.00562816
+Newt,GMRES == 19,21, f^T: ....10....20 res == 0.00562814
+Newt,GMRES == 19,22, f^T: ....10....20 res == 0.00478331
+Newt,GMRES == 19,23, f^T: ....10....20 res == 0.00314315
+Newt,GMRES == 19,24, f^T: ....10....20 res == 0.00234619
+Newt,GMRES == 19,25, f^T: ....10....20 res == 0.00183779
+Newt,GMRES == 19,26, f^T: ....10....20 res == 0.00141051
+Newt,GMRES == 19,27, f^T: ....10....20 res == 0.00121412
+Newt,GMRES == 19,28, f^T: ....10....20 res == 0.000933946
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.143454 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.14764
+mu, L2Norm(dxH(mu)) == 5.95855, 0.00840771
+Found hookstep of proper radius
+ndxHmu == 0.00840771 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00105096
+f^T: ....10....20
+r(x), r(x+dxH) == 2.00914e-05, 1.9609e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   2.00914e-05 residual at current position
+rH       ==    1.9609e-05 residual of newton/hookstep
+Delta_rH ==  -4.82449e-07 actual improvement in residual from newton/hookstep
+
+             -4.88918e-10 lower bound for acceptable improvement
+             -4.83706e-08 upper bound for ok improvement.
+              -3.6278e-07 upper bound for good improvement.
+             -4.35336e-07 upper bound for accurate prediction.
+Delta_rH ==  -4.82449e-07 ------> Accurate <------
+             -5.32077e-07 lower bound for accurate prediction.
+             -4.88918e-07 local linear model of improvement
+lambda       == 37.7876 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 3.77876 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00626242
+rx           == 1.9609e-05
+L2Norm(dxN)  == 0.143454
+L2Norm(dxOpt)== 0.00105096
+========================================================
+Newton iteration number 20
+Current state of Newton iteration:
+   fcount_newton   == 670
+   fcount_optimiza == 50
+   L2Norm(x)       == 0.312333
+   L2Norm(dxN)     == 0.143454
+   L2Norm(dxOpt)   == 0.00105096
+   L2Dist(x,x0)    == 0.0227679
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00633899
+   current  gx == 0.00626242
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 2.00914e-05
+   current  rx == 1.9609e-05
+         delta == 0.1
+Newt,GMRES == 20,0, f^T: ....10....20 res == 0.472232
+Newt,GMRES == 20,1, f^T: ....10....20 res == 0.128233
+Newt,GMRES == 20,2, f^T: ....10....20 res == 0.123221
+Newt,GMRES == 20,3, f^T: ....10....20 res == 0.121764
+Newt,GMRES == 20,4, f^T: ....10....20 res == 0.121577
+Newt,GMRES == 20,5, f^T: ....10....20 res == 0.119648
+Newt,GMRES == 20,6, f^T: ....10....20 res == 0.098861
+Newt,GMRES == 20,7, f^T: ....10....20 res == 0.0646177
+Newt,GMRES == 20,8, f^T: ....10....20 res == 0.062549
+Newt,GMRES == 20,9, f^T: ....10....20 res == 0.0511728
+Newt,GMRES == 20,10, f^T: ....10....20 res == 0.0511025
+Newt,GMRES == 20,11, f^T: ....10....20 res == 0.0406539
+Newt,GMRES == 20,12, f^T: ....10....20 res == 0.0314986
+Newt,GMRES == 20,13, f^T: ....10....20 res == 0.0257949
+Newt,GMRES == 20,14, f^T: ....10....20 res == 0.0219508
+Newt,GMRES == 20,15, f^T: ....10....20 res == 0.0216513
+Newt,GMRES == 20,16, f^T: ....10....20 res == 0.0197321
+Newt,GMRES == 20,17, f^T: ....10....20 res == 0.0126392
+Newt,GMRES == 20,18, f^T: ....10....20 res == 0.0081143
+Newt,GMRES == 20,19, f^T: ....10....20 res == 0.00512254
+Newt,GMRES == 20,20, f^T: ....10....20 res == 0.0047161
+Newt,GMRES == 20,21, f^T: ....10....20 res == 0.00471168
+Newt,GMRES == 20,22, f^T: ....10....20 res == 0.00418508
+Newt,GMRES == 20,23, f^T: ....10....20 res == 0.00297172
+Newt,GMRES == 20,24, f^T: ....10....20 res == 0.00218836
+Newt,GMRES == 20,25, f^T: ....10....20 res == 0.00177671
+Newt,GMRES == 20,26, f^T: ....10....20 res == 0.00136738
+Newt,GMRES == 20,27, f^T: ....10....20 res == 0.00119034
+Newt,GMRES == 20,28, f^T: ....10....20 res == 0.000898571
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.142149 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.13719
+mu, L2Norm(dxH(mu)) == 5.91065, 0.00837474
+Found hookstep of proper radius
+ndxHmu == 0.00837474 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00104684
+f^T: ....10....20
+r(x), r(x+dxH) == 1.9609e-05, 1.91433e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==    1.9609e-05 residual at current position
+rH       ==   1.91433e-05 residual of newton/hookstep
+Delta_rH ==  -4.65653e-07 actual improvement in residual from newton/hookstep
+
+              -4.7117e-10 lower bound for acceptable improvement
+             -4.66269e-08 upper bound for ok improvement.
+             -3.49702e-07 upper bound for good improvement.
+             -4.19642e-07 upper bound for accurate prediction.
+Delta_rH ==  -4.65653e-07 ------> Accurate <------
+             -5.12896e-07 lower bound for accurate prediction.
+              -4.7117e-07 local linear model of improvement
+lambda       == 42.7059 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 4.27059 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00618762
+rx           == 1.91433e-05
+L2Norm(dxN)  == 0.142149
+L2Norm(dxOpt)== 0.00104684
+========================================================
+Newton iteration number 21
+Current state of Newton iteration:
+   fcount_newton   == 699
+   fcount_optimiza == 52
+   L2Norm(x)       == 0.311771
+   L2Norm(dxN)     == 0.142149
+   L2Norm(dxOpt)   == 0.00104684
+   L2Dist(x,x0)    == 0.0237657
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00626242
+   current  gx == 0.00618762
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 1.9609e-05
+   current  rx == 1.91433e-05
+         delta == 0.1
+Newt,GMRES == 21,0, f^T: ....10....20 res == 0.492935
+Newt,GMRES == 21,1, f^T: ....10....20 res == 0.126263
+Newt,GMRES == 21,2, f^T: ....10....20 res == 0.121712
+Newt,GMRES == 21,3, f^T: ....10....20 res == 0.121361
+Newt,GMRES == 21,4, f^T: ....10....20 res == 0.119822
+Newt,GMRES == 21,5, f^T: ....10....20 res == 0.115511
+Newt,GMRES == 21,6, f^T: ....10....20 res == 0.0985497
+Newt,GMRES == 21,7, f^T: ....10....20 res == 0.0690812
+Newt,GMRES == 21,8, f^T: ....10....20 res == 0.0690748
+Newt,GMRES == 21,9, f^T: ....10....20 res == 0.051517
+Newt,GMRES == 21,10, f^T: ....10....20 res == 0.0459356
+Newt,GMRES == 21,11, f^T: ....10....20 res == 0.0418202
+Newt,GMRES == 21,12, f^T: ....10....20 res == 0.0329372
+Newt,GMRES == 21,13, f^T: ....10....20 res == 0.0255456
+Newt,GMRES == 21,14, f^T: ....10....20 res == 0.0204869
+Newt,GMRES == 21,15, f^T: ....10....20 res == 0.0199559
+Newt,GMRES == 21,16, f^T: ....10....20 res == 0.0190085
+Newt,GMRES == 21,17, f^T: ....10....20 res == 0.0121995
+Newt,GMRES == 21,18, f^T: ....10....20 res == 0.007295
+Newt,GMRES == 21,19, f^T: ....10....20 res == 0.00489396
+Newt,GMRES == 21,20, f^T: ....10....20 res == 0.00454071
+Newt,GMRES == 21,21, f^T: ....10....20 res == 0.00454067
+Newt,GMRES == 21,22, f^T: ....10....20 res == 0.00402457
+Newt,GMRES == 21,23, f^T: ....10....20 res == 0.0029691
+Newt,GMRES == 21,24, f^T: ....10....20 res == 0.00211379
+Newt,GMRES == 21,25, f^T: ....10....20 res == 0.00171947
+Newt,GMRES == 21,26, f^T: ....10....20 res == 0.00132601
+Newt,GMRES == 21,27, f^T: ....10....20 res == 0.00103897
+Newt,GMRES == 21,28, f^T: ....10....20 res == 0.000824094
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.140916 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.12732
+mu, L2Norm(dxH(mu)) == 5.86078, 0.00834699
+Found hookstep of proper radius
+ndxHmu == 0.00834699 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00104337
+f^T: ....10....20
+r(x), r(x+dxH) == 1.91433e-05, 1.86965e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.91433e-05 residual at current position
+rH       ==   1.86965e-05 residual of newton/hookstep
+Delta_rH ==  -4.46792e-07 actual improvement in residual from newton/hookstep
+
+             -4.51354e-10 lower bound for acceptable improvement
+             -4.46792e-08 upper bound for ok improvement.
+             -3.35094e-07 upper bound for good improvement.
+             -4.02113e-07 upper bound for accurate prediction.
+Delta_rH ==  -4.46792e-07 ------> Accurate <------
+             -4.91471e-07 lower bound for accurate prediction.
+             -4.51354e-07 local linear model of improvement
+lambda       == 49.4743 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 4.94743 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00611498
+rx           == 1.86965e-05
+L2Norm(dxN)  == 0.140916
+L2Norm(dxOpt)== 0.00104337
+========================================================
+Newton iteration number 22
+Current state of Newton iteration:
+   fcount_newton   == 728
+   fcount_optimiza == 54
+   L2Norm(x)       == 0.311215
+   L2Norm(dxN)     == 0.140916
+   L2Norm(dxOpt)   == 0.00104337
+   L2Dist(x,x0)    == 0.0247618
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00618762
+   current  gx == 0.00611498
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 1.91433e-05
+   current  rx == 1.86965e-05
+         delta == 0.1
+Newt,GMRES == 22,0, f^T: ....10....20 res == 0.510255
+Newt,GMRES == 22,1, f^T: ....10....20 res == 0.126572
+Newt,GMRES == 22,2, f^T: ....10....20 res == 0.123085
+Newt,GMRES == 22,3, f^T: ....10....20 res == 0.122865
+Newt,GMRES == 22,4, f^T: ....10....20 res == 0.117019
+Newt,GMRES == 22,5, f^T: ....10....20 res == 0.111109
+Newt,GMRES == 22,6, f^T: ....10....20 res == 0.102685
+Newt,GMRES == 22,7, f^T: ....10....20 res == 0.0745057
+Newt,GMRES == 22,8, f^T: ....10....20 res == 0.0743496
+Newt,GMRES == 22,9, f^T: ....10....20 res == 0.052385
+Newt,GMRES == 22,10, f^T: ....10....20 res == 0.0514065
+Newt,GMRES == 22,11, f^T: ....10....20 res == 0.0428835
+Newt,GMRES == 22,12, f^T: ....10....20 res == 0.0340524
+Newt,GMRES == 22,13, f^T: ....10....20 res == 0.0256167
+Newt,GMRES == 22,14, f^T: ....10....20 res == 0.0200857
+Newt,GMRES == 22,15, f^T: ....10....20 res == 0.019518
+Newt,GMRES == 22,16, f^T: ....10....20 res == 0.0188202
+Newt,GMRES == 22,17, f^T: ....10....20 res == 0.0123015
+Newt,GMRES == 22,18, f^T: ....10....20 res == 0.00702337
+Newt,GMRES == 22,19, f^T: ....10....20 res == 0.00498631
+Newt,GMRES == 22,20, f^T: ....10....20 res == 0.00465502
+Newt,GMRES == 22,21, f^T: ....10....20 res == 0.00465476
+Newt,GMRES == 22,22, f^T: ....10....20 res == 0.00416447
+Newt,GMRES == 22,23, f^T: ....10....20 res == 0.00309685
+Newt,GMRES == 22,24, f^T: ....10....20 res == 0.00206732
+Newt,GMRES == 22,25, f^T: ....10....20 res == 0.00159327
+Newt,GMRES == 22,26, f^T: ....10....20 res == 0.0011771
+Newt,GMRES == 22,27, f^T: ....10....20 res == 0.000922022
+GMRES converged. Breaking.
+------------------------------------------------
+Beginning hookstep calculations.
+-------------------------------------------
+Hookstep number 0
+delta == 0.1
+Newton step is outside trust region: 
+L2Norm(dxN) == 0.139764 > 0.1 == delta
+Calculate hookstep dxH(mu) with radius L2Norm(dxH(mu)) == delta
+mu, L2Norm(dxH(mu)) == 0, 1.11811
+mu, L2Norm(dxH(mu)) == 5.79717, 0.00834065
+Found hookstep of proper radius
+ndxHmu == 0.00834065 ~= 0.1 == delta 
+Computing residual of hookstep dxH
+L2Norm(dxH) == 0.00104258
+f^T: ....10....20
+r(x), r(x+dxH) == 1.86965e-05, 1.82647e-05
+Computing local quadratic model of residual
+f^T: ....10....20
+Determining what to do with current Newton/hookstep and trust region
+rx       ==   1.86965e-05 residual at current position
+rH       ==   1.82647e-05 residual of newton/hookstep
+Delta_rH ==  -4.31835e-07 actual improvement in residual from newton/hookstep
+
+             -4.35761e-10 lower bound for acceptable improvement
+             -4.31427e-08 upper bound for ok improvement.
+             -3.23571e-07 upper bound for good improvement.
+             -3.88285e-07 upper bound for accurate prediction.
+Delta_rH ==  -4.31835e-07 ------> Accurate <------
+              -4.7457e-07 lower bound for accurate prediction.
+             -4.35761e-07 local linear model of improvement
+lambda       == 55.4985 is the reduction/increase factor for delta suggested by quadratic model
+lambda*delta == 5.54985 is the delta suggested by quadratic model
+Improvement is Accurate (some form of acceptable).
+Stop adjusting trust region and take a step because
+Improvement is merely Poor, Ok, or Good : 0
+Newton step is within trust region      : 0
+Backup step is better                   : 0
+Delta has reached local limit           : 1
+Take current step and leave delta unchanged, for the following reasons:
+improvement            : Accurate
+|newtonstep| <= delta  : false
+delta >= deltaMax      : true
+delta == 0.1
+
+Taking best step and continuing Newton iteration.
+L2Norm(G(x)) == 0.00604395
+rx           == 1.82647e-05
+L2Norm(dxN)  == 0.139764
+L2Norm(dxOpt)== 0.00104258
+========================================================
+Newton iteration number 23
+Current state of Newton iteration:
+   fcount_newton   == 756
+   fcount_optimiza == 56
+   L2Norm(x)       == 0.310663
+   L2Norm(dxN)     == 0.139764
+   L2Norm(dxOpt)   == 0.00104258
+   L2Dist(x,x0)    == 0.0257584
+gx == L2Norm(G(x)) : 
+   initial  gx == 0.00807546
+   previous gx == 0.00611498
+   current  gx == 0.00604395
+rx == 1/2 L2Norm2(G(x)) : 
+   initial  rx == 3.26065e-05
+   previous rx == 1.86965e-05
+   current  rx == 1.82647e-05
+         delta == 0.1
